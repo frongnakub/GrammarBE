@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GrammarBE</string>
+    <string name="facebook_app_id">830911417257975</string>
+    <string name="fb_login_protocol_scheme">fb830911417257975</string>
+</resources>
