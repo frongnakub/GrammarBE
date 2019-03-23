@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,StyleSheet } from 'react-native';
+import { Text,View,StyleSheet } from 'react-native';
 import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
 import { ShareApi } from 'react-native-fbsdk';
 
@@ -24,6 +24,9 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <Text style={styles.label}>Welcome to the Facebook SDK by React Native!</Text>
+      <Text style={styles.instructions}>You need to login!</Text>
+      <Text style={styles.instructions}> </Text>
         <LoginButton
           publishPermissions={['publish_actions']}
           onLoginFinished={(error, result) => {
