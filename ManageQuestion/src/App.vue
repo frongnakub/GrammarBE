@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <div id="nav">
+      <h1>Manage Question Login Page</h1>
+    </div>
     <router-view/>
   </div>
 </template>
