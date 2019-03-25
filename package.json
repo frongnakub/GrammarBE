@@ -11,8 +11,7 @@
     "react-native": "0.59.1",
     "react-native-fbsdk": "^0.8.0",
     "react-native-sound": "^0.10.12",
-    "react-navigation": "^3.5.1",
-    "vue": "^2.6.10"
+    "react-navigation": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
