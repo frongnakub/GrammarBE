@@ -17,8 +17,17 @@ export default class HomeScreen extends Component {
         return (
             <Button
                 title="Let's get started."
-                onPress={() => navigate('Logged')}
+                onPress={() => navigate('Menu')}
             ></Button>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+  });
