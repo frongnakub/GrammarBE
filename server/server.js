@@ -1,0 +1,162 @@
+const express = require('express')
+const app = express()
+const morgan = require('morgan')
+const mysql = require('mysql')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const debug = require('debug')('ManageQuestion:server.js');
+const http = require('http');
+
+const port = normalizePort(process.env.PORT || '3003');
+app.set('port', port);
+
+app.use(morgan('combined'))
+
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+app.use(bodyParser.json())
+app.use(cors())
+
+function getConnection(){
+    return mysql.createConnection({
+        host: '54.68.60.227',
+        user: 'proj',
+        password: 'Oui_plic2',
+        database: 'GrammarBE'
+    })
+}
+
+const router = express.Router()
+router.get('/messages', (req, res) => {
+    console.log("Show some messages or whatever...")
+    res.end()
+})
+
+app.use(router)
+
+// app.get('/questions', cors(), (req, res) => {
+//     console.log("Fetching questions")
+   
+//     const connection = getConnection()
+
+//     connection.query('SELECT questionNo,question,testTypeName,lessonName,subLessonName,choices FROM Question q join Lesson l on q.Lesson_LessonNo = l.LessonNo join Test t on q.test_testno = t.testno join TestType tt on t.testType_TestTypeNo = tt.testTypeNo join SubLesson s on q.subLessonNo = s.subLessonNo join Choice c on q.questionNo = c.question_questionNo', 
+//     function (error, rows, fields) {
+//         if (error) { 
+//             console.log(error) 
+//             res.sendStatus(500)
+//             throw error
+//         };
+//         console.log("I think we fetched successfully")
+//         res.json(rows)
+//     })
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+// })
+
+// app.get('/choices', cors(), (req, res) => {
+//   console.log("Fetching questions")
+ 
+//   const connection = getConnection()
+
+//   connection.query('SELECT questionNo,choices,choiceType FROM Question q join Choice c on q.questionNo = c.question_questionNo', 
+//   function (error, rows, fields) {
+//       if (error) { 
+//           console.log(error) 
+//           res.sendStatus(500)
+//           throw error
+//       };
+//       console.log("I think we fetched successfully")
+//       res.json(rows)
+//   })
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+// })
+
+app.get('/questions', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question2', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get("/", (req, res) => {
+    console.log("Responding to root route")
+    res.send("Hello from ROOT")
+})
+
+//localhost:3003
+app.listen(port, function () {
+    console.log('Server running at http://localhost:' + port);
+  });
+  app.on('error', onError);
+  app.on('listening', onListening);
+  
+  /**
+   * Normalize a port into a number, string, or false.
+   */
+  
+  function normalizePort(val) {
+    const port = parseInt(val, 10);
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+  
+    return false;
+  }
+  
+  /**
+   * Event listener for HTTP server.js "error" event.
+   */
+  
+  function onError(error) {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+  
+    const bind = typeof port === 'string'
+      ? 'Pipe ' + port
+      : 'Port ' + port;
+  
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+      case 'EACCES':
+        console.error(bind + ' requires elevated privileges');
+        process.exit(1);
+        break;
+      case 'EADDRINUSE':
+        console.error(bind + ' is already in use');
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+  }
+  
+  /**
+   * Event listener for HTTP server.js "listening" event.
+   */
+  
+  function onListening() {
+    const addr = server.address();
+    const bind = typeof addr === 'string'
+      ? 'pipe ' + addr
+      : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+  }

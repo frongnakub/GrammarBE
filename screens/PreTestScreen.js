@@ -6,33 +6,14 @@ import {StyleSheet,
     ActivityIndicator
 } from 'react-native';
 
-export default class PreTestScreen extends React.Component{
+export default class PreTestScreen extends Component{
     state = {
         loading: false,
     }
     
-    startQuiz = () => {
-        const { loading } = this.state;
-        const { navigation } = this.props;
-
-        this.setState({ loading: !loading });
-        fetch(
-            //link db
-        )
-        .then(response => response.json())
-        .then(({ results }) => {
-            this.setState({ loading: false });
-            navigation.navigate('PretestQuestions', { PretestQuestions: results });
-        })
-        .catch(err => {
-            console.log('ERR ->', err);
-            alert(`ERROR:${err.message}`);
-            this.setState({ loading: false });
-        });
-    };
-
     render() {
         const { loading } = this.state;
+        const { navigate } = this.props.navigation;
 
         return (
             <View style = {styles.container}>
@@ -40,7 +21,7 @@ export default class PreTestScreen extends React.Component{
                     <ActivityIndicator size = "large" color = "#008080" />
                 ) : (
                     <Button
-                        onPress={() => this.startQuiz()}
+                        onPress={() => navigate('PretestQuestions')}
                         title="Start Quiz"
                         color="#008080"
                     />
