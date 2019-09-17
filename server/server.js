@@ -94,6 +94,51 @@ app.get("/", (req, res) => {
     res.send("Hello from ROOT")
 })
 
+// app.get('/user/signing', cors(), (req, res) => {
+//   console.log("Fetching questions")
+ 
+//   const connection = getConnection()
+
+//   connection.query('SELECT * FROM User2', 
+//   function (error, rows, fields) {
+//       if (error) { 
+//           console.log(error) 
+//           res.sendStatus(500)
+//           throw error
+//       };
+//       console.log("I think we fetched successfully")
+//       res.json(rows)
+//   })
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+// })
+
+app.post('/users', function(req, res, next) {
+  var username = req.body.username;
+  var password = req.body.password;
+  
+  console.log(req.body.username)
+  console.log(req.body.password)
+  
+  const connection = getConnection()
+
+  connection.query(
+    "SELECT * From User2 WHERE Username = ? AND Password = ?",
+    [username, password], function (err, row, field) {
+      if (err) {
+        console.log(err);
+        res.send({ 'success': false, 'message': 'Could not connect to db'});
+      }
+
+      if (row.length > 0) {
+        res.send({ 'success': true, 'user': row[0].username})
+      }
+      else {
+        res.send({ 'success': false, 'message': 'Username or password is incorrect.'})
+      }
+    }
+  )
+})
+
 //localhost:3003
 app.listen(port, function () {
     console.log('Server running at http://localhost:' + port);

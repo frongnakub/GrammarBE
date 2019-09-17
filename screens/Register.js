@@ -1,71 +1,45 @@
 import React, { Component } from 'react';
-import { 
-    StyleSheet, 
-    Text, 
-    View, 
-    TouchableOpacity, 
-    ScrollView, 
-    TextInput, 
-    AsyncStorage, 
-    ActivityIndicator,
-    KeyboardAvoidingView 
-} from 'react-native';
-import { StackNavigator } from 'react-navigation'
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput, AsyncStorage, ActivityIndicator } from 'react-native';
+import axios from 'axios';
 
-export default class Login extends React.Component {
+export default class Register extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: 'Enter',
+            title: 'Buat akun',
             headerStyle: {
                 backgroundColor: '#fff',
             },
-            headerTintColor: '#03A9F4',
+            headerTintColor: '#7EB633',
         }
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: '',
-        }
-    }
-    
-    componentDidMount() {
-        this._loadInitialState().done();
+    state = {
+        username: '',
+        password: '',
+        name: '',
+        loading: false,
+        message: ''
     }
 
-    _loadInitialState = async () => {
-        var value = await AsyncStorage.getItem('user');
-        if (value !== null) {
-            this.props.navigation.navigate('Menu');
-        }
-    }
+    register = () => {
+        const { username, password, name } = this.state
 
-    login = () => {
-
-        fetch('http://localhost:3003/users', { 
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text-plain, */*',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify ({
-                username: this.state.username,
-                password: this.state.password,
+        if (username && password && name) {
+            this.setState({
+                loading: true
             })
-        })
-        .then((response) => response.json())
-        .then((res) => {
-            if (res.success === true){
-                AsyncStorage.setItem('user', res.user);
-                this.props.navigation.navigate('Menu');
-            }
-            else{
-                alert(res.message);
-            }
-        })
-        .done();
+
+            axios.post(url + "/api/user/register", { username, email, password })
+                .then(res => {
+                    this.props.navigation.navigate('Login')
+                })
+                .catch(err => {
+                    this.setState({
+                        loading: false,
+                        message: 'This username has already register'
+                    })
+                })
+        }
     }
 
     render() {
@@ -73,27 +47,34 @@ export default class Login extends React.Component {
         return (
             <ScrollView style={styles.container}>
                 <View style={styles.wrapper}>
-                    <Text style={styles.title}>GrammarBE</Text>
+                    <Text style={styles.title}>Welcome to GrammarBE</Text>
                     <Text style={{color: 'red'}}>{message}</Text>
                     <TextInput
+                        style={styles.name}
+                        placeholder="name"
+                        keyboardType="default"
+                        onChangeText={(text) => this.setState({ name: text })}
+                    />
+                    <TextInput
                         style={styles.username}
-                        placeholder="Username"
+                        placeholder="username"
                         keyboardType="default"
                         onChangeText={(text) => this.setState({ username: text })}
                     />
                     <TextInput
                         style={styles.password}
-                        placeholder="Password"
+                        placeholder="password"
                         secureTextEntry={true}
                         onChangeText={(text) => this.setState({ password: text })}
                     />
                     {
                         loading ? <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                             :
-                            <TouchableOpacity onPress={this.login}>
-                                <Text style={styles.login}>Enter</Text>
+                            <TouchableOpacity onPress={this.register}>
+                                <Text style={styles.register}>List</Text>
                             </TouchableOpacity>
                     }
+
                 </View>
             </ScrollView>
         );
@@ -102,28 +83,26 @@ export default class Login extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        backgroundColor: '#7EB633',
         color: '#3E3E3E',
-        backgroundColor: '#03A9F4',
-        padding: 100,
+        padding: 20
     },
     wrapper: {
-        flex: 1,
         backgroundColor: 'white',
-        padding: 20,
+        padding: 25,
         borderRadius: 20,
-        marginTop: 50,
+        marginTop: 20,
     },
     title: {
         flex: 1,
         fontSize: 20,
         marginBottom: 5,
         fontWeight: '500',
-        color: '#03A9F4',
+        color: '#7EB633'
     },
-    login: {
+    register: {
         marginTop: 20,
-        backgroundColor: '#03A9F4',
+        backgroundColor: '#7EB633',
         textAlign: 'center',
         padding: 10,
         color: 'white',
@@ -131,31 +110,37 @@ const styles = StyleSheet.create({
         fontSize: 15,
         borderRadius: 30,
         elevation: 5,
-        alignItems: 'center',
     },
-    username: {
+    name: {
         marginTop: 5,
         backgroundColor: '#EEEEEE',
         color: '#3E3E3E',
         padding: 10,
-        width: 175,
         fontSize: 17,
         borderColor: 'white',
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
         borderBottomWidth: 1,
-        elevation: 5,
+        elevation: 3,
 
+    },
+    username: {
+        backgroundColor: '#EEEEEE',
+        color: '#3E3E3E',
+        padding: 10,
+        fontSize: 17,
+        borderColor: 'white',
+        borderBottomWidth: 1,
+        elevation: 3,
     },
     password: {
         backgroundColor: '#EEEEEE',
         color: '#3E3E3E',
         padding: 10,
-        width: 175,
         fontSize: 17,
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
-        elevation: 5,
-        marginBottom: 10,
+        elevation: 3,
+
     }
 });

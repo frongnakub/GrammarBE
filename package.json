@@ -19,7 +19,11 @@
     "react-native-simple-radio-button": "^2.7.3",
     "react-native-sound": "^0.10.12",
     "react-native-vector-icons": "^6.6.0",
-    "react-navigation": "^3.12.1"
+    "react-navigation": "^3.12.1",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "rn-nodeify": "^10.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
