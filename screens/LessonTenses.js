@@ -6,7 +6,7 @@ import {StyleSheet,
     ScrollView,
 } from 'react-native';
 
-export default class Lesson extends Component {
+export default class LessonTenses extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -22,32 +22,32 @@ export default class Lesson extends Component {
                     <View style={style.content}>
                         <ScrollView>
                             <Button 
-                                title="Article"
+                                title="Present Simple"
                                 onPress={() => navigate('PastS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Singular / Plural" 
+                                title="Future Simple" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Pronoun" 
+                                title="Past Continuous" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Preposition" 
+                                title="Present Continuous" 
                                 onPress={() => navigate('PerS') } 
                             />                             
                             <Text></Text>
                             <Button 
-                                title="Auxiliary Verb" 
+                                title="Future Continuous" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Adverb" 
+                                title="Past Perfect" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
@@ -57,22 +57,22 @@ export default class Lesson extends Component {
                             />
                             <Text></Text>
                             <Button 
-                                title="Infinitive And Gerund" 
+                                title="Present Perfect" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Participle" 
+                                title="Future Perfect" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Comparison" 
+                                title="Past Perfect Continuous" 
                                 onPress={() => navigate('PerS') } 
                             />
                             <Text></Text>
                             <Button 
-                                title="Active / Passive" 
+                                title="Present Perfect Continuous" 
                                 onPress={() => navigate('PerS') } 
                             /> 
                             <Text></Text>
@@ -82,8 +82,8 @@ export default class Lesson extends Component {
                             /> 
                             <Text></Text>
                             <Button 
-                                title="Tenses" 
-                                onPress={() => navigate('Tenses') } 
+                                title="Future Perfect Continuous" 
+                                onPress={() => navigate('PerS') } 
                             />     
                         </ScrollView>
                     </View>
