@@ -23,7 +23,7 @@ function getConnection(){
         host: '54.68.60.227',
         user: 'proj',
         password: 'Oui_plic2',
-        database: 'GrammarBE'
+        database: 'GrammarBE2'
     })
 }
 
@@ -76,7 +76,25 @@ app.get('/questions', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM Question2', 
+  connection.query('SELECT * FROM Question', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/userData/(:username)', cors(), (req, res) => {
+  console.log("Fetching profile")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM User WHERE Username = '+req.params.username, 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -94,24 +112,6 @@ app.get("/", (req, res) => {
     res.send("Hello from ROOT")
 })
 
-// app.get('/user/signing', cors(), (req, res) => {
-//   console.log("Fetching questions")
- 
-//   const connection = getConnection()
-
-//   connection.query('SELECT * FROM User2', 
-//   function (error, rows, fields) {
-//       if (error) { 
-//           console.log(error) 
-//           res.sendStatus(500)
-//           throw error
-//       };
-//       console.log("I think we fetched successfully")
-//       res.json(rows)
-//   })
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-// })
-
 app.post('/users', function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
@@ -122,7 +122,7 @@ app.post('/users', function(req, res, next) {
   const connection = getConnection()
 
   connection.query(
-    "SELECT * From User2 WHERE Username = ? AND Password = ?",
+    "SELECT * From User WHERE Username = ? AND Password = ?",
     [username, password], function (err, row, field) {
       if (err) {
         console.log(err);
@@ -130,7 +130,7 @@ app.post('/users', function(req, res, next) {
       }
 
       if (row.length > 0) {
-        res.send({ 'success': true, 'user': row[0].username})
+        res.send({ 'success': true, 'user': username});
       }
       else {
         res.send({ 'success': false, 'message': 'Username or password is incorrect.'})

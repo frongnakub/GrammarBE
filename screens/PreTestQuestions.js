@@ -45,21 +45,12 @@ export default class Questions extends Component {
   checkAnswer = (answer) => {
     if (this.state.selected) {
       if (answer === this.state.selected) {
-        // const { data, login, token } = this.props.user
-        // if(login) {
-        //   axios.get(url + "/api/user/answer/true", headers(token) )
-        // }
-
         this.setState({
           check: true,
           answer: true
         })
-      } else {
-        // const { data, login, token } = this.props.user
-        // if(login) {
-        //   axios.get(url + "/api/user/answer/false", headers(token) )
-        // }
-
+      } 
+      else {
         this.setState({
           check: true,
           answer: false
@@ -100,21 +91,21 @@ export default class Questions extends Component {
                     <View>
 
                       <View>
-                        <Text style={styles.question}>{questions[index].questionNo}. {questions[index].question}</Text>
+                        <Text style={styles.question}>{questions[index].Question}</Text>
                       </View>
 
                       <View>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].option1)}>
-                          <Text style={selected === questions[index].option1 ? styles.select : styles.selection}> A. {questions[index].option1} </Text>
+                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option1)}>
+                          <Text style={selected === questions[index].Option1 ? styles.select : styles.selection}> A. {questions[index].Option1} </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].option2)}>
-                          <Text style={selected === questions[index].option2 ? styles.select : styles.selection}> B. {questions[index].option2} </Text>
+                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option2)}>
+                          <Text style={selected === questions[index].Option2 ? styles.select : styles.selection}> B. {questions[index].Option2} </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].option3)}>
-                          <Text style={selected === questions[index].option3 ? styles.select : styles.selection}> C. {questions[index].option3} </Text>
+                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option3)}>
+                          <Text style={selected === questions[index].Option3 ? styles.select : styles.selection}> C. {questions[index].Option3} </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].option4)}>
-                          <Text style={selected === questions[index].option4 ? styles.select : styles.selection}> D. {questions[index].option4} </Text>
+                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option4)}>
+                          <Text style={selected === questions[index].Option4 ? styles.select : styles.selection}> D. {questions[index].Option4} </Text>
                         </TouchableOpacity>
                       </View>
 
@@ -127,7 +118,7 @@ export default class Questions extends Component {
                     {
                       answer ?
                         <View style={styles.bottom}>
-                          <TouchableOpacity onPress={() => this.checkAnswer(questions[index].correctAnswer)}>
+                          <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
                             <Text style={styles.true}>Result: Right!</Text>
                           </TouchableOpacity>
                           <TouchableOpacity onPress={this.nextQuestion}>
@@ -149,7 +140,7 @@ export default class Questions extends Component {
                   <View style={styles.bottom}>
                     {
                       selected ?
-                        <TouchableOpacity onPress={() => this.checkAnswer(questions[index].correctAnswer)}>
+                        <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
                           <Text style={styles.check}>Check</Text>
                         </TouchableOpacity>
                         :

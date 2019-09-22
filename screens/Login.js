@@ -15,7 +15,7 @@ import { StackNavigator } from 'react-navigation'
 export default class Login extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: 'Enter',
+            title: 'Login',
             headerStyle: {
                 backgroundColor: '#fff',
             },
@@ -30,20 +30,8 @@ export default class Login extends React.Component {
             password: '',
         }
     }
-    
-    componentDidMount() {
-        this._loadInitialState().done();
-    }
-
-    _loadInitialState = async () => {
-        var value = await AsyncStorage.getItem('user');
-        if (value !== null) {
-            this.props.navigation.navigate('Menu');
-        }
-    }
 
     login = () => {
-
         fetch('http://localhost:3003/users', { 
             method: 'POST',
             headers: {
@@ -58,8 +46,8 @@ export default class Login extends React.Component {
         .then((response) => response.json())
         .then((res) => {
             if (res.success === true){
-                AsyncStorage.setItem('user', res.user);
-                this.props.navigation.navigate('Menu');
+                //AsyncStorage.setItem('user', res.user);
+                this.props.navigation.navigate('Profile', {username: res.user});
             }
             else{
                 alert(res.message);
