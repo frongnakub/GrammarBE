@@ -6,23 +6,26 @@ import {StyleSheet,
     ActivityIndicator,
     TouchableOpacity
 } from 'react-native';
-import RadioForm, {
-    RadioButton,
-    RadioButtonInput,
-    RadioButtonLabel
-} from 'react-native-simple-radio-button';
 import axios from 'axios';
+import { StackNavigator } from 'react-navigation'
 
 export default class Questions extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+        title: 'Login',
+        headerStyle: {
+            backgroundColor: '#fff',
+        },
+        headerTintColor: '#03A9F4',
+    }
+  }
+
   state = {
     profile: [],
     loading: true,
     index: 0,
-    selected: '',
-    check: false,
-    answer: null,
     username: this.props.navigation.state.params.username,
-    userNo: '',
+    userNo: Number,
   }
 
   componentDidMount() {
@@ -45,7 +48,7 @@ export default class Questions extends Component {
   }
 
   render() {
-    const { profile, loading, index, answer, check, selected } = this.state
+    const { profile, loading, index, username } = this.state
     return (
       <View style={styles.container}>
         {
@@ -68,6 +71,12 @@ export default class Questions extends Component {
                             <Text style={styles.question}>Email: {profile[index].Email}</Text>                    
                             <TouchableOpacity onPress={this.logout}>
                                 <Text style={styles.logout}>Log out</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
+                                <Text style={styles.logout}>Menu</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
+                                <Text style={styles.logout}>PreTest</Text>
                             </TouchableOpacity>
                       </View>
                     </View>
@@ -101,7 +110,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         fontWeight: '700',
-        color: '#3498db'
+        color: '#3E3E3E'
     },
     question: {
         fontSize: 18,

@@ -107,6 +107,24 @@ app.get('/userData/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
+app.get('/userId/(:username)', cors(), (req, res) => {
+  console.log("Fetching User Id")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT UserNo FROM User WHERE Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get("/", (req, res) => {
     console.log("Responding to root route")
     res.send("Hello from ROOT")
@@ -137,6 +155,27 @@ app.post('/users', function(req, res, next) {
       }
     }
   )
+})
+
+app.post('/answers', function(req, res, next) {
+  console.log(req.body.userNo)
+  console.log(req.body.testNo)
+  console.log(req.body.questionNo)
+  console.log(req.body.answer)
+  
+  const connection = getConnection()
+
+  connection.query(
+    'INSERT INTO UserTestAnswer(UserTest_UserNo,UserTest_TestNo,Question_QuestionNo,Answer) VALUES (' + req.body.userNo + ',' + req.body.testNo + ',' + req.body.questionNo + ',"' + req.body.answer + '")',
+      function (error, rows, fields) {
+        if (error) { 
+            console.log(error) 
+            res.sendStatus(500)
+            throw error
+        };
+        console.log("Add successfully")
+        res.json(rows)
+  })
 })
 
 //localhost:3003

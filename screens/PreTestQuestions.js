@@ -6,11 +6,6 @@ import {StyleSheet,
     ActivityIndicator,
     TouchableOpacity
 } from 'react-native';
-import RadioForm, {
-    RadioButton,
-    RadioButtonInput,
-    RadioButtonLabel
-} from 'react-native-simple-radio-button';
 import axios from 'axios';
 
 export default class Questions extends Component {
@@ -21,10 +16,17 @@ export default class Questions extends Component {
     selected: '',
     check: false,
     answer: null,
+    username: this.props.navigation.state.params.username,
+    profile: [],
+    userNo: Number,
+    testNo: Number,
+    questionNo: Number,
+    userAnswer: '',
   }
 
   componentDidMount() {
     this.fetchQuestions()
+    this.getUserNo()
   }
 
   fetchQuestions() {
@@ -32,6 +34,20 @@ export default class Questions extends Component {
     axios.get("http://localhost:3003/questions")
     .then(res => {
       this.setState({ questions: res.data, loading: false })
+    })
+    .catch(err => {
+      this.setState({ loading: false })
+    })
+  }
+
+  getUserNo() {
+    const username = this.state.username
+    axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
+    .then(res => {
+        this.setState({ 
+            profile: res.data, 
+            loading: false,
+        })
     })
     .catch(err => {
       this.setState({ loading: false })
@@ -61,7 +77,6 @@ export default class Questions extends Component {
 
   nextQuestion = () => {
     const { questions, index } = this.state
-
     if (questions.length === index + 1) {
       console.log("...");
     } else {
@@ -72,6 +87,25 @@ export default class Questions extends Component {
         selected: ''
       })
     }
+  }
+
+  sendAnswer = () => {
+    fetch('http://localhost:3003/answers', { 
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text-plain, */*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify ({
+            userNo: this.state.userNo,
+            testNo: this.state.testNo,
+            questionNo: this.state.questionNo,
+            userAnswer: this.state.userAnswer,
+        })
+    })
+    .then((response) => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
   }
 
   render() {
