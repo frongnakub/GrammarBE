@@ -14,6 +14,7 @@ import PretestQuestions from '../screens/PreTestQuestions';
 import PastS from '../content/PastSim';
 import PerS from '../content/PersentSim';
 import Tenses from '../screens/LessonTenses';
+import TopBar from '../components/TopBar';
 
 const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
@@ -29,6 +30,7 @@ const MainNavigator = createSwitchNavigator({
     PastS: {screen: PastS},
     PerS: {screen: PerS},
     Tenses: {screen: Tenses},
+    TopBar: {screen: TopBar},
 });
 
 const App = createAppContainer(MainNavigator);
