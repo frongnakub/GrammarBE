@@ -125,9 +125,148 @@ app.get('/userId/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
-app.get("/", (req, res) => {
-    console.log("Responding to root route")
-    res.send("Hello from ROOT")
+app.get('/presentSimple', cors(), (req, res) => {
+  console.log("Getting detail of present simple.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 1', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/presentContinuous', cors(), (req, res) => {
+  console.log("Getting detail of present continuous.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 2', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/presentPerfect', cors(), (req, res) => {
+  console.log("Getting detail of present perfect.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 3', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/presentPerfectContinuous', cors(), (req, res) => {
+  console.log("Getting detail of present perfect continuous.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 4', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastSimple', cors(), (req, res) => {
+  console.log("Getting detail of past simple.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 5', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastContinuous', cors(), (req, res) => {
+  console.log("Getting detail of past continuous.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 6', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastPerfect', cors(), (req, res) => {
+  console.log("Getting detail of past perfect.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 7', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastPerfectContinuous', cors(), (req, res) => {
+  console.log("Getting detail of past perfect continuous.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 8', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
 app.post('/users', function(req, res, next) {

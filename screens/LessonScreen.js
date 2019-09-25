@@ -74,7 +74,7 @@ export default class Lesson extends Component {
                         <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>If-clause</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('LessonT')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Tenses')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Tenses</Text>
                         </TouchableHighlight>
                     </View>

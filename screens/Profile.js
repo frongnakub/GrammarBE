@@ -70,14 +70,14 @@ export default class Questions extends Component {
                             <Text style={styles.question}>Name: {profile[index].Name}</Text>
                             <Text style={styles.question}>Surname: {profile[index].Surname}</Text>
                             <Text style={styles.question}>Email: {profile[index].Email}</Text>                    
-                            <TouchableOpacity onPress={this.logout}>
-                                <Text style={styles.logout}>Log out</Text>
-                            </TouchableOpacity>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
-                                <Text style={styles.logout}>Menu</Text>
+                              <Text style={styles.menu}>Menu</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
-                                <Text style={styles.logout}>PreTest</Text>
+                              <Text style={styles.menu}>PreTest</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={this.logout}>
+                              <Text style={styles.logout}>Log out</Text>
                             </TouchableOpacity>
                       </View>
                     </View>
@@ -128,5 +128,16 @@ const styles = StyleSheet.create({
         fontSize: 16,
         borderRadius: 30,
         elevation: 5
+    },
+    menu: {
+      backgroundColor: 'blue',
+      textAlign: 'center',
+      padding: 10,
+      color: 'white',
+      marginTop: 20,
+      fontWeight: '500',
+      fontSize: 16,
+      borderRadius: 30,
+      elevation: 5
     }
 });
