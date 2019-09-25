@@ -22,7 +22,7 @@ export default class Login extends React.Component {
             headerTintColor: '#03A9F4',
         }
     }
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -82,6 +82,8 @@ export default class Login extends React.Component {
                                 <Text style={styles.login}>Enter</Text>
                             </TouchableOpacity>
                     }
+                    <Text style={styles.register}>Do you have an account?</Text>
+                    <Text style={styles.click} onPress={() =>  this.props.navigation.navigate('Regis')}>click here</Text>
                 </View>
             </ScrollView>
         );
@@ -145,5 +147,22 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 15,
         elevation: 5,
         marginBottom: 10,
-    }
+    },
+    register: {
+        flex: 1,
+        fontSize: 13,
+        marginTop: 10,
+        fontWeight: '500',
+        color: 'black',
+        textAlign: 'right'
+    },
+    click: {
+        flex: 1,
+        fontSize: 13,
+        marginTop: 5,
+        fontWeight: '500',
+        textDecorationLine: 'underline',
+        color: 'blue',
+        textAlign: 'right'
+    },
 });

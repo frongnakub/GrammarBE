@@ -157,6 +157,29 @@ app.post('/users', function(req, res, next) {
   )
 })
 
+app.post('/register', function(req, res, next) {
+  console.log(req.body.username)
+  console.log(req.body.password)
+  console.log(req.body.name)
+  console.log(req.body.surname)
+  console.log(req.body.email)
+  
+  const connection = getConnection()
+
+  connection.query(
+    'INSERT INTO User(Username,Password,Name,Surname,Email) VALUES ("' + req.body.username + '","' + req.body.password + '","' + req.body.name + '","' + req.body.surname + '","' + req.body.email + '")',
+      function (error, rows, fields) {
+        if (error) { 
+            console.log(error) 
+            res.sendStatus(500)
+            throw error
+        };
+        console.log("Register successfully")
+        res.json(rows)
+    }
+  )
+})
+
 app.post('/answers', function(req, res, next) {
   console.log(req.body.userNo)
   console.log(req.body.testNo)
@@ -175,7 +198,8 @@ app.post('/answers', function(req, res, next) {
         };
         console.log("Add successfully")
         res.json(rows)
-  })
+    }
+  )
 })
 
 //localhost:3003

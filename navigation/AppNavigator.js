@@ -11,10 +11,11 @@ import GameScreen from '../screens/GameScreen';
 import PostTestScreen from '../screens/PostTestScreen';
 import ForumScreen from '../screens/ForumScreen';
 import PretestQuestions from '../screens/PreTestQuestions';
-import PastS from '../content/PastSim';
-import PerS from '../content/PersentSim';
+import PastSimple from '../contents/PastSimple';
+import PresentSimple from '../contents/PresentSimple';
 import Tenses from '../screens/LessonTenses';
 import TopBar from '../components/TopBar';
+import Register from '../screens/Register'
 
 const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
@@ -27,10 +28,11 @@ const MainNavigator = createSwitchNavigator({
     Posttest: {screen: PostTestScreen},
     Forum: {screen: ForumScreen},
     PretestQuestions: {screen: PretestQuestions},
-    PastS: {screen: PastS},
-    PerS: {screen: PerS},
+    PastSimple: {screen: PastSimple},
+    PresentSimple: {screen: PresentSimple},
     Tenses: {screen: Tenses},
     TopBar: {screen: TopBar},
+    Regis: {screen: Register}
 });
 
 const App = createAppContainer(MainNavigator);

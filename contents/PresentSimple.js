@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import {StyleSheet,
+import {
+    StyleSheet,
     Text,
     View,
     Button,
@@ -8,19 +9,19 @@ import {StyleSheet,
 } from 'react-native';
 
 
-export default class PastSim extends Component {
+export default class PersentSim extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return(
             <View>
-                <View >
-                    <Text style={style.message}>........</Text>
-                </View>
-                <Button 
-                    style={style.backBtn}
-                    title="Back"
-                    onPress={() => navigate('Menu')}
-                ></Button>
+            <View >
+                <Text style={style.message}>........</Text>
+            </View>
+            <Button 
+                style={style.backBtn}
+                title="Back"
+                onPress={() => navigate('Menu')}
+            ></Button>
             </View>
         );
     }
