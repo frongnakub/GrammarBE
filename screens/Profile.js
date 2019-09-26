@@ -70,7 +70,7 @@ export default class Questions extends Component {
                             <Text style={styles.question}>Name: {profile[index].Name}</Text>
                             <Text style={styles.question}>Surname: {profile[index].Surname}</Text>
                             <Text style={styles.question}>Email: {profile[index].Email}</Text>                    
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
                               <Text style={styles.menu}>Menu</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>

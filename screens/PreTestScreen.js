@@ -13,10 +13,11 @@ const {width: WIDTH} = Dimensions.get('window');
 export default class PreTestScreen extends Component{
     state = {
         loading: false,
+        username: this.props.navigation.state.params.username,
     }
     
     render() {
-        const { loading } = this.state;
+        const { loading, username } = this.state;
         const { navigate } = this.props.navigation;
 
         return (
@@ -26,7 +27,7 @@ export default class PreTestScreen extends Component{
                 ) : (
                     <View style={styles.contentSpaceBetween}>
                         <View style={styles.roundedBtn}>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions')}>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
                                 <Text style={styles.roundedBtnText}>Start Quiz</Text>
                             </TouchableOpacity>
                         </View>

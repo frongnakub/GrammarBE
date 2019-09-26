@@ -19,6 +19,11 @@ const width = (Dimensions.get('window').width / cols) - (marginHorizontal * (col
 const height = (Dimensions.get('window').height / rows) - (marginVertical * (rows + 1));
 
 export default class MenuScreen extends Component {
+
+    state = {
+        username: this.props.navigation.state.params.username,
+    }
+    
     render () {
         const { navigate } = this.props.navigation;
         return (
@@ -26,7 +31,7 @@ export default class MenuScreen extends Component {
                 <TopBar></TopBar>
                 <ScrollView>
                 <View style={stylesGrid.sectionContainer}>
-                        <TouchableOpacity onPress={() => navigate('Pretest')} style={stylesGrid.boxContainer}>
+                        <TouchableOpacity onPress={() => navigate('Pretest',{username: this.state.username})} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Pre.png')}/>

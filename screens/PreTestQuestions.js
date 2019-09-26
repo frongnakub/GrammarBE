@@ -47,6 +47,7 @@ export default class Questions extends Component {
 
   getUserNo() {
     const username = this.state.username
+    alert(username)
     axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
