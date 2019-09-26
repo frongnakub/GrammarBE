@@ -5,9 +5,13 @@ import {
     View,
     Button,
     ActivityIndicator,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native';
+
 import axios from 'axios';
+
+const {width: WIDTH} = Dimensions.get('window');
 
 export default class Questions extends Component {
   state = {
@@ -113,38 +117,42 @@ export default class Questions extends Component {
     const { questions, loading, index, answer, check, selected } = this.state
     return (
       <View style={styles.container}>
+        <View style={styles.topBar}>             
+          <Text ></Text>
+          <Text style={{fontSize: 20,color:'#FFFFFF'}}>TEST</Text>
+          <Text ></Text>
+        </View>
         {
           loading ?
-            <View>
+            <View style={styles.contentSpaceBetween}>
                <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
             </View>
             :
             <View style={styles.wrapper}>
+              
               <View>
                 {
                   questions.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
-                    <View>
+                      <View >
+                        <View style={styles.questionContainer}>
+                          <Text style={styles.question}>{questions[index].Question}</Text>
+                        </View>
 
-                      <View>
-                        <Text style={styles.question}>{questions[index].Question}</Text>
+                        <View style={styles.selectContainer}>
+                          <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option1)}>
+                            <Text style={selected === questions[index].Option1 ? styles.select : styles.selection}> A. {questions[index].Option1} </Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option2)}>
+                            <Text style={selected === questions[index].Option2 ? styles.select : styles.selection}> B. {questions[index].Option2} </Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option3)}>
+                            <Text style={selected === questions[index].Option3 ? styles.select : styles.selection}> C. {questions[index].Option3} </Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option4)}>
+                            <Text style={selected === questions[index].Option4 ? styles.select : styles.selection}> D. {questions[index].Option4} </Text>
+                          </TouchableOpacity>
+                        </View>
                       </View>
-
-                      <View>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option1)}>
-                          <Text style={selected === questions[index].Option1 ? styles.select : styles.selection}> A. {questions[index].Option1} </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option2)}>
-                          <Text style={selected === questions[index].Option2 ? styles.select : styles.selection}> B. {questions[index].Option2} </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option3)}>
-                          <Text style={selected === questions[index].Option3 ? styles.select : styles.selection}> C. {questions[index].Option3} </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.chooseAnswer(questions[index].Option4)}>
-                          <Text style={selected === questions[index].Option4 ? styles.select : styles.selection}> D. {questions[index].Option4} </Text>
-                        </TouchableOpacity>
-                      </View>
-
-                    </View>
                 }
               </View>
               {
@@ -198,9 +206,8 @@ export default class Questions extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    color: '#3E3E3E',
-    padding: 10,
+    width: WIDTH,
+    backgroundColor: '#EAD8AB',
   },
   wrapper: {
     flex: 1,
@@ -238,11 +245,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
     fontWeight: '400',
-    color: '#3E3E3E'
+    backgroundColor: '#D6BA84',
   },
   select: {
-    color: '#3498db',
-    borderColor: '#3498db',
+    backgroundColor: '#FF842B',
+    borderColor: '#FFFF',
     borderWidth: 2,
     paddingHorizontal: 10,
     paddingVertical: 8,
@@ -303,5 +310,26 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'red',
     textAlign: 'center',
+  },
+  selectContainer: {
+    marginTop: 50,
+  },
+  questionContainer: {
+    marginTop: 50,
+  },
+  topBar: {
+    alignSelf: 'stretch',
+    height: 52,
+    flexDirection: 'row', // row
+    backgroundColor: '#7F4F2C',
+    alignItems: 'center',
+    justifyContent: 'space-between', // center, space-around
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+  contentSpaceBetween: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flex: 2,
   }
 });

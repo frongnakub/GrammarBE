@@ -3,9 +3,12 @@ import {
     StyleSheet,
     Text,
     View,
-    Button,
-    ActivityIndicator
+    TouchableOpacity,
+    ActivityIndicator,
+    Dimensions
 } from 'react-native';
+
+const {width: WIDTH} = Dimensions.get('window');
 
 export default class PreTestScreen extends Component{
     state = {
@@ -21,11 +24,13 @@ export default class PreTestScreen extends Component{
                 {loading ? (
                     <ActivityIndicator size = "large" color = "#008080" />
                 ) : (
-                    <Button
-                        onPress={() => navigate('PretestQuestions')}
-                        title="Start Quiz"
-                        color="#008080"
-                    />
+                    <View style={styles.contentSpaceBetween}>
+                        <View style={styles.roundedBtn}>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions')}>
+                                <Text style={styles.roundedBtnText}>Start Quiz</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 )}
             </View>
         );
@@ -35,9 +40,28 @@ export default class PreTestScreen extends Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
-      paddingTop: 30,
-      justifyContent: 'center',
-      alignItems: 'center',
+      width: WIDTH,
+      backgroundColor: '#EAD8AB',
     },
+    roundedBtnText: {
+        fontSize: 22,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'#810000',
+        textAlign: 'center',
+    },
+    roundedBtn: {
+        width: 200,
+        backgroundColor: '#d7933f',
+        borderRadius: 50,
+        marginBottom: 13,
+        paddingTop: 8,
+        paddingBottom: 8
+    },
+    contentSpaceBetween: {
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        flex: 2,
+    }
+
   });
