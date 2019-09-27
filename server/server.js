@@ -35,42 +35,6 @@ router.get('/messages', (req, res) => {
 
 app.use(router)
 
-// app.get('/questions', cors(), (req, res) => {
-//     console.log("Fetching questions")
-   
-//     const connection = getConnection()
-
-//     connection.query('SELECT questionNo,question,testTypeName,lessonName,subLessonName,choices FROM Question q join Lesson l on q.Lesson_LessonNo = l.LessonNo join Test t on q.test_testno = t.testno join TestType tt on t.testType_TestTypeNo = tt.testTypeNo join SubLesson s on q.subLessonNo = s.subLessonNo join Choice c on q.questionNo = c.question_questionNo', 
-//     function (error, rows, fields) {
-//         if (error) { 
-//             console.log(error) 
-//             res.sendStatus(500)
-//             throw error
-//         };
-//         console.log("I think we fetched successfully")
-//         res.json(rows)
-//     })
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-// })
-
-// app.get('/choices', cors(), (req, res) => {
-//   console.log("Fetching questions")
- 
-//   const connection = getConnection()
-
-//   connection.query('SELECT questionNo,choices,choiceType FROM Question q join Choice c on q.questionNo = c.question_questionNo', 
-//   function (error, rows, fields) {
-//       if (error) { 
-//           console.log(error) 
-//           res.sendStatus(500)
-//           throw error
-//       };
-//       console.log("I think we fetched successfully")
-//       res.json(rows)
-//   })
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-// })
-
 app.get('/questions', cors(), (req, res) => {
   console.log("Fetching questions")
  
@@ -286,6 +250,295 @@ app.get('/pastPerfectContinuous', cors(), (req, res) => {
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
+
+app.get('/futureSimple', cors(), (req, res) => {
+  console.log("Getting detail of future simple.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 9', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/futureContinuous', cors(), (req, res) => {
+  console.log("Getting detail of future continuous.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 10', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/futurePerfect', cors(), (req, res) => {
+  console.log("Getting detail of future perfect.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 11', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/futurePerfectContinuous', cors(), (req, res) => {
+  console.log("Getting detail of future perfect continuous.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 12', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/article', cors(), (req, res) => {
+  console.log("Getting detail of article.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 4', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/singularPlural', cors(), (req, res) => {
+  console.log("Getting detail of singular and plural.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 5', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pronoun', cors(), (req, res) => {
+  console.log("Getting detail of pronoun.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 6', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/preposition', cors(), (req, res) => {
+  console.log("Getting detail of preposition.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 7', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/auxiliary', cors(), (req, res) => {
+  console.log("Getting detail of auxiliary.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 8', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/adverb', cors(), (req, res) => {
+  console.log("Getting detail of adverb.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 9', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/conjunction', cors(), (req, res) => {
+  console.log("Getting detail of conjunction.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 10', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/gerund', cors(), (req, res) => {
+  console.log("Getting detail of gerund and infinitive.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 11', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/participle', cors(), (req, res) => {
+  console.log("Getting detail of participle.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 12', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/comparison', cors(), (req, res) => {
+  console.log("Getting detail of comparison.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 13', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/active', cors(), (req, res) => {
+  console.log("Getting detail of active and passive.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 14', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/ifclause', cors(), (req, res) => {
+  console.log("Getting detail of if-clause.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 15', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 
 app.post('/users', function(req, res, next) {
   var username = req.body.username;

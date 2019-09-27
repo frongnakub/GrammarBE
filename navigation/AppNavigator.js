@@ -27,6 +27,38 @@ import PastPerfect from '../contents/PastPerfect'
 import PastPerfectExercise from '../exercises/PastPerfect'
 import PastPerfectContinuous from '../contents/PastPerfectContinuous'
 import PastPerfectContinuousExercise from '../exercises/PastPerfectContinuous'
+import FutureSimple from '../contents/FutureSimple'
+import FutureSimpleExercise from '../exercises/FutureSimple'
+import FutureContinuous from '../contents/FutureContinuous'
+import FutureContinuousExercise from '../exercises/FutureContinuous'
+import FuturePerfect from '../contents/FuturePerfect'
+import FuturePerfectExercise from '../exercises/FuturePerfect'
+import FuturePerfectContinuous from '../contents/FuturePerfectContinuous'
+import FuturePerfectContinuousExercise from '../exercises/FuturePerfectContinuous'
+import Article from '../contents/Article'
+import ArticleExercise from '../exercises/Article'
+import SingularPlural from '../contents/Singular&Plural'
+import SingularPluralExercise from '../exercises/Singular&Plural'
+import Pronoun from '../contents/Pronoun'
+import PronounExercise from '../exercises/Pronoun'
+import Preposition from '../contents/Preposition'
+import PrepositionExercise from '../exercises/Preposition'
+import Auxiliary from '../contents/AuxiliaryVerb'
+import AuxiliaryExercise from '../exercises/AuxiliaryVerb'
+import Adverb from '../contents/Adverb'
+import AdverbExercise from '../exercises/Adverb'
+import Conjunction from '../contents/Conjunction'
+import ConjunctionExercise from '../exercises/Conjunction'
+import Gerund from '../contents/Infinitive&Gerund'
+import GerundExercise from '../exercises/Infinitive&Gerund'
+import Participle from '../contents/Participle'
+import ParticipleExercise from '../exercises/Participle'
+import Comparison from '../contents/Comparison'
+import ComparisonExercise from '../exercises/Comparison'
+import ActivePassive from '../contents/Active&Passive'
+import ActivePassiveExercise from '../exercises/Active&Passive'
+import IfClause from '../contents/If-clause'
+import IfClauseExercise from '../exercises/If-clause'
 import Tenses from '../screens/LessonTenses';
 import TopBar from '../components/TopBar';
 import Register from '../screens/Register'
@@ -58,6 +90,38 @@ const MainNavigator = createSwitchNavigator({
     PastPerfectExercise: {screen: PastPerfectExercise},
     PastPerfectContinuous: {screen: PastPerfectContinuous},
     PastPerfectContinuousExercise: {screen: PastPerfectContinuousExercise},
+    FutureSimple: {screen: FutureSimple},
+    FutureSimpleExercise: {screen: FutureSimpleExercise},
+    FutureContinuous: {screen: FutureContinuous},
+    FutureContinuousExercise: {screen: FutureContinuousExercise},
+    FuturePerfect: {screen: FuturePerfect},
+    FuturePerfectExercise: {screen: FuturePerfectExercise},
+    FuturePerfectContinuous: {screen: FuturePerfectContinuous},
+    FuturePerfectContinuousExercise: {screen: FuturePerfectContinuousExercise},
+    Article: {screen: Article},
+    ArticleExercise: {screen: ArticleExercise},
+    SingularPlural: {screen: SingularPlural},
+    SingularPluralExercise: {screen: SingularPluralExercise},
+    Pronoun: {screen: Pronoun},
+    PronounExercise: {screen: PronounExercise},
+    Preposition: {screen: Preposition},
+    PrepositionExercise: {screen: PrepositionExercise},
+    Auxiliary: {screen: Auxiliary},
+    AuxiliaryExercise: {screen: AuxiliaryExercise},
+    Adverb: {screen: Adverb},
+    AdverbExercise: {screen: AdverbExercise},
+    Conjunction: {screen: Conjunction},
+    ConjunctionExercise: {screen: ConjunctionExercise},
+    Gerund: {screen: Gerund},
+    GerundExercise: {screen: GerundExercise},
+    Participle: {screen: Participle},
+    ParticipleExercise: {screen: ParticipleExercise},
+    Comparison: {screen: Comparison},
+    ComparisonExercise: {screen: ComparisonExercise},
+    ActivePassive: {screen: ActivePassive},
+    ActivePassiveExercise: {screen: ActivePassiveExercise},
+    IfClause: {screen: IfClause},
+    IfClauseExercise: {screen: IfClauseExercise},
     Tenses: {screen: Tenses},
     TopBar: {screen: TopBar},
     Regis: {screen: Register},

@@ -35,43 +35,40 @@ export default class Lesson extends Component {
                 <ScrollView >
                     <View style={styles.content}>
                         <Text></Text>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Article')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Article</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('SingularPlural')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Singular / Plural</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Pronoun')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Pronoun</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Preposition')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Preposition</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Auxiliary')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Auxiliary Verb</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Adverb')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Adverb</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Conjunction')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Conjunction</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Article</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Gerund')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Infinitive And Gerund</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Participle')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Participle</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Comparison')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Comparison</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('ActivePassive')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}> Active / Passive</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('IfClause')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>If-clause</Text>
                         </TouchableHighlight>
                         <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Tenses')} underlayColor="rgba(215, 147, 63,.3)">

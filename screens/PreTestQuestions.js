@@ -62,19 +62,6 @@ export default class Questions extends Component {
     })
   }
 
-  // geTestNo() {
-  //   //const testNo = this.state.testNo
-  //   axios.get("http://localhost:3003/testNo/")
-  //   .then(res => {
-  //       this.setState({ 
-  //           loading: false,
-  //       })
-  //   })
-  //   .catch(err => {
-  //     this.setState({ loading: false })
-  //   })
-  // }
-
   chooseAnswer(answer) {
     this.setState({ selected: answer })
   }
@@ -104,7 +91,6 @@ export default class Questions extends Component {
     const { questions, index } = this.state
     if (questions.length === index + 1) {
       console.log("...");
-      this.sendAnswer()
     } else {
       this.setState({
         index: index + 1,
@@ -116,6 +102,7 @@ export default class Questions extends Component {
   }
 
   sendAnswer = () => {
+    const index = this.state.index
     fetch('http://localhost:3003/answers', { 
         method: 'POST',
         headers: {
@@ -125,7 +112,7 @@ export default class Questions extends Component {
         body: JSON.stringify ({
             userNo: this.state.profile[0].UserNo,
             testNo: this.state.questions[0].Test_TestNo,
-            questionNo: this.state.questions[0].QuestionNo,
+            questionNo: this.state.questions[index].QuestionNo,
             userAnswer: this.state.selected,
             // userNo: this.state.profile[0].UserNo,
             // testNo: this.state.questions[0].Test_TestNo,

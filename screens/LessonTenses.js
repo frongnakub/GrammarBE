@@ -59,16 +59,16 @@ export default class Lesson extends Component {
                         <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastPerfectContinuous')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Past Perfect Continuous</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FutureSimple')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Future Simple</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FutureContinuous')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Future Continuous</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FuturePerfect')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Future Perfect</Text>
                         </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastS')} underlayColor="rgba(215, 147, 63,.3)">
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FuturePerfectContinuous')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Future Perfect Continuous</Text>
                         </TouchableHighlight>
                     </View>

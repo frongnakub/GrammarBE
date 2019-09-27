@@ -14,14 +14,14 @@ export default class PastSim extends Component {
         const { navigate } = this.props.navigation;
         return(
             <View>
-                <View >
-                    <Text style={style.message}>........</Text>
-                </View>
-                <Button 
-                    style={style.backBtn}
-                    title="Back"
-                    onPress={() => navigate('Menu')}
-                ></Button>
+            <View >
+                <Text style={style.message}>........</Text>
+            </View>
+            <Button 
+                style={style.backBtn}
+                title="Back"
+                onPress={() => navigate('Menu')}
+            ></Button>
             </View>
         );
     }

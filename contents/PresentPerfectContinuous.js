@@ -58,7 +58,7 @@ export default class PresentPerfectContinuous extends Component {
                     lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                         <View>
                             <View>
-                                <Text style={styles.headers}>Present Continuous Tense</Text>
+                                <Text style={styles.headers}>Present Perfect Continuous Tense</Text>
                                 <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
                                 <Text style={styles.title}>Details: </Text>
                                 <Text style={styles.text}>{lessons[index].LessonDescription}</Text>

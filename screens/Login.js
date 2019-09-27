@@ -102,7 +102,7 @@ export default class Login extends React.Component {
                                 </TouchableOpacity>
                         }
                         {/* <Text style={styles.register}>Do you have an account?</Text> */}
-                        <Text style={styles.click} onPress={() =>  this.props.navigation.navigate('Regis')}>Create Accout</Text>
+                        <Text style={styles.click} onPress={() =>  this.props.navigation.navigate('Regis')}>Create Account</Text>
                     </View>
                 {/* // </ScrollView> */}
             </ImageBackground>
@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between', // center, space-around
         paddingLeft: 10,
         paddingRight: 10,
+        fontSize: 17,
         borderColor: 'white',
         borderRadius: 15,
         marginTop: h(1.5),
