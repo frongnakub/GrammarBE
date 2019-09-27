@@ -60,7 +60,7 @@ const MainNavigator = createSwitchNavigator({
     PastPerfectContinuousExercise: {screen: PastPerfectContinuousExercise},
     Tenses: {screen: Tenses},
     TopBar: {screen: TopBar},
-    Regis: {screen: Register}
+    Regis: {screen: Register},
 });
 
 const App = createAppContainer(MainNavigator);

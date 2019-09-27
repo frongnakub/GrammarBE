@@ -6,10 +6,17 @@ import {
     TouchableOpacity, 
     ScrollView, 
     TextInput, 
-    AsyncStorage, 
-    ActivityIndicator 
+    ImageBackground, 
+    ActivityIndicator ,
+    Dimensions
 } from 'react-native';
 import axios from 'axios';
+
+const { height, width } = Dimensions.get('window');
+
+const w = percent => (width * percent) / 100;
+const h = percent => (height * percent) / 100;
+const totalSize = num => (Math.sqrt((height * height) + (width * width)) * num) / 100;
 
 export default class Register extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -66,36 +73,37 @@ export default class Register extends Component {
     render() {
         const { loading, message } = this.state
         return (
-            <ScrollView style={styles.container}>
+            <ImageBackground source={require('../images/hood.png')} style={styles.backgroundImg}>
+           
                 <View style={styles.wrapper}>
                     <Text style={styles.title}>Register Form</Text>
                     <Text style={{color: 'red'}}>{message}</Text>
                     <TextInput
-                        style={styles.name}
+                        style={styles.input}
                         placeholder="Name"
                         keyboardType="default"
                         onChangeText={(text) => this.setState({ name: text })}
                     />
                     <TextInput
-                        style={styles.name}
+                        style={styles.input}
                         placeholder="Surname"
                         keyboardType="default"
                         onChangeText={(text) => this.setState({ surname: text })}
                     />
                     <TextInput
-                        style={styles.name}
+                        style={styles.input}
                         placeholder="E-mail"
                         keyboardType="default"
                         onChangeText={(text) => this.setState({ email: text })}
                     />
                     <TextInput
-                        style={styles.username}
+                        style={styles.input}
                         placeholder="Username"
                         keyboardType="default"
                         onChangeText={(text) => this.setState({ username: text })}
                     />
                     <TextInput
-                        style={styles.password}
+                        style={styles.input}
                         placeholder="Password"
                         secureTextEntry={true}
                         onChangeText={(text) => this.setState({ password: text })}
@@ -109,30 +117,41 @@ export default class Register extends Component {
                     }
 
                 </View>
-            </ScrollView>
+
+            </ImageBackground>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    // container: {
+    //     flex: 1,
+    //     color: '#3E3E3E',
+    //     backgroundColor: '#03A9F4',
+    //     padding: 100,
+    // },
+    backgroundImg: {
         flex: 1,
-        color: '#3E3E3E',
-        backgroundColor: '#03A9F4',
-        padding: 100,
+        width: width,
+        height: height,
+        backgroundColor:'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    wrapper: {
-        flex: 1,
-        backgroundColor: 'white',
-        padding: 20,
-        borderRadius: 20,
-    },
+    // wrapper: {
+    //     flex: 1,
+    //     backgroundColor: 'white',
+    //     padding: 20,
+    //     borderRadius: 20,
+    // },
     title: {
-        flex: 1,
-        fontSize: 20,
-        marginBottom: 5,
-        fontWeight: '500',
-        color: '#03A9F4',
+        alignItems: 'center',
+        fontSize: totalSize(5),
+        marginBottom: h(4),
+        marginTop: h(7),
+        fontWeight: '700',
+        color: '#ffff',
+        textAlign: 'center'
     },
     register: {
         marginTop: 20,
@@ -141,49 +160,63 @@ const styles = StyleSheet.create({
         padding: 10,
         color: 'white',
         fontWeight: '700',
-        fontSize: 15,
+        fontSize: totalSize(2.5),
         borderRadius: 30,
         elevation: 5,
         alignItems: 'center',
     },
-    name: {
-        marginTop: 2,
-        backgroundColor: '#EEEEEE',
-        color: '#3E3E3E',
-        padding: 10,
-        width: 175,
-        fontSize: 17,
-        borderColor: 'white',
-        borderTopLeftRadius: 15,
-        borderTopRightRadius: 15,
-        borderBottomWidth: 1,
-        elevation: 5,
+    // name: {
+    //     marginTop: 2,
+    //     backgroundColor: '#EEEEEE',
+    //     color: '#3E3E3E',
+    //     padding: 10,
+    //     width: 175,
+    //     fontSize: 17,
+    //     borderColor: 'white',
+    //     borderTopLeftRadius: 15,
+    //     borderTopRightRadius: 15,
+    //     borderBottomWidth: 1,
+    //     elevation: 5,
 
-    },
-    username: {
-        marginTop: 5,
+    // },
+    // username: {
+    //     marginTop: 5,
+    //     backgroundColor: '#EEEEEE',
+    //     color: '#3E3E3E',
+    //     padding: 10,
+    //     width: 175,
+    //     fontSize: 17,
+    //     borderColor: 'white',
+    //     borderTopLeftRadius: 15,
+    //     borderTopRightRadius: 15,
+    //     borderBottomWidth: 1,
+    //     elevation: 5,
+    // },
+    // password: {
+    //     marginTop: 5,
+    //     backgroundColor: '#EEEEEE',
+    //     color: '#3E3E3E',
+    //     padding: 10,
+    //     width: 175,
+    //     fontSize: 17,
+    //     borderColor: 'white',
+    //     borderTopLeftRadius: 15,
+    //     borderTopRightRadius: 15,
+    //     borderBottomWidth: 1,
+    //     elevation: 5,
+    // }
+    input: {
+        marginVertical: 5,
+        flexDirection: 'row', // row
         backgroundColor: '#EEEEEE',
-        color: '#3E3E3E',
-        padding: 10,
-        width: 175,
-        fontSize: 17,
+        alignItems: 'center',
+        justifyContent: 'space-between', // center, space-around
+        paddingLeft: 10,
+        paddingRight: 10,
         borderColor: 'white',
-        borderTopLeftRadius: 15,
-        borderTopRightRadius: 15,
-        borderBottomWidth: 1,
+        borderRadius: 15,
+        marginTop: h(1.5),
+        marginBottom: h(1.5),
         elevation: 5,
     },
-    password: {
-        marginTop: 5,
-        backgroundColor: '#EEEEEE',
-        color: '#3E3E3E',
-        padding: 10,
-        width: 175,
-        fontSize: 17,
-        borderColor: 'white',
-        borderTopLeftRadius: 15,
-        borderTopRightRadius: 15,
-        borderBottomWidth: 1,
-        elevation: 5,
-    }
 });

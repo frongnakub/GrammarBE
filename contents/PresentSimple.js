@@ -3,13 +3,16 @@ import {
     StyleSheet,
     Text,
     View,
-    Button,
+    Dimensions,
     ActivityIndicator,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    ImageBackground
 } from 'react-native';
 import axios from 'axios';
-import { StackNavigator } from 'react-navigation'
+
+const {width: WIDTH} = (Dimensions.get('window').width);
+const {height: HEIGHT} = (Dimensions.get('window').height);
 
 export default class PresentSimple extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -44,44 +47,66 @@ export default class PresentSimple extends Component {
 
     render() {
         const { lessons, loading, index } = this.state
-        return (
-        <ScrollView style={styles.container}>
-            {
-            loading ?
-                <View>
-                <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
-                </View>
-                :
-                <View style={styles.wrapper}>
-                <View>
-                    {
-                    lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
+        return ( 
+            <ScrollView>
+                {
+                loading ? 
+                    <View>
+                    <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+                    </View>
+                    :
+                    <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>    
+                        <View style={styles.wrapper}>
                         <View>
-                            <View>
-                                <Text style={styles.headers}>Present Simple Tense</Text>
-                                <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
-                                <Text style={styles.title}>Details: </Text>
-                                <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
-                            </View>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentSimpleExercise')}>
-                              <Text style={styles.menu}>Exercise</Text>
-                            </TouchableOpacity>
+                            {
+                            lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
+                                <View>
+                                    <View>
+                                        <Text style={styles.headers}>Present Simple Tense</Text>
+                                        <View style={styles.bodyText}>
+                                            <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                        </View>
+                                        <Text style={styles.title}>Details: </Text>
+                                        <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    </View>
+                                    <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentSimpleExercise')}>
+                                    <Text style={styles.menu}>Exercise</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            }
                         </View>
-                    }
-                </View>
-                </View>
-            }
-        </ScrollView>
+                        </View>
+                    </ImageBackground>     
+                }
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    // container: {
+    //     flex: 1,
+    //     backgroundColor: 'white',
+    //     color: '#3E3E3E',
+    //     padding: 10,
+    // },
+    backgroundImg: {
         flex: 1,
-        backgroundColor: 'white',
-        color: '#3E3E3E',
-        padding: 10,
+        width: WIDTH,
+        height: HEIGHT,
+        backgroundColor:'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    bodyText: {
+        borderColor: '#000000',
+        borderWidth: 2,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderRadius: 20,
+        fontSize: 20,
+        marginBottom: 10,
+        backgroundColor: '#F3E5AB',
     },
     wrapper: {
         flex: 1,
@@ -98,7 +123,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: '500',
         color: '#3E3E3E',
-        marginBottom: 10,
+        marginBottom: 20,
     },
     title: {
         fontSize: 20,

@@ -262,11 +262,11 @@ const styles = StyleSheet.create({
     color: '#3E3E3E'
   },
   selection: {
-    borderColor: 'lightgray',
+    borderColor: '#D6BA84',
     borderWidth: 2,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    borderRadius: 5,
+    borderRadius: 20,
     fontSize: 16,
     marginBottom: 10,
     fontWeight: '400',
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    borderRadius: 5,
+    borderRadius: 20,
     fontSize: 18,
     marginBottom: 10,
     fontWeight: '500',
@@ -356,5 +356,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     flex: 2,
-  }
+  },
+
 });
