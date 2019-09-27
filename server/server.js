@@ -89,6 +89,24 @@ app.get('/questions', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
+app.get('/testNo', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM UserTestAnswer', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get('/userData/(:username)', cors(), (req, res) => {
   console.log("Fetching profile")
   console.log(req.params.username)
@@ -323,12 +341,12 @@ app.post('/answers', function(req, res, next) {
   console.log(req.body.userNo)
   console.log(req.body.testNo)
   console.log(req.body.questionNo)
-  console.log(req.body.answer)
+  console.log(req.body.userAnswer)
   
   const connection = getConnection()
 
   connection.query(
-    'INSERT INTO UserTestAnswer(UserTest_UserNo,UserTest_TestNo,Question_QuestionNo,Answer) VALUES (' + req.body.userNo + ',' + req.body.testNo + ',' + req.body.questionNo + ',"' + req.body.answer + '")',
+    'INSERT INTO UserTestAnswer(UserTest_UserNo,UserTest_TestNo,Question_QuestionNo,Answer) VALUES (' + req.body.userNo + ',' + req.body.testNo + ',' + req.body.questionNo + ',"' + req.body.userAnswer + '")',
       function (error, rows, fields) {
         if (error) { 
             console.log(error) 
@@ -341,8 +359,8 @@ app.post('/answers', function(req, res, next) {
   )
 })
 
-//localhost:3003
 app.listen(port, function () {
+//localhost:3003
     console.log('Server running at http://localhost:' + port);
   });
   app.on('error', onError);

@@ -38,18 +38,20 @@ export default class Questions extends Component {
     //adb reverse tcp:3003 tcp:3003
     axios.get("http://localhost:3003/questions")
     .then(res => {
+      console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
     })
     .catch(err => {
       this.setState({ loading: false })
+      console.log('AAAAAAAAAAAAAAAAAAA')
     })
   }
 
   getUserNo() {
     const username = this.state.username
-    alert(username)
     axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
     .then(res => {
+      console.log('AAAAA', res.data)
         this.setState({ 
             profile: res.data, 
             loading: false,
@@ -60,23 +62,40 @@ export default class Questions extends Component {
     })
   }
 
+  // geTestNo() {
+  //   //const testNo = this.state.testNo
+  //   axios.get("http://localhost:3003/testNo/")
+  //   .then(res => {
+  //       this.setState({ 
+  //           loading: false,
+  //       })
+  //   })
+  //   .catch(err => {
+  //     this.setState({ loading: false })
+  //   })
+  // }
+
   chooseAnswer(answer) {
     this.setState({ selected: answer })
   }
 
   checkAnswer = (answer) => {
+    //const selected = this.setState.select
+    //this.setState({ userAnswer: this.state.selected })
     if (this.state.selected) {
       if (answer === this.state.selected) {
         this.setState({
           check: true,
-          answer: true
+          answer: true,
         })
+        this.sendAnswer()
       } 
       else {
         this.setState({
           check: true,
-          answer: false
+          answer: false,
         })
+        this.sendAnswer()
       }
     }
   }
@@ -85,6 +104,7 @@ export default class Questions extends Component {
     const { questions, index } = this.state
     if (questions.length === index + 1) {
       console.log("...");
+      this.sendAnswer()
     } else {
       this.setState({
         index: index + 1,
@@ -103,10 +123,14 @@ export default class Questions extends Component {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify ({
-            userNo: this.state.userNo,
-            testNo: this.state.testNo,
-            questionNo: this.state.questionNo,
-            userAnswer: this.state.userAnswer,
+            userNo: this.state.profile[0].UserNo,
+            testNo: this.state.questions[0].Test_TestNo,
+            questionNo: this.state.questions[0].QuestionNo,
+            userAnswer: this.state.selected,
+            // userNo: this.state.profile[0].UserNo,
+            // testNo: this.state.questions[0].Test_TestNo,
+            // questionNo: this.state.questions[0].QuestionNo,
+            // userAnswer: this.state.selected,
         })
     })
     .then((response) => response.json())
