@@ -36,7 +36,7 @@ export default class Questions extends Component {
 
   fetchQuestions() {
     //adb reverse tcp:3003 tcp:3003
-    axios.get("http://localhost:3003/questions")
+    axios.get("http://localhost:3003/pretest1")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
@@ -126,7 +126,7 @@ export default class Questions extends Component {
   }
 
   render() {
-    const { questions, loading, index, answer, check, selected } = this.state
+    const { questions, loading, index, answer, check, selected, username } = this.state
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>             
@@ -176,18 +176,36 @@ export default class Questions extends Component {
                           <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
                             <Text style={styles.true}>Result: Right!</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity onPress={this.nextQuestion}>
+                          {questions.length === index + 1 ? (
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})}>
+                              <Text style={styles.next}>Finish</Text>
+                            </TouchableOpacity>
+                          ) : (
+                            <TouchableOpacity onPress={this.nextQuestion}>
+                              <Text style={styles.next}>Next</Text>
+                            </TouchableOpacity>
+                          )}
+                          {/* <TouchableOpacity onPress={this.nextQuestion}>
                             <Text style={styles.check}>Continue</Text>
-                          </TouchableOpacity>
+                          </TouchableOpacity> */}
                         </View>
                         :
                         <View style={styles.bottom}>
                           <TouchableOpacity>
                             <Text style={styles.false}>Result: Wrong!</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity onPress={this.nextQuestion}>
+                          {questions.length === index + 1 ? (
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})}>
+                              <Text style={styles.next}>Finish</Text>
+                            </TouchableOpacity>
+                          ) : (
+                            <TouchableOpacity onPress={this.nextQuestion}>
+                              <Text style={styles.next}>Next</Text>
+                            </TouchableOpacity>
+                          )}
+                          {/* <TouchableOpacity onPress={this.nextQuestion}>
                             <Text style={styles.nextFalse}>Continue</Text>
-                          </TouchableOpacity>
+                          </TouchableOpacity> */}
                         </View>
                     }
                   </View>
@@ -203,9 +221,19 @@ export default class Questions extends Component {
                           <Text style={styles.selected}>Check</Text>
                         </TouchableOpacity>
                     }
-                    <TouchableOpacity onPress={this.nextQuestion}>
+                    {questions.length === index + 1 ? (
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})}>
+                        <Text style={styles.next}>Finish</Text>
+                      </TouchableOpacity>
+                    ) : (
+                      <TouchableOpacity onPress={this.nextQuestion}>
+                        <Text style={styles.next}>Next</Text>
+                      </TouchableOpacity>
+                    )}
+
+                    {/* <TouchableOpacity onPress={this.nextQuestion}>
                       <Text style={styles.next}>Next</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                   </View>
               }
             </View>

@@ -35,12 +35,12 @@ router.get('/messages', (req, res) => {
 
 app.use(router)
 
-app.get('/questions', cors(), (req, res) => {
+app.get('/pretest1', cors(), (req, res) => {
   console.log("Fetching questions")
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM Question', 
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 1', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
