@@ -27,6 +27,7 @@ export default class Questions extends Component {
     testNo: Number,
     questionNo: Number,
     userAnswer: '',
+    results: '',
   }
 
   componentDidMount() {
@@ -75,6 +76,7 @@ export default class Questions extends Component {
           check: true,
           answer: true,
         })
+        return this.state.results = "Correct",
         this.sendAnswer()
       } 
       else {
@@ -82,6 +84,7 @@ export default class Questions extends Component {
           check: true,
           answer: false,
         })
+        return this.state.results = "Wrong",
         this.sendAnswer()
       }
     }
@@ -114,6 +117,7 @@ export default class Questions extends Component {
             testNo: this.state.questions[0].Test_TestNo,
             questionNo: this.state.questions[index].QuestionNo,
             userAnswer: this.state.selected,
+            results: this.state.results,
             // userNo: this.state.profile[0].UserNo,
             // testNo: this.state.questions[0].Test_TestNo,
             // questionNo: this.state.questions[0].QuestionNo,
@@ -174,7 +178,7 @@ export default class Questions extends Component {
                       answer ?
                         <View style={styles.bottom}>
                           <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
-                            <Text style={styles.true}>Result: Right!</Text>
+                            <Text style={styles.true}>Result: Correct!</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})}>

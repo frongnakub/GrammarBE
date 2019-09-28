@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import MenuScreen from '../screens/MenuScreen';
 import PreTestScreen from '../screens/PreTestScreen';
 import Profile from '../screens/Profile';
-//import ResultScreen from '../screens/ResultScreen';
+import ResultScreen from '../screens/ResultScreen';
 import LessonScreen from '../screens/LessonScreen';
 import GameScreen from '../screens/GameScreen';
 import PostTestScreen from '../screens/PostTestScreen';
@@ -70,6 +70,7 @@ const MainNavigator = createSwitchNavigator({
     Pretest: {screen: PreTestScreen},
     Lesson: {screen: LessonScreen},
     Game: {screen: GameScreen},
+    ResultScreen: {screen: ResultScreen},
     Posttest: {screen: PostTestScreen},
     Forum: {screen: ForumScreen},
     PretestQuestions: {screen: PretestQuestions},

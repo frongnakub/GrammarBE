@@ -107,6 +107,24 @@ app.get('/userId/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
+app.get('/results1/(:username)', cors(), (req, res) => {
+  console.log("Fetching results")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT Question_QuestionNo, Answer, Results, LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo join Question q on ua.Question_QuestionNo = q.QuestionNo join Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE u.Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get('/presentSimple', cors(), (req, res) => {
   console.log("Getting detail of present simple.")
  
@@ -595,11 +613,12 @@ app.post('/answers', function(req, res, next) {
   console.log(req.body.testNo)
   console.log(req.body.questionNo)
   console.log(req.body.userAnswer)
-  
+  console.log(req.body.results)
+
   const connection = getConnection()
 
   connection.query(
-    'INSERT INTO UserTestAnswer(UserTest_UserNo,UserTest_TestNo,Question_QuestionNo,Answer) VALUES (' + req.body.userNo + ',' + req.body.testNo + ',' + req.body.questionNo + ',"' + req.body.userAnswer + '")',
+    'INSERT INTO UserTestAnswer(UserTest_UserNo,UserTest_TestNo,Question_QuestionNo,Answer,Results) VALUES (' + req.body.userNo + ',' + req.body.testNo + ',' + req.body.questionNo + ',"' + req.body.userAnswer + '","' + req.body.results + '")',
       function (error, rows, fields) {
         if (error) { 
             console.log(error) 

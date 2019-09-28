@@ -26,6 +26,7 @@ export default class MenuScreen extends Component {
     
     render () {
         const { navigate } = this.props.navigation;
+        const { username } = this.state
         return (
             <View style={stylesGrid.container}>
                     <View style={stylesGrid.topBar}>             
@@ -72,6 +73,9 @@ export default class MenuScreen extends Component {
                                 source={require('../images/Chat.png')}/>
                             <Text>Forum</Text>
                         </TouchableOpacity>
+                        {/* <TouchableOpacity onPress={() => navigate('ResultScreen',{username: username})}>
+                            <Text>Results</Text>
+                        </TouchableOpacity> */}
                         <Text style={stylesGrid.boxContainer1}></Text>
                     </View>  
                 </ScrollView>
