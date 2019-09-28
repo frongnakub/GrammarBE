@@ -34,7 +34,7 @@ export default class IfClause extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/ifclause")
+        axios.get("https://grammar2.herokuapp.com/ifclause")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

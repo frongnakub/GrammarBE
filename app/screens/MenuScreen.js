@@ -43,12 +43,12 @@ export default class MenuScreen extends Component {
                     </View>
                 <ScrollView>
                 <View style={stylesGrid.sectionContainer}>
-                        <TouchableOpacity onPress={() => navigate('Pretest',{username: this.state.username})} style={stylesGrid.boxContainer}>
+                        {/* <TouchableOpacity onPress={() => navigate('Pretest',{username: this.state.username})} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Pre.png')}/>
                             <Text>Pre-test</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                         <TouchableOpacity onPress={() => navigate('Lesson')} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
@@ -73,7 +73,7 @@ export default class MenuScreen extends Component {
                                 source={require('../images/Chat.png')}/>
                             <Text>Forum</Text>
                         </TouchableOpacity>
-                        <Text style={stylesGrid.boxContainer1}></Text>
+                        {/* <Text style={stylesGrid.boxContainer1}></Text> */}
                     </View>  
                 </ScrollView>
              </View>   

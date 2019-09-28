@@ -34,7 +34,7 @@ export default class FutureSimple extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/futureSimple")
+        axios.get("https://grammar2.herokuapp.com/futureSimple")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

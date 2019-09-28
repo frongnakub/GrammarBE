@@ -34,7 +34,7 @@ export default class Article extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/article")
+        axios.get("https://grammar2.herokuapp.com/article")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

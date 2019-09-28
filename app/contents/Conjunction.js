@@ -34,7 +34,7 @@ export default class Conjunction extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/conjunction")
+        axios.get("https://grammar2.herokuapp.com/conjunction")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

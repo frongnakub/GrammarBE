@@ -34,7 +34,7 @@ export default class AuxiliaryVerb extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/auxiliary")
+        axios.get("https://grammar2.herokuapp.com/auxiliary")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

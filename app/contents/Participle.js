@@ -34,7 +34,7 @@ export default class Paricitiple extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/participle")
+        axios.get("https://grammar2.herokuapp.com/participle")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

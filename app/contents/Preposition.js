@@ -34,7 +34,7 @@ export default class Preposition extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/preposition")
+        axios.get("https://grammar2.herokuapp.com/preposition")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

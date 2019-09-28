@@ -34,7 +34,7 @@ export default class FutureContinuous extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/futureContinuous")
+        axios.get("https://grammar2.herokuapp.com/futureContinuous")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

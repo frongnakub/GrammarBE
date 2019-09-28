@@ -36,7 +36,7 @@ export default class Questions extends Component {
   fetchProfile() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+    axios.get("https://grammar2.herokuapp.com/userData/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             profile: res.data, 

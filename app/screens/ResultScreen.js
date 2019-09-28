@@ -36,7 +36,7 @@ export default class ResultsScreen extends Component {
   fetchResults() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/results1/"+ JSON.stringify(username))
+    axios.get("https://grammar2.herokuapp.com//results1/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results: res.data, 
