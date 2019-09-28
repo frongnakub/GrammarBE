@@ -37,7 +37,7 @@ export default class Questions extends Component {
 
   fetchQuestions() {
     //adb reverse tcp:3003 tcp:3003
-    axios.get("https://grammar2.herokuapp.com/pretest1")
+    axios.get("http:/localhost:3003/pretest2")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
@@ -135,7 +135,7 @@ export default class Questions extends Component {
       <View style={styles.container}>
         <View style={styles.topBar}>             
           <Text ></Text>
-          <Text style={{fontSize: 20,color:'#FFFFFF'}}>PRE-TEST No.1</Text>
+          <Text style={{fontSize: 20,color:'#FFFFFF'}}>PRE-TEST No.2</Text>
           <Text ></Text>
         </View>
         {
@@ -181,7 +181,7 @@ export default class Questions extends Component {
                             <Text style={styles.true}>Result: Correct!</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen2',{username: username})}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -199,7 +199,7 @@ export default class Questions extends Component {
                             <Text style={styles.false}>Result: Wrong!</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen2',{username: username})}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -226,7 +226,7 @@ export default class Questions extends Component {
                         </TouchableOpacity>
                     }
                     {questions.length === index + 1 ? (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen2',{username: username})}>
                         <Text style={styles.next}>Finish</Text>
                       </TouchableOpacity>
                     ) : (

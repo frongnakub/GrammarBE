@@ -6,11 +6,13 @@ import MenuScreen from '../screens/MenuScreen';
 import PreTestScreen from '../screens/PreTestScreen';
 import Profile from '../screens/Profile';
 import ResultScreen from '../screens/ResultScreen';
+import ResultScreen2 from '../screens/ResultScreen2';
 import LessonScreen from '../screens/LessonScreen';
 import GameScreen from '../screens/GameScreen';
 import PostTestScreen from '../screens/PostTestScreen';
 import ForumScreen from '../screens/ForumScreen';
 import PretestQuestions from '../screens/PreTestQuestions';
+import PretestQuestions2 from '../screens/PreTestQuestions2';
 import PresentSimple from '../contents/PresentSimple';
 import PresentSimpleExercise from '../exercises/PresentSimple';
 import PresentContinuous from '../contents/PresentContinuous'
@@ -71,9 +73,11 @@ const MainNavigator = createSwitchNavigator({
     Lesson: {screen: LessonScreen},
     Game: {screen: GameScreen},
     ResultScreen: {screen: ResultScreen},
+    ResultScreen2: {screen: ResultScreen2},
     Posttest: {screen: PostTestScreen},
     Forum: {screen: ForumScreen},
     PretestQuestions: {screen: PretestQuestions},
+    PretestQuestions2: {screen: PretestQuestions2},
     PresentSimple: {screen: PresentSimple},
     PresentSimpleExercise: {screen: PresentSimpleExercise},
     PresentContinuous: {screen: PresentContinuous},

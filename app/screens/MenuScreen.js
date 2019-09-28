@@ -19,14 +19,9 @@ const width = (Dimensions.get('window').width / cols) - (marginHorizontal * (col
 const height = (Dimensions.get('window').height / rows) - (marginVertical * (rows + 1));
 
 export default class MenuScreen extends Component {
-
-    state = {
-        username: this.props.navigation.state.params.username,
-    }
     
     render () {
         const { navigate } = this.props.navigation;
-        const { username }  = this.state
         return (
             <View style={stylesGrid.container}>
                     <View style={stylesGrid.topBar}>             

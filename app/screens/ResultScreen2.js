@@ -10,7 +10,7 @@ import {
 import axios from 'axios';
 import { StackNavigator } from 'react-navigation'
 
-export default class ResultsScreen extends Component {
+export default class ResultsScreen2 extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
         title: 'Login',
@@ -38,7 +38,7 @@ export default class ResultsScreen extends Component {
   fetchCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/results/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/results2/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results: res.data, 
@@ -53,7 +53,7 @@ export default class ResultsScreen extends Component {
   fetchInCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/resultI/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/resultII/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results2: res.data, 
@@ -93,9 +93,6 @@ export default class ResultsScreen extends Component {
                             <Text style={styles.question}>Incorrect: {results2[index].Incorrect}</Text>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
                               <Text style={styles.menu}>Menu</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions2',{username: username})}>
-                              <Text style={styles.menu}>Pre-test No.2</Text>
                             </TouchableOpacity>
                       </View>
                     </View>

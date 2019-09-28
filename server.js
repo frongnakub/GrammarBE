@@ -53,6 +53,24 @@ app.get('/pretest1', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
+app.get('/pretest2', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 2', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get('/testNo', cors(), (req, res) => {
   console.log("Fetching questions")
  
@@ -113,6 +131,78 @@ app.get('/results1/(:username)', cors(), (req, res) => {
   const connection = getConnection()
 
   connection.query('SELECT Question_QuestionNo, Answer, Results, LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo join Question q on ua.Question_QuestionNo = q.QuestionNo join Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE u.Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/results/(:username)', cors(), (req, res) => {
+  console.log("Fetching results")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT COUNT(Results) as Correct FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Correct" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/resultI/(:username)', cors(), (req, res) => {
+  console.log("Fetching results")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/results2/(:username)', cors(), (req, res) => {
+  console.log("Fetching results")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT COUNT(Results) as Correct FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Correct" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/resultII/(:username)', cors(), (req, res) => {
+  console.log("Fetching results")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
