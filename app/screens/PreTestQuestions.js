@@ -50,7 +50,7 @@ export default class Questions extends Component {
 
   getUserNo() {
     const username = this.state.username
-    axios.get("https://grammar2.herokuapp.com//userId/"+ JSON.stringify(username))
+    axios.get("https://grammar2.herokuapp.com/userId/"+ JSON.stringify(username))
     .then(res => {
       console.log('AAAAA', res.data)
         this.setState({ 
@@ -106,7 +106,7 @@ export default class Questions extends Component {
 
   sendAnswer = () => {
     const index = this.state.index
-    fetch('https://grammar2.herokuapp.com//answers', { 
+    fetch('https://grammar2.herokuapp.com/answers', { 
         method: 'POST',
         headers: {
             'Accept': 'application/json, text-plain, */*',
