@@ -3,7 +3,7 @@ import { Text,View,StyleSheet } from 'react-native';
 import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
 import { ShareApi } from 'react-native-fbsdk';
 
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './app/navigation/AppNavigator';
 
 
 export default class App extends Component {

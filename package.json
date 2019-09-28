@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start --port 3003",
-    "test": "jest"
+    "start": "node server.js",
+    "test": "jest",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -36,5 +37,9 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "engines": {
+      "npm": "5.6.0",
+      "node": "8.10.0"
+    }
 }
