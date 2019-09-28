@@ -3,13 +3,14 @@ import {
     StyleSheet,
     Text,
     View,
-    Button,
+    ImageBackground,
     ActivityIndicator,
     TouchableOpacity,
     ScrollView
 } from 'react-native';
 import axios from 'axios';
-import { StackNavigator } from 'react-navigation'
+
+import styles from '../styles/Style';
 
 export default class PresentPerfect extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -48,8 +49,8 @@ export default class PresentPerfect extends Component {
         <ScrollView style={styles.container}>
             {
             loading ?
-                <View>
-                <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+                <View style={styles.load}>
+                    <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
                 <View style={styles.wrapper}>
@@ -59,12 +60,17 @@ export default class PresentPerfect extends Component {
                         <View>
                             <View>
                                 <Text style={styles.headers}>Present Perfect Tense</Text>
-                                <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                <View style={styles.bodyText}>
+                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                </View>
                                 <Text style={styles.title}>Details: </Text>
                                 <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                             </View>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentPerfectExercise')}>
-                              <Text style={styles.menu}>Exercise</Text>
+                                <Text style={styles.menu}>Exercise</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses')}>
+                                <Text style={styles.menu}>Back</Text>
                             </TouchableOpacity>
                         </View>
                     }
@@ -76,50 +82,3 @@ export default class PresentPerfect extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        color: '#3E3E3E',
-        padding: 10,
-    },
-    wrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 30,
-    },
-    bottom: {
-        justifyContent: 'space-between',
-    },
-    headers: {
-        textAlign: 'center',
-        fontSize: 26,
-        fontWeight: '500',
-        color: '#3E3E3E',
-        marginBottom: 10,
-    },
-    text: {
-        fontSize: 18,
-        marginBottom: 20,
-        color: '#3E3E3E'
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: '500',
-        color: '#3E3E3E',
-        marginBottom: 5,
-    },
-    menu: {
-      backgroundColor: 'blue',
-      textAlign: 'center',
-      padding: 10,
-      color: 'white',
-      marginTop: 10,
-      fontWeight: '500',
-      fontSize: 16,
-      borderRadius: 30,
-      elevation: 5
-  }
-});

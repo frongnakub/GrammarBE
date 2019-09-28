@@ -60,7 +60,6 @@ import ActivePassiveExercise from '../exercises/Active&Passive'
 import IfClause from '../contents/If-clause'
 import IfClauseExercise from '../exercises/If-clause'
 import Tenses from '../screens/LessonTenses';
-import TopBar from '../components/TopBar';
 import Register from '../screens/Register'
 
 const MainNavigator = createSwitchNavigator({
@@ -123,7 +122,6 @@ const MainNavigator = createSwitchNavigator({
     IfClause: {screen: IfClause},
     IfClauseExercise: {screen: IfClauseExercise},
     Tenses: {screen: Tenses},
-    TopBar: {screen: TopBar},
     Regis: {screen: Register},
 });
 

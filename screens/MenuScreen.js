@@ -9,12 +9,12 @@ import {
     Image
 } from 'react-native';
 
-import TopBar from '../components/TopBar';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 const rows = 3;
 const cols = 2;
-const marginHorizontal = 3;
-const marginVertical = 3;
+const marginHorizontal = 4;
+const marginVertical = 4;
 const width = (Dimensions.get('window').width / cols) - (marginHorizontal * (cols + 1));
 const height = (Dimensions.get('window').height / rows) - (marginVertical * (rows + 1));
 
@@ -28,7 +28,18 @@ export default class MenuScreen extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={stylesGrid.container}>
-                <TopBar></TopBar>
+                    <View style={stylesGrid.topBar}>             
+                        <Text style={{color:'#7F4F2C'}}>Back</Text>
+                        <Text style={{fontSize: 20,color:'#FFFFFF'}}>HOME</Text>
+                        <Icon
+                            name="logout"
+                            color="#ffff"
+                            backgroundColor="#7F4F2C"
+                            size={30}
+                            onPress={() => navigate('Logged')}
+                            >
+                        </Icon>
+                    </View>
                 <ScrollView>
                 <View style={stylesGrid.sectionContainer}>
                         <TouchableOpacity onPress={() => navigate('Pretest',{username: this.state.username})} style={stylesGrid.boxContainer}>
@@ -61,7 +72,7 @@ export default class MenuScreen extends Component {
                                 source={require('../images/Chat.png')}/>
                             <Text>Forum</Text>
                         </TouchableOpacity>
-                        <View style={stylesGrid.sectionContainer}></View>
+                        <Text style={stylesGrid.boxContainer1}></Text>
                     </View>  
                 </ScrollView>
              </View>   
@@ -70,6 +81,16 @@ export default class MenuScreen extends Component {
 }
 
 const stylesGrid = StyleSheet.create({
+    topBar: {
+        alignSelf: 'stretch',
+        height: 52,
+        flexDirection: 'row', // row
+        backgroundColor: '#7F4F2C',
+        alignItems: 'center',
+        justifyContent: 'space-between', // center, space-around
+        paddingLeft: 10,
+        paddingRight: 10
+    },
     container: {
         flex: 1,
         backgroundColor:'#EAD8AB',

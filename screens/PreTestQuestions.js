@@ -239,12 +239,12 @@ const styles = StyleSheet.create({
   },
   title2: {
     fontSize: 20,
-    fontWeight: '500',
+    fontWeight: '300',
     color: '#000000'
   },
   question: {
-    fontSize: 25,
-    marginBottom: 20,
+    fontSize: 20,
+    marginBottom: 10,
     fontWeight: 'bold',
     color: '#3E3E3E'
   },

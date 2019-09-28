@@ -14,10 +14,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 const {width: WIDTH} = Dimensions.get('window');
 
 export default class Lesson extends Component {
-    
     render() {
 
         const { navigate } = this.props.navigation;
+        //const { _navigate } = this.props.navigation.stat.params.username;
         return (
             <View style={styles.container}>
                 {/* <TopBarBack/>  */}
