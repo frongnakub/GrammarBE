@@ -3,12 +3,16 @@ import {
     StyleSheet,
     Text,
     View,
-    Button,
+    ImageBackground,
     ActivityIndicator,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native';
 import axios from 'axios';
-import { StackNavigator } from 'react-navigation'
+
+import { Avatar } from 'react-native-elements';
+
+const { height, width } = Dimensions.get('window');
 
 export default class Questions extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -51,39 +55,41 @@ export default class Questions extends Component {
   render() {
     const { profile, loading, index, username } = this.state
     return (
-      <View style={styles.container}>
+      <View style={styles.backgroundImg}>
         {
           loading ?
             <View>
                <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
             </View>
             :
-            <View style={styles.wrapper}>
               <View>
                 {
                   profile.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
+                        <View style={styles.title}>
+                          <Avatar
+                            rounded
+                            size="xlarge"
+                            //activeOpacity={0.7}
+                            source={require('../images/network.png')}
+                            containerStyle={{marginTop: 20 ,marginBottom: 15 }}
+                            title="GB"    
+                          />
+                          <Text style={styles.card}>{profile[index].Name}   {profile[index].Surname}</Text>
+                          <Text style={styles.card}>{profile[index].Email}</Text>
+                        </View>
                         <View>
-                            <Text style={styles.title}>Profile</Text>
-                            <Text style={styles.question}>User ID: {profile[index].UserNo}</Text>
-                            <Text style={styles.question}>Username: {profile[index].Username}</Text>
-                            <Text style={styles.question}>Name: {profile[index].Name}</Text>
-                            <Text style={styles.question}>Surname: {profile[index].Surname}</Text>
-                            <Text style={styles.question}>Email: {profile[index].Email}</Text>                    
-                            {/* <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
-                              <Text style={styles.menu}>Menu</Text>
-                            </TouchableOpacity> */}
+                            <Text style={styles.textStart}>You have to do the pretest first.</Text>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
                               <Text style={styles.menu}>Pre-test</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={this.logout}>
+                            {/* <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Logged')}>
                               <Text style={styles.logout}>Log out</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
+                        </View>
                       </View>
-                    </View>
                 }
               </View>
-            </View>
         }
       </View>
     );
@@ -91,12 +97,20 @@ export default class Questions extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        color: '#3E3E3E',
-        padding: 10,
-    },
+    // container: {
+    //     flex: 1,
+    //     backgroundColor: 'white',
+    //     color: '#3E3E3E',
+    //     padding: 10,
+    // },
+    backgroundImg: {
+      flex: 1,
+      width: width,
+      height: height,
+      backgroundColor: '#ffc2bc',
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
     wrapper: {
         flex: 1,
         flexDirection: 'column',
@@ -108,29 +122,40 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     title: {
-        textAlign: 'center',
-        fontSize: 30,
-        fontWeight: '700',
-        color: '#3E3E3E'
+        alignItems: 'center',
+        backgroundColor: '#ffc73a',
+        marginTop: 10,
     },
-    question: {
+    card: {
         fontSize: 18,
         marginBottom: 20,
-        color: '#3E3E3E'
-    },
-    logout: {
-        backgroundColor: '#F44336',
+        marginLeft: 20,
+        marginRight: 20,
+        color: '#3E3E3E',
         textAlign: 'center',
-        padding: 10,
-        color: 'white',
-        marginTop: 20,
-        fontWeight: '500',
-        fontSize: 16,
-        borderRadius: 30,
-        elevation: 5
     },
+    textStart: {
+      fontSize: 18,
+      marginTop: 30,
+      marginLeft: 20,
+      marginRight: 20,
+      color: '#3E3E3E',
+      textAlign: 'center',
+      fontWeight: '500',
+    },
+    // logout: {
+    //     backgroundColor: '#F44336',
+    //     textAlign: 'center',
+    //     padding: 10,
+    //     color: 'white',
+    //     marginTop: 20,
+    //     fontWeight: '500',
+    //     fontSize: 16,
+    //     borderRadius: 30,
+    //     elevation: 5
+    // },
     menu: {
-      backgroundColor: 'blue',
+      backgroundColor: '#03A9F4',
       textAlign: 'center',
       padding: 10,
       color: 'white',

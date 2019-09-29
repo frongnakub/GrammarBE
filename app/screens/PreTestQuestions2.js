@@ -37,7 +37,7 @@ export default class Questions extends Component {
 
   fetchQuestions() {
     //adb reverse tcp:3003 tcp:3003
-    axios.get("http:/localhost:3003/pretest2")
+    axios.get("https://grammar2.herokuapp.com/pretest2")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })

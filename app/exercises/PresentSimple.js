@@ -36,7 +36,7 @@ export default class PresentSimple extends Component {
 
   fetchQuestions() {
     //adb reverse tcp:3003 tcp:3003
-    axios.get("http://localhost:3003/presentSimpleExercise")
+    axios.get("https://grammar2.herokuapp.com/presentSimpleExercise")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })

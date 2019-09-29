@@ -133,3 +133,18 @@ const MainNavigator = createSwitchNavigator({
 const App = createAppContainer(MainNavigator);
 
 export default App;
+
+
+// import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+
+// import HomeScreen from '../screens/HomeScreen';
+// import PresentSimpleExercise from '../exercises/PresentSimple';
+
+
+// const MainNavigator = createSwitchNavigator({
+// Home: {screen: HomeScreen},
+// PresentSimpleExercise: {screen: PresentSimpleExercise},
+// });
+
+// const App = createAppContainer(MainNavigator);
+// export default App;

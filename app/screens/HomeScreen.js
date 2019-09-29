@@ -16,10 +16,12 @@ export default class HomeScreen extends Component {
     render () {
         const { navigate } = this.props.navigation;
         return (
+            <View>
             <Button
                 title="Let's get started."
-                onPress={() => navigate('Menu')}
+                onPress={() => navigate('PresentSimpleExercise')}
             ></Button>
+            </View>
         )
     }
 }
