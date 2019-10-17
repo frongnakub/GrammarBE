@@ -34,7 +34,7 @@ export default class Pronoun extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/pronoun")
+        axios.get("http://localhost:3003/pronoun")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

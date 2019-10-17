@@ -34,7 +34,7 @@ export default class PresentPerfect extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/presentPerfect")
+        axios.get("http://localhost:3003/presentPerfect")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

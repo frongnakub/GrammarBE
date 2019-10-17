@@ -38,7 +38,7 @@ export default class PresentSimple extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/presentSimple")
+        axios.get("http://localhost:3003/presentSimple")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

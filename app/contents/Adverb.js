@@ -34,7 +34,7 @@ export default class Adverb extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/adverb")
+        axios.get("http://localhost:3003/adverb")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

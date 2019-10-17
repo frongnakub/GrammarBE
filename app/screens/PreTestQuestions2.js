@@ -37,7 +37,7 @@ export default class Questions extends Component {
 
   fetchQuestions() {
     //adb reverse tcp:3003 tcp:3003
-    axios.get("https://grammar2.herokuapp.com/pretest2")
+    axios.get("http://localhost:3003/pretest2")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
@@ -50,7 +50,7 @@ export default class Questions extends Component {
 
   getUserNo() {
     const username = this.state.username
-    axios.get("https://grammar2.herokuapp.com/userId/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
     .then(res => {
       console.log('AAAAA', res.data)
         this.setState({ 
@@ -106,7 +106,7 @@ export default class Questions extends Component {
 
   sendAnswer = () => {
     const index = this.state.index
-    fetch('https://grammar2.herokuapp.com/answers', { 
+    fetch('http://localhost:3003/answers', { 
         method: 'POST',
         headers: {
             'Accept': 'application/json, text-plain, */*',

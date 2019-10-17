@@ -34,7 +34,7 @@ export default class InfinitiveGerund extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/gerund")
+        axios.get("http://localhost:3003/gerund")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

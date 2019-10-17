@@ -47,7 +47,7 @@ export default class Register extends Component {
                 loading: true
             })
 
-            fetch('https://grammar2.herokuapp.com/register', { 
+            fetch('http://localhost:3003/register', { 
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text-plain, */*',

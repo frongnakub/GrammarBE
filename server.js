@@ -51,7 +51,6 @@ app.get('/pretest1', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/pretest2', cors(), (req, res) => {
@@ -70,7 +69,6 @@ app.get('/pretest2', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/testNo', cors(), (req, res) => {
@@ -89,7 +87,6 @@ app.get('/testNo', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/userData/(:username)', cors(), (req, res) => {
@@ -108,7 +105,6 @@ app.get('/userData/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/userId/(:username)', cors(), (req, res) => {
@@ -127,7 +123,6 @@ app.get('/userId/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/results1/(:username)', cors(), (req, res) => {
@@ -146,7 +141,6 @@ app.get('/results1/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/results/(:username)', cors(), (req, res) => {
@@ -165,7 +159,6 @@ app.get('/results/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/resultI/(:username)', cors(), (req, res) => {
@@ -184,7 +177,6 @@ app.get('/resultI/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/results2/(:username)', cors(), (req, res) => {
@@ -203,7 +195,6 @@ app.get('/results2/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/resultII/(:username)', cors(), (req, res) => {
@@ -222,7 +213,6 @@ app.get('/resultII/(:username)', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/presentSimple', cors(), (req, res) => {
@@ -241,7 +231,6 @@ app.get('/presentSimple', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/presentContinuous', cors(), (req, res) => {
@@ -260,7 +249,6 @@ app.get('/presentContinuous', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/presentPerfect', cors(), (req, res) => {
@@ -279,7 +267,6 @@ app.get('/presentPerfect', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/presentPerfectContinuous', cors(), (req, res) => {
@@ -298,7 +285,6 @@ app.get('/presentPerfectContinuous', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/pastSimple', cors(), (req, res) => {
@@ -317,7 +303,6 @@ app.get('/pastSimple', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/pastContinuous', cors(), (req, res) => {
@@ -336,7 +321,6 @@ app.get('/pastContinuous', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/pastPerfect', cors(), (req, res) => {
@@ -355,7 +339,6 @@ app.get('/pastPerfect', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/pastPerfectContinuous', cors(), (req, res) => {
@@ -374,7 +357,6 @@ app.get('/pastPerfectContinuous', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/futureSimple', cors(), (req, res) => {
@@ -393,7 +375,6 @@ app.get('/futureSimple', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/futureContinuous', cors(), (req, res) => {
@@ -412,7 +393,6 @@ app.get('/futureContinuous', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/futurePerfect', cors(), (req, res) => {
@@ -431,7 +411,6 @@ app.get('/futurePerfect', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/futurePerfectContinuous', cors(), (req, res) => {
@@ -450,7 +429,6 @@ app.get('/futurePerfectContinuous', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/article', cors(), (req, res) => {
@@ -469,7 +447,6 @@ app.get('/article', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/singularPlural', cors(), (req, res) => {
@@ -488,7 +465,6 @@ app.get('/singularPlural', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/pronoun', cors(), (req, res) => {
@@ -507,7 +483,6 @@ app.get('/pronoun', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/preposition', cors(), (req, res) => {
@@ -526,7 +501,6 @@ app.get('/preposition', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/auxiliary', cors(), (req, res) => {
@@ -545,7 +519,6 @@ app.get('/auxiliary', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/adverb', cors(), (req, res) => {
@@ -564,7 +537,6 @@ app.get('/adverb', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/conjunction', cors(), (req, res) => {
@@ -583,7 +555,6 @@ app.get('/conjunction', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/gerund', cors(), (req, res) => {
@@ -602,7 +573,6 @@ app.get('/gerund', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/participle', cors(), (req, res) => {
@@ -621,7 +591,6 @@ app.get('/participle', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/comparison', cors(), (req, res) => {
@@ -640,7 +609,6 @@ app.get('/comparison', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/active', cors(), (req, res) => {
@@ -659,7 +627,6 @@ app.get('/active', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/ifclause', cors(), (req, res) => {
@@ -678,7 +645,6 @@ app.get('/ifclause', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
 })
 
 app.get('/presentSimpleExercise', cors(), (req, res) => {
@@ -697,7 +663,60 @@ app.get('/presentSimpleExercise', cors(), (req, res) => {
       res.json(rows)
   })
   res.setHeader('Access-Control-Allow-Origin', '*');
-  connection.close();
+})
+
+app.get('/presentContinuousExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 4', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/presentPerfectExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 5', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/presentPerfectContinuousExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 6', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
 app.post('/users', function(req, res, next) {
@@ -725,7 +744,6 @@ app.post('/users', function(req, res, next) {
       }
     }
   )
-  connection.close();
 })
 
 app.post('/register', function(req, res, next) {
@@ -749,7 +767,6 @@ app.post('/register', function(req, res, next) {
         res.json(rows)
     }
   )
-  connection.close();
 })
 
 app.post('/answers', function(req, res, next) {
@@ -773,7 +790,6 @@ app.post('/answers', function(req, res, next) {
         res.json(rows)
     }
   )
-  connection.close();
 })
 
 app.listen(port, function () {

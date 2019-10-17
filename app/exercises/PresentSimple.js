@@ -21,22 +21,14 @@ export default class PresentSimple extends Component {
     selected: '',
     check: false,
     answer: null,
-    profile: [],
-    userNo: Number,
-    testNo: Number,
-    questionNo: Number,
-    userAnswer: '',
-    results: '',
   }
 
   componentDidMount() {
     this.fetchQuestions()
-    // this.getUserNo()
   }
 
   fetchQuestions() {
-    //adb reverse tcp:3003 tcp:3003
-    axios.get("https://grammar2.herokuapp.com/presentSimpleExercise")
+    axios.get("http://localhost:3003/presentSimpleExercise")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
@@ -47,45 +39,23 @@ export default class PresentSimple extends Component {
     })
   }
 
-//   getUserNo() {
-//     alert(username)
-//     const username = this.state.username
-//     axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
-//     .then(res => {
-//       console.log('AAAAA', res.data)
-//         this.setState({ 
-//             profile: res.data, 
-//             loading: false,
-//         })
-//     })
-//     .catch(err => {
-//       this.setState({ loading: false })
-//     })
-//   }
-
   chooseAnswer(answer) {
     this.setState({ selected: answer })
   }
 
   checkAnswer = (answer) => {
-    //const selected = this.setState.select
-    //this.setState({ userAnswer: this.state.selected })
     if (this.state.selected) {
       if (answer === this.state.selected) {
         this.setState({
           check: true,
           answer: true,
         })
-        // return this.state.results = "Correct",
-        // this.sendAnswer()
       } 
       else {
         this.setState({
           check: true,
           answer: false,
         })
-        // return this.state.results = "Wrong",
-        // this.sendAnswer()
       }
     }
   }
@@ -103,31 +73,6 @@ export default class PresentSimple extends Component {
       })
     }
   }
-
-//   sendAnswer = () => {
-//     const index = this.state.index
-//     fetch('http://localhost:3003/answers', { 
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'application/json, text-plain, */*',
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify ({
-//             userNo: this.state.profile[0].UserNo,
-//             testNo: this.state.questions[0].Test_TestNo,
-//             questionNo: this.state.questions[index].QuestionNo,
-//             userAnswer: this.state.selected,
-//             results: this.state.results,
-//             // userNo: this.state.profile[0].UserNo,
-//             // testNo: this.state.questions[0].Test_TestNo,
-//             // questionNo: this.state.questions[0].QuestionNo,
-//             // userAnswer: this.state.selected,
-//         })
-//     })
-//     .then((response) => response.json())
-//     .then(data => console.log(data))
-//     .catch(err => console.log(err))
-//   }
 
   render() {
     const { questions, loading, index, answer, check, selected, username } = this.state
@@ -181,7 +126,7 @@ export default class PresentSimple extends Component {
                             <Text style={styles.true}>Result: Correct!</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('PresentSimple')}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -189,9 +134,6 @@ export default class PresentSimple extends Component {
                               <Text style={styles.next}>Next</Text>
                             </TouchableOpacity>
                           )}
-                          {/* <TouchableOpacity onPress={this.nextQuestion}>
-                            <Text style={styles.check}>Continue</Text>
-                          </TouchableOpacity> */}
                         </View>
                         :
                         <View style={styles.bottom}>
@@ -199,7 +141,7 @@ export default class PresentSimple extends Component {
                             <Text style={styles.false}>Result: Wrong!</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('PresentSimple')}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -207,9 +149,6 @@ export default class PresentSimple extends Component {
                               <Text style={styles.next}>Next</Text>
                             </TouchableOpacity>
                           )}
-                          {/* <TouchableOpacity onPress={this.nextQuestion}>
-                            <Text style={styles.nextFalse}>Continue</Text>
-                          </TouchableOpacity> */}
                         </View>
                     }
                   </View>
@@ -226,7 +165,7 @@ export default class PresentSimple extends Component {
                         </TouchableOpacity>
                     }
                     {questions.length === index + 1 ? (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})}>
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('PresentSimple')}>
                         <Text style={styles.next}>Finish</Text>
                       </TouchableOpacity>
                     ) : (
@@ -234,10 +173,6 @@ export default class PresentSimple extends Component {
                         <Text style={styles.next}>Next</Text>
                       </TouchableOpacity>
                     )}
-
-                    {/* <TouchableOpacity onPress={this.nextQuestion}>
-                      <Text style={styles.next}>Next</Text>
-                    </TouchableOpacity> */}
                   </View>
               }
             </View>

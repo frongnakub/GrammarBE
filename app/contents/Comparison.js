@@ -34,7 +34,7 @@ export default class Comparison extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/comparison")
+        axios.get("http://localhost:3003/comparison")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

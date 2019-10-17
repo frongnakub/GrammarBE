@@ -34,7 +34,7 @@ export default class ActivePassive extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/active")
+        axios.get("http://localhost:3003/active")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

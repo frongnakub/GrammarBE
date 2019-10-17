@@ -41,10 +41,10 @@ export default class Login extends React.Component {
     }
 
     login = () => {
-        fetch('https://grammar2.herokuapp.com/users', { 
+        fetch('http://localhost:3003/users', { 
             method: 'POST',
             headers: {
-                'Accept': 'application/json, text-plain, */*',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify ({

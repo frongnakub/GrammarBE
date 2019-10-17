@@ -40,7 +40,7 @@ export default class ResultsScreen2 extends Component {
   fetchCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("https://grammar2.herokuapp.com/results2/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/results2/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results: res.data, 
@@ -55,7 +55,7 @@ export default class ResultsScreen2 extends Component {
   fetchInCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("https://grammar2.herokuapp.com/resultII/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/resultII/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results2: res.data, 
@@ -87,7 +87,7 @@ export default class ResultsScreen2 extends Component {
                 {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                   <View>
-                        <Text style={styles.title}>Pre-Test 2</Text>
+                        <Text style={styles.title}>Pre-Test No.2</Text>
                     <View style={styles.resultBox}>    
                         <Text style={styles.resultText}>Correct</Text>
                         <View style={styles.resultBox2}>

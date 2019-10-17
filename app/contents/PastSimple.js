@@ -34,7 +34,7 @@ export default class PastSimple extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/pastSimple")
+        axios.get("http://localhost:3003/pastSimple")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })

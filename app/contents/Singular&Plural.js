@@ -34,7 +34,7 @@ export default class SingularPlural extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("https://grammar2.herokuapp.com/singularPlural")
+        axios.get("http://localhost:3003/singularPlural")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })
