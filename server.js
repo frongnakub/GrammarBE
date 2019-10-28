@@ -161,12 +161,12 @@ app.get('/results/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
-app.get('/resultI/(:username)', cors(), (req, res) => {
+app.get('/resultLesson/(:username)', cors(), (req, res) => {
   console.log("Fetching results")
   console.log(req.params.username)
   const connection = getConnection()
 
-  connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
+  connection.query('SELECT QuestionNo, LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -179,12 +179,12 @@ app.get('/resultI/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
-app.get('/results2/(:username)', cors(), (req, res) => {
+app.get('/resultLesson2/(:username)', cors(), (req, res) => {
   console.log("Fetching results")
   console.log(req.params.username)
   const connection = getConnection()
 
-  connection.query('SELECT COUNT(Results) as Correct FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Correct" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
+  connection.query('SELECT QuestionNo, LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -197,30 +197,67 @@ app.get('/results2/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
-app.get('/resultII/(:username)', cors(), (req, res) => {
-  console.log("Fetching results")
-  console.log(req.params.username)
-  const connection = getConnection()
 
-  connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
-  function (error, rows, fields) {
-      if (error) { 
-          console.log(error) 
-          res.sendStatus(500)
-          throw error
-      };
-      console.log("I think we fetched successfully")
-      res.json(rows)
-  })
-  res.setHeader('Access-Control-Allow-Origin', '*');
-})
+// app.get('/resultI/(:username)', cors(), (req, res) => {
+//   console.log("Fetching results")
+//   console.log(req.params.username)
+//   const connection = getConnection()
+
+//   connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
+//   function (error, rows, fields) {
+//       if (error) { 
+//           console.log(error) 
+//           res.sendStatus(500)
+//           throw error
+//       };
+//       console.log("I think we fetched successfully")
+//       res.json(rows)
+//   })
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+// })
+
+// app.get('/results2/(:username)', cors(), (req, res) => {
+//   console.log("Fetching results")
+//   console.log(req.params.username)
+//   const connection = getConnection()
+
+//   connection.query('SELECT COUNT(Results) as Correct FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Correct" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
+//   function (error, rows, fields) {
+//       if (error) { 
+//           console.log(error) 
+//           res.sendStatus(500)
+//           throw error
+//       };
+//       console.log("I think we fetched successfully")
+//       res.json(rows)
+//   })
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+// })
+
+// app.get('/resultII/(:username)', cors(), (req, res) => {
+//   console.log("Fetching results")
+//   console.log(req.params.username)
+//   const connection = getConnection()
+
+//   connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
+//   function (error, rows, fields) {
+//       if (error) { 
+//           console.log(error) 
+//           res.sendStatus(500)
+//           throw error
+//       };
+//       console.log("I think we fetched successfully")
+//       res.json(rows)
+//   })
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+// })
 
 app.get('/presentSimple', cors(), (req, res) => {
   console.log("Getting detail of present simple.")
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 1', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 16', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -238,7 +275,7 @@ app.get('/presentContinuous', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 2', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 17', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -256,7 +293,7 @@ app.get('/presentPerfect', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 3', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 18', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -274,7 +311,7 @@ app.get('/presentPerfectContinuous', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 1 AND SubLesson_SubLessonNo = 4', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 19', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -292,7 +329,7 @@ app.get('/pastSimple', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 5', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 20', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -310,7 +347,7 @@ app.get('/pastContinuous', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 6', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 21', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -328,7 +365,7 @@ app.get('/pastPerfect', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 7', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 22', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -346,7 +383,7 @@ app.get('/pastPerfectContinuous', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 2 AND SubLesson_SubLessonNo = 8', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 23', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -364,7 +401,7 @@ app.get('/futureSimple', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 9', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 24', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -382,7 +419,7 @@ app.get('/futureContinuous', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 10', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 25', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -400,7 +437,7 @@ app.get('/futurePerfect', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 11', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 26', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -418,7 +455,7 @@ app.get('/futurePerfectContinuous', cors(), (req, res) => {
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 3 AND SubLesson_SubLessonNo = 12', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 27', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 

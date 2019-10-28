@@ -21,6 +21,7 @@ export default class PresentContinuous extends Component {
     selected: '',
     check: false,
     answer: null,
+    qNo: 1,
   }
 
   componentDidMount() {
@@ -62,11 +63,12 @@ export default class PresentContinuous extends Component {
   }
 
   nextQuestion = () => {
-    const { questions, index } = this.state
+    const { questions, index, qNo } = this.state
     if (questions.length === index + 1) {
       console.log("...");
     } else {
       this.setState({
+        qNo: qNo + 1,
         index: index + 1,
         check: false,
         answer: null,
@@ -76,7 +78,7 @@ export default class PresentContinuous extends Component {
   }
 
   render() {
-    const { questions, loading, index, answer, check, selected, username } = this.state
+    const { questions, loading, index, answer, check, selected, username, qNo } = this.state
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>             
@@ -97,7 +99,7 @@ export default class PresentContinuous extends Component {
                   questions.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                       <View >
                         <View style={styles.questionContainer}>
-                          <Text style={styles.question}>{questions[index].Question}</Text>
+                          <Text style={styles.question}>{qNo}) {questions[index].Question}</Text>
                         </View>
 
                         <View style={styles.selectContainer}>

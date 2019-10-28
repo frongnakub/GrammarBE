@@ -62,7 +62,7 @@ export default class MenuScreen extends Component {
                                 source={require('../images/Post.png')}/>
                             <Text>Post-test</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Forum')} style={stylesGrid.boxContainer}>
+                        <TouchableOpacity onPress={() => navigate('ForumHome')} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Chat.png')}/>

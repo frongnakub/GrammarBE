@@ -28,6 +28,7 @@ export default class Questions extends Component {
     questionNo: Number,
     userAnswer: '',
     results: '',
+    qNo: 1,
   }
 
   componentDidMount() {
@@ -91,11 +92,12 @@ export default class Questions extends Component {
   }
 
   nextQuestion = () => {
-    const { questions, index } = this.state
+    const { questions, index, qNo } = this.state
     if (questions.length === index + 1) {
       console.log("...");
     } else {
       this.setState({
+        qNo: qNo + 1,
         index: index + 1,
         check: false,
         answer: null,
@@ -130,7 +132,7 @@ export default class Questions extends Component {
   }
 
   render() {
-    const { questions, loading, index, answer, check, selected, username } = this.state
+    const { questions, loading, index, answer, check, selected, username, qNo } = this.state
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>             
@@ -151,7 +153,7 @@ export default class Questions extends Component {
                   questions.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                       <View >
                         <View style={styles.questionContainer}>
-                          <Text style={styles.question}>{questions[index].Question}</Text>
+                          <Text style={styles.question}>{qNo}) {questions[index].Question}</Text>
                         </View>
 
                         <View style={styles.selectContainer}>
@@ -178,7 +180,7 @@ export default class Questions extends Component {
                       answer ?
                         <View style={styles.bottom}>
                           <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
-                            <Text style={styles.true}>Result: Correct!</Text>
+                            {/* <Text style={styles.true}>Result: Correct!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
@@ -196,7 +198,7 @@ export default class Questions extends Component {
                         :
                         <View style={styles.bottom}>
                           <TouchableOpacity>
-                            <Text style={styles.false}>Result: Wrong!</Text>
+                            {/* <Text style={styles.false}>Result: Wrong!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>

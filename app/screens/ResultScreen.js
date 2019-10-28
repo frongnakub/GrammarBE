@@ -5,7 +5,9 @@ import {
     View,
     Dimensions,
     ActivityIndicator,
-    TouchableOpacity
+    TouchableOpacity,
+    FlatList,
+    ScrollView,
 } from 'react-native';
 import axios from 'axios';
 const {width: WIDTH} = Dimensions.get('window');
@@ -34,13 +36,12 @@ export default class ResultsScreen extends Component {
 
   componentDidMount() {
     this.fetchCorrect()
-    this.fetchInCorrect()
   }
 
   fetchCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/results/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/resultLesson/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results: res.data, 
@@ -52,25 +53,10 @@ export default class ResultsScreen extends Component {
     })
   }
 
-  fetchInCorrect() {
-    //adb reverse tcp:3003 tcp:3003
-    const username = this.state.username
-    axios.get("http://localhost:3003/resultI/"+ JSON.stringify(username))
-    .then(res => {
-        this.setState({ 
-            results2: res.data, 
-            loading: false,
-        })
-    })
-    .catch(err => {
-      this.setState({ loading: false })
-    })
-  }
-
   render() {
-    const { results, results2, loading, index, username } = this.state
+    const { results, loading, index, username } = this.state
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         {
           loading ?
             <View>
@@ -87,52 +73,29 @@ export default class ResultsScreen extends Component {
                 {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
-                            <Text style={styles.title}>Pre-Test No.1</Text>
-                        <View style={styles.resultBox}>    
-                            <Text style={styles.resultText}>Correct</Text>
-                            <View style={styles.resultBox2}>
-                              <Icon
-                                  name="check-circle"
-                                  color="#23C50B"
-                                  size={40}
-                                />
-                              <Text style={styles.resultText}>    
-                                {results[index].Correct}
-                              </Text>
-                            </View>    
-                      </View>
-                    </View>
-                }
-                {
-                  results2.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
-                    <View>
-                          <View style={styles.resultBox}>    
-                              <Text style={styles.resultText}>Incorrect</Text>
-                              <View style={styles.resultBox2}>
-                                <Icon
-                                    name="cancel"
-                                    color="#DD2E44"
-                                    size={40}
-                                  />
-                                <Text style={styles.resultText}>    
-                                  {results2[index].Incorrect}
-                                </Text>
-                              </View>    
+                        <View style={styles.resultBox}>
+                        <Text style={styles.title}>Lesson you have done WRONG!</Text>   
+                          <FlatList
+                            data = {this.state.results}
+                            renderItem = {({item}) => 
+                              <View>
+                                <Text style = {styles.textStart}>
+                                  {item.LessonName}  
+                                </Text>  
+                              </View>
+                            }
+                            keyExtractor={item => item.id}
+                          />
                         </View>
-                            {/* <Text style={styles.question}>Incorrect: {results2[index].Incorrect}</Text> */}
-                            {/* <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
-                              <Text style={styles.menu}>Menu</Text>
-                            </TouchableOpacity> */}
-                            <TouchableOpacity style={styles.roundedBtn} onPress={() =>  this.props.navigation.navigate('PretestQuestions2',{username: username})}>
-                              <Text style={styles.roundedBtnText}>Pre-test No.2</Text>
-                            </TouchableOpacity>
-                      
+                        <TouchableOpacity style={styles.roundedBtn} onPress={() =>  this.props.navigation.navigate('PretestQuestions2',{username: username})}>
+                            <Text style={styles.roundedBtnText}>Pre-test No.2</Text>
+                        </TouchableOpacity>
                     </View>
                 }
               </View>
             </View>
         }
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -155,11 +118,18 @@ const styles = StyleSheet.create({
     },
     title: {
         textAlign: 'center',
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: '700',
         color: '#3E3E3E',
-        marginBottom: 30,
+        marginBottom: 20,
         marginTop: 30,
+    },
+    textStart: {
+      fontSize: 18,
+      color: '#3E3E3E',
+      textAlign: 'center',
+      fontWeight: '500',
+      marginBottom: 10,
     },
     resultBox: {
         fontSize: 18,

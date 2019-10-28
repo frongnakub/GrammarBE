@@ -1,4 +1,5 @@
 import { StyleSheet,Dimensions } from 'react-native';
+
 const {width: WIDTH} = Dimensions.get('window');
 const {hight: HEIGHT} = Dimensions.get('window');
 
@@ -53,10 +54,10 @@ module.exports = StyleSheet.create({
     text: {
         fontSize: 18,
         marginBottom: 20,
-        color: '#3E3E3E'
+        color: '#3E3E3E',
     },
     menu: {
-      backgroundColor: 'blue',
+      backgroundColor: '#502ff5',
       textAlign: 'center',
       padding: 10,
       color: 'white',
@@ -65,10 +66,10 @@ module.exports = StyleSheet.create({
       fontSize: 16,
       borderRadius: 30,
       elevation: 5
-  },
-  load: {
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    flex: 2,
-  },
+    },
+    load: {
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        flex: 2,
+    },
 });

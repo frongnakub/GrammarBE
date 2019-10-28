@@ -1,5 +1,6 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
+import React from 'react'
 import Login from '../screens/Login';
 import HomeScreen from '../screens/HomeScreen';
 import MenuScreen from '../screens/MenuScreen';
@@ -10,7 +11,6 @@ import ResultScreen2 from '../screens/ResultScreen2';
 import LessonScreen from '../screens/LessonScreen';
 import GameScreen from '../screens/GameScreen';
 import PostTestScreen from '../screens/PostTestScreen';
-import ForumScreen from '../screens/ForumScreen';
 import PretestQuestions from '../screens/PreTestQuestions';
 import PretestQuestions2 from '../screens/PreTestQuestions2';
 import PresentSimple from '../contents/PresentSimple';
@@ -64,6 +64,25 @@ import IfClauseExercise from '../exercises/If-clause'
 import Tenses from '../screens/LessonTenses';
 import Register from '../screens/Register'
 
+// import {
+//     Router,
+//     Scene,
+// } from 'react-native-router-flux';
+
+// class App extends React.Component {
+//     render() {
+//         return ( 
+//             <Router>
+//                 <Scene key = 'root'>
+//                     <Scene key = 'home' component = {ForumHome} title = 'ForumHome' />
+//                     <Scene key = 'chat' component = {ForumChat} title = 'ForumChat' />
+//                 </Scene>
+//             </Router>
+//         )
+//     }
+    
+// }
+
 const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
     Profile: {screen: Profile},
@@ -75,7 +94,6 @@ const MainNavigator = createSwitchNavigator({
     ResultScreen: {screen: ResultScreen},
     ResultScreen2: {screen: ResultScreen2},
     Posttest: {screen: PostTestScreen},
-    Forum: {screen: ForumScreen},
     PretestQuestions: {screen: PretestQuestions},
     PretestQuestions2: {screen: PretestQuestions2},
     PresentSimple: {screen: PresentSimple},

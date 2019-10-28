@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         marginTop: h(7),
         fontWeight: '700',
         color: '#ffff',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     login: {
         //marginBottom: h(4),
