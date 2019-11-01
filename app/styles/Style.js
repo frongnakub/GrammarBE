@@ -25,8 +25,19 @@ module.exports = StyleSheet.create({
         paddingVertical: 8,
         borderRadius: 20,
         fontSize: 20,
-        marginBottom: 10,
+        marginBottom: 20,
         backgroundColor: '#F3E5AB',
+        fontFamily: 'comicsansms',
+    },
+    bodyText2: {
+        borderColor: '#000000',
+        borderWidth: 2,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderRadius: 20,
+        fontSize: 20,
+        marginBottom: 20,
+        fontFamily: 'comicsansms',
     },
     wrapper: {
         flex: 1,
@@ -44,17 +55,40 @@ module.exports = StyleSheet.create({
         fontWeight: '500',
         color: '#3E3E3E',
         marginBottom: 20,
+        fontFamily: 'comicsansms',
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderWidth: 2,
+        borderColor: '#000000',
+        backgroundColor: '#f59cff',
+    },
+    headers2: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: '500',
+        color: '#3E3E3E',
+        fontFamily: 'comicsansms',
+    },
+    content: {
+        fontSize: 18,
+        fontWeight: '400',
+        color: '#3E3E3E',
+        marginBottom: 10,
+        fontFamily: 'comicsansms_bold',
     },
     title: {
         fontSize: 20,
         fontWeight: '500',
         color: '#3E3E3E',
         marginBottom: 5,
+        fontFamily: 'comicsansms',
     },
     text: {
         fontSize: 18,
-        marginBottom: 20,
+        marginBottom: 15,
         color: '#3E3E3E',
+        fontFamily: 'comicsansms',
     },
     menu: {
       backgroundColor: '#502ff5',
@@ -72,4 +106,29 @@ module.exports = StyleSheet.create({
         justifyContent: 'space-around',
         flex: 2,
     },
+    containerT: { 
+        flex: 1, 
+        padding: 16, 
+        paddingTop: 30, 
+        backgroundColor: '#fff' 
+    },
+    headT: {  
+        height: 40,  
+        backgroundColor: '#f1f8ff'  
+    },
+    wrapperT: { 
+        flexDirection: 'row' 
+    },
+    titleT: { 
+        flex: 1,
+        backgroundColor: '#f6f8fa' 
+    },
+    rowT: {  
+        height: 100 
+    },
+    textT: { 
+        fontSize: 16,
+        textAlign: 'center',
+        fontFamily: 'comicsansms',
+    }
 });

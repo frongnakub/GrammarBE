@@ -46,36 +46,40 @@ export default class PresentContinuous extends Component {
     render() {
         const { lessons, loading, index } = this.state
         return (
-        <ScrollView style={styles.container}>
+            <ScrollView>
             {
-            loading ?
+            loading ? 
                 <View style={styles.load}>
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
-                :
-                <View style={styles.wrapper}>
-                <View>
-                    {
-                    lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
-                        <View>
+                :   
+                    <View style={styles.wrapper}>
+                    <View>
+                        {
+                        lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                             <View>
-                                <Text style={styles.headers}>Present Continuous Tense</Text>
-                                <View style={styles.bodyText}>
-                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                <View>
+                                    <Text style={styles.headers}>Present Continuous Tense</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.headers2}>{'Structure: \nSubj. + is/am/are + V. ing'}</Text>
+                                    </View>
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    
+                                    <View style={styles.bodyText}>
+                                    <Text style={styles.content}>Time References:	at the moment, now, at present, these days, currently, presently, nowadays</Text>
+                                    </View>
+
                                 </View>
-                                <Text style={styles.title}>Details: </Text>
-                                <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentContinuousExercise')}>
+                                    <Text style={styles.menu}>Exercise</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses')}>
+                                    <Text style={styles.menu}>Back</Text>
+                                </TouchableOpacity>
                             </View>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentContinuousExercise')}>
-                                <Text style={styles.menu}>Exercise</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses')}>
-                                <Text style={styles.menu}>Back</Text>
-                            </TouchableOpacity>
-                        </View>
-                    }
-                </View>
-                </View>
+                        }
+                    </View>
+                    </View>
             }
         </ScrollView>
         );

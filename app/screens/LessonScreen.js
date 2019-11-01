@@ -50,6 +50,9 @@ export default class Lesson extends Component {
                         <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Auxiliary')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Auxiliary Verb</Text>
                         </TouchableHighlight>
+                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Adjective')} underlayColor="rgba(215, 147, 63,.3)">
+                            <Text style={styles.roundedBtnText}>Adjective</Text>
+                        </TouchableHighlight>
                         <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('Adverb')} underlayColor="rgba(215, 147, 63,.3)">
                             <Text style={styles.roundedBtnText}>Adverb</Text>
                         </TouchableHighlight>

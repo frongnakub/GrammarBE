@@ -53,7 +53,6 @@ export default class Pronoun extends Component {
                 <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -61,7 +60,21 @@ export default class Pronoun extends Component {
                             <View>
                                 <View>
                                     <Text style={styles.headers}>Pronoun</Text>
+                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Note: 	All possessive pronouns are not followed by nouns.'} </Text>
+                                    </View>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'As a subject > \nPattern: Indef. Pron. + Singular V. \n- Everyone seems to dislike English, but no one hates Aj. Pat. \n\nAs an object > \nPattern: Subj. + V. + Indef. Pron. \n- I saw no one at home.	'} </Text>
+                                    </View>
+                                    <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Pattern	:	… who + V. +(O.).\nPattern	: 	… whom + S. + V. + (O.). \n… for / with whom + S. + V. + (O.). \nPattern:	… which + V. + (O.)… \nwhich + S. + V. + (O.)\n… prepositions (at, of , in, to, on) + which + S. + V. + (O.)\nPattern: … whose + S. + V. + (O.)'} </Text>
+                                    </View>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Other significant PRONOUNS: all, another, any, both, each, neither, few, less, little, many, much, none, others, several, some, most.'} </Text>
+                                    </View>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PronounExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -73,7 +86,6 @@ export default class Pronoun extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

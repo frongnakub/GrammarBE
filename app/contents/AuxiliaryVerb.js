@@ -53,7 +53,6 @@ export default class AuxiliaryVerb extends Component {
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -61,6 +60,14 @@ export default class AuxiliaryVerb extends Component {
                             <View>
                                 <View>
                                     <Text style={styles.headers}>Auxiliary Verb</Text>
+                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'“taking, do, and fallen” \nare main verbs.'} </Text>
+                                    </View>
+                                    <Text style={styles.text}>Note:  In addition to V. to be, do, have, there is another kind of auxiliary verb: Modals.</Text>
+                                    <View style={styles.bodyText2}>
+                                        <Text style={styles.content}>{'will / would \nshall / should \ncan / could \nmay / might \nmust \nought to / have to \nused to (past tense) \nhad better \nwould rather \nhad rather'} </Text>
+                                    </View>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('AuxiliaryExercise')}>
@@ -73,7 +80,6 @@ export default class AuxiliaryVerb extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

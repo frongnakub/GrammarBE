@@ -53,7 +53,6 @@ export default class Adverb extends Component {
                 <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -62,6 +61,10 @@ export default class Adverb extends Component {
                                 <View>
                                     <Text style={styles.headers}>Adverb</Text>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.content}>{'Form of Adverbs\n     Adverbs have various forms; many are formed by adding ‘-ly’ to an adjective. However, some adverbs share the same form and the same meaning as some adjectives:'}</Text>
+                                    <View style={styles.bodyText2}>
+                                        <Text style={styles.content}>{'deep, low, termly, even, near, monthly, early, hard, fortnightly, far, next, annually fast, alike, hourly, high, inside, nightly, late, outside, weekly, long, yearly, daily'} </Text>
+                                    </View>
                                     <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('AdverbExercise')}>
@@ -74,7 +77,6 @@ export default class Adverb extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

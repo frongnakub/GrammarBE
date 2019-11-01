@@ -58,14 +58,22 @@ export default class PresentPerfect extends Component {
                     {
                     lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                         <View>
-                            <View>
-                                <Text style={styles.headers}>Present Perfect Tense</Text>
-                                <View style={styles.bodyText}>
+                            <Text style={styles.headers}>Present Perfect Tense</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.headers2}>{'Structure: \nSubj. + has/have + V.3'}</Text>
+                                    </View>
                                     <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
-                                </View>
-                                <Text style={styles.title}>Details: </Text>
-                                <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
-                            </View>
+                                    
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>Time References: since, for, up to now, up to the present moment</Text>
+                                    </View>
+                                    <Text style={styles.content}>{'***since: point of time in the past \ne.g. since last Monday, since the nineteenth century \nfor: period of time \ne.g. for one term, for 15 years'}
+                                    </Text>
+
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>Time References: just, yet, already, recently, never, ever</Text>
+                                    </View>
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentPerfectExercise')}>
                                 <Text style={styles.menu}>Exercise</Text>
                             </TouchableOpacity>

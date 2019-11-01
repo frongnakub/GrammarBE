@@ -49,6 +49,8 @@ import Auxiliary from '../contents/AuxiliaryVerb'
 import AuxiliaryExercise from '../exercises/AuxiliaryVerb'
 import Adverb from '../contents/Adverb'
 import AdverbExercise from '../exercises/Adverb'
+import Adjective from '../contents/Adjective'
+import AdjectiveExercise from '../exercises/Adjective'
 import Conjunction from '../contents/Conjunction'
 import ConjunctionExercise from '../exercises/Conjunction'
 import Gerund from '../contents/Infinitive&Gerund'
@@ -132,6 +134,8 @@ const MainNavigator = createSwitchNavigator({
     AuxiliaryExercise: {screen: AuxiliaryExercise},
     Adverb: {screen: Adverb},
     AdverbExercise: {screen: AdverbExercise},
+    Adjective: {screen: Adjective},
+    AdjectiveExercise: {screen: AdjectiveExercise},
     Conjunction: {screen: Conjunction},
     ConjunctionExercise: {screen: ConjunctionExercise},
     Gerund: {screen: Gerund},

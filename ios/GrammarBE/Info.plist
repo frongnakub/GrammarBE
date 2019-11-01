@@ -71,6 +71,10 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>comicsansms_bold.ttf</string>
+		<string>comicsansms_italic_bold.ttf</string>
+		<string>comicsansms_italic.ttf</string>
+		<string>comicsansms.ttf</string>
 	</array>
 </dict>
 </plist>

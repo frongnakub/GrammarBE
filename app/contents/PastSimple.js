@@ -62,10 +62,13 @@ export default class PastSimple extends Component {
                                 <View>
                                     <Text style={styles.headers}>Past Simple Tense</Text>
                                     <View style={styles.bodyText}>
-                                        <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                        <Text style={styles.headers2}>{'Structure: Subj. + V.2'}</Text>
                                     </View>
-                                    <Text style={styles.title}>Details: </Text>
-                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text> 
+                                    
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Time references:	ago, last…, for, yesterday, in 1961, a year last April, already, earlier, first, early, historical, primitive, former, initial, original, previously, lately'} </Text>
+                                    </View>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PastSimpleExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>

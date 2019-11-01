@@ -53,7 +53,6 @@ export default class FutureSimple extends Component {
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -62,10 +61,13 @@ export default class FutureSimple extends Component {
                                 <View>
                                     <Text style={styles.headers}>Future Simple Tense</Text>
                                     <View style={styles.bodyText}>
-                                        <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                        <Text style={styles.headers2}>{'Structure: \nSubj. + shall*/ will**/ be going to + v.1'}</Text>
                                     </View>
-                                    <Text style={styles.title}>Details: </Text>
-                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text> 
+                                    
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Time References:	tomorrow, next… \n(e.g. next Saturday morning), \nby… (e.g. by Friday evening), \nin the future, tonight, in a few years, soon, someday, etc.'} </Text>
+                                    </View>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('FutureSimpleExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -77,7 +79,6 @@ export default class FutureSimple extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

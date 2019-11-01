@@ -53,7 +53,6 @@ export default class FuturePerfect extends Component {
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -62,10 +61,13 @@ export default class FuturePerfect extends Component {
                                 <View>
                                     <Text style={styles.headers}>Future Perfect Tense</Text>
                                     <View style={styles.bodyText}>
-                                        <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                        <Text style={styles.headers2}>{'Structure: \nSubj. + will/shall + have + V.3'}</Text>
                                     </View>
-                                    <Text style={styles.title}>Details: </Text>
-                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text> 
+                                    
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'The future time references must be added in sentences, e.g. by next …, next…'} </Text>
+                                    </View>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('FuturePerfectExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -77,7 +79,6 @@ export default class FuturePerfect extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

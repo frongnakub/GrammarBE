@@ -53,19 +53,18 @@ export default class FutureContinuous extends Component {
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
                         lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                             <View>
-                                <View>
+                               <View>
                                     <Text style={styles.headers}>Future Continuous Tense</Text>
                                     <View style={styles.bodyText}>
-                                        <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                        <Text style={styles.headers2}>{'Structure: \nSubj. + will/shall + be + V.ing'}</Text>
                                     </View>
-                                    <Text style={styles.title}>Details: </Text>
-                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text> 
+                                
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('FutureContinuousExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -77,7 +76,6 @@ export default class FutureContinuous extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

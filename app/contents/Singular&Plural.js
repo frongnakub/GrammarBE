@@ -53,17 +53,16 @@ export default class SingularPlural extends Component {
                 <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
                         lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                             <View>
                                 <View>
-                                    <Text style={styles.headers}>Singular and Plural</Text>
+                                    <Text style={styles.headers}>Noun</Text>
+                                    <Text style={styles.content}>{'There are five main types of noun that you need to know:'} </Text>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
-                                    <Text style={styles.title}>Details: </Text>
-                                    <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
+
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('SingularPluralExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -75,8 +74,7 @@ export default class SingularPlural extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
-            }
+           }
         </ScrollView>
         );
     }

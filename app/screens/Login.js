@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         color: '#ffff',
         textAlign: 'center',
+        fontFamily: 'comicsansms',
     },
     login: {
         //marginBottom: h(4),
@@ -178,7 +179,8 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         //textDecorationLine: 'underline',
         color: '#ffff',
-        //textAlign: 'right'
+        //textAlign: 'right',
+        fontFamily: 'comicsansms',
     },
     contentSpaceBetween: {
         marginTop: h(7),

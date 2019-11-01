@@ -53,7 +53,6 @@ export default class IfClause extends Component {
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -62,8 +61,9 @@ export default class IfClause extends Component {
                                 <View>
                                     <Text style={styles.headers}>If-Clause</Text>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
-                                    <Text style={styles.title}>Trick: </Text>
-                                    <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{lessons[index].SpecialTrick}</Text>
+                                    </View>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('IfClauseExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -75,7 +75,6 @@ export default class IfClause extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

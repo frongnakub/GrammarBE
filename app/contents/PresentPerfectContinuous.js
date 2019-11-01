@@ -59,13 +59,14 @@ export default class PresentPerfectContinuous extends Component {
                     lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                         <View>
                             <View>
-                                <Text style={styles.headers}>Present Perfect Continuous Tense</Text>
-                                <View style={styles.bodyText}>
-                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
-                                </View>
-                                <Text style={styles.title}>Details: </Text>
-                                <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.headers}>Present Perfect Continuous Tense</Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.headers2}>{'Structure: \nSubj. + has/have +been + V.ing'}</Text>
+                                    </View>
+                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+
                             </View>
+
                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PresentPerfectContinuousExercise')}>
                                 <Text style={styles.menu}>Exercise</Text>
                             </TouchableOpacity>

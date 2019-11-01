@@ -12,7 +12,7 @@ import axios from 'axios';
 
 import styles from '../styles/Style';
 
-export default class InfinitiveGerund extends Component {
+export default class Adjective extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
         title: 'Login',
@@ -34,7 +34,7 @@ export default class InfinitiveGerund extends Component {
     }
 
     fetchLessonDetail() {
-        axios.get("http://localhost:3003/gerund")
+        axios.get("http://localhost:3003/adjective")
         .then(res => {
             this.setState({ lessons: res.data, loading: false })
         })
@@ -50,7 +50,7 @@ export default class InfinitiveGerund extends Component {
             {
             loading ?
                 <View style={styles.load}>
-                    <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+                <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
                     <View style={styles.wrapper}>
@@ -59,10 +59,10 @@ export default class InfinitiveGerund extends Component {
                         lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                             <View>
                                 <View>
-                                    <Text style={styles.headers}>Infinitive and Gerund</Text>
+                                    <Text style={styles.headers}>Adjective</Text>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('InfinitiveGerundExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('AdjectiveExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Lesson')}>

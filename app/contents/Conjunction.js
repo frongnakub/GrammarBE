@@ -53,7 +53,6 @@ export default class Conjunction extends Component {
                     <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                 </View>
                 :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
                     <View style={styles.wrapper}>
                     <View>
                         {
@@ -62,6 +61,7 @@ export default class Conjunction extends Component {
                                 <View>
                                     <Text style={styles.headers}>Conjunction</Text>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ConjunctionExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
@@ -73,7 +73,6 @@ export default class Conjunction extends Component {
                         }
                     </View>
                     </View>
-                </ImageBackground>
             }
         </ScrollView>
         );

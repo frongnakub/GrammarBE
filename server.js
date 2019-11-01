@@ -558,12 +558,30 @@ app.get('/auxiliary', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
+app.get('/adjective', cors(), (req, res) => {
+  console.log("Getting detail of adjective.")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 9', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("We get all details.")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get('/adverb', cors(), (req, res) => {
   console.log("Getting detail of adverb.")
  
   const connection = getConnection()
 
-  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 9', 
+  connection.query('SELECT * FROM LessonDetail WHERE Lesson_LessonNo = 28', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
