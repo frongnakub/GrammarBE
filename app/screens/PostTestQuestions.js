@@ -13,7 +13,7 @@ import axios from 'axios';
 
 const {width: WIDTH} = Dimensions.get('window');
 
-export default class PastPerfect extends Component {
+export default class PosttestQuestion extends Component {
   state = {
     questions: [],
     loading: true,
@@ -21,15 +21,24 @@ export default class PastPerfect extends Component {
     selected: '',
     check: false,
     answer: null,
+    // username: this.props.navigation.state.params.username,
+    profile: [],
+    userNo: Number,
+    testNo: Number,
+    questionNo: Number,
+    userAnswer: '',
+    results: '',
     qNo: 1,
   }
 
   componentDidMount() {
     this.fetchQuestions()
+    this.getUserNo()
   }
 
   fetchQuestions() {
-    axios.get("http://localhost:3003/pastPerfectExercise")
+    //adb reverse tcp:3003 tcp:3003
+    axios.get("http://localhost:3003/posttest")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
@@ -40,39 +49,45 @@ export default class PastPerfect extends Component {
     })
   }
 
+  // getUserNo() {
+  //   const username = this.state.username
+  //   axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
+  //   .then(res => {
+  //     console.log('AAAAA', res.data)
+  //       this.setState({ 
+  //           profile: res.data, 
+  //           loading: false,
+  //       })
+  //   })
+  //   .catch(err => {
+  //     this.setState({ loading: false })
+  //   })
+  // }
+
   chooseAnswer(answer) {
     this.setState({ selected: answer })
   }
 
   checkAnswer = (answer) => {
+    //const selected = this.setState.select
+    //this.setState({ userAnswer: this.state.selected })
     if (this.state.selected) {
       if (answer === this.state.selected) {
         this.setState({
           check: true,
           answer: true,
         })
+        return this.state.results = "Correct"
+        // this.sendAnswer()
       } 
       else {
         this.setState({
           check: true,
           answer: false,
         })
+        return this.state.results = "Wrong"
+        // this.sendAnswer()
       }
-    }
-  }
-
-  previousQuestion = () => {
-    const { questions, index, qNo } = this.state
-    if (questions.length === index - 1) {
-      console.log("...");
-    } else {
-      this.setState({
-        qNo: qNo - 1,
-        index: index - 1,
-        check: false,
-        answer: null,
-        selected: ''
-      })
     }
   }
 
@@ -91,13 +106,38 @@ export default class PastPerfect extends Component {
     }
   }
 
+  // sendAnswer = () => {
+  //   const index = this.state.index
+  //   fetch('http://localhost:3003/answers', { 
+  //       method: 'POST',
+  //       headers: {
+  //           'Accept': 'application/json, text-plain, */*',
+  //           'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify ({
+  //           userNo: this.state.profile[0].UserNo,
+  //           testNo: this.state.questions[0].Test_TestNo,
+  //           questionNo: this.state.questions[index].QuestionNo,
+  //           userAnswer: this.state.selected,
+  //           results: this.state.results,
+  //           // userNo: this.state.profile[0].UserNo,
+  //           // testNo: this.state.questions[0].Test_TestNo,
+  //           // questionNo: this.state.questions[0].QuestionNo,
+  //           // userAnswer: this.state.selected,
+  //       })
+  //   })
+  //   .then((response) => response.json())
+  //   .then(data => console.log(data))
+  //   .catch(err => console.log(err))
+  // }
+
   render() {
     const { questions, loading, index, answer, check, selected, username, qNo } = this.state
     return (
       <View style={styles.container}>
         <View style={styles.topBar}>             
           <Text ></Text>
-          <Text style={{fontSize: 20,color:'#FFFFFF'}}>Exercise</Text>
+          <Text style={{fontSize: 20,color:'#FFFFFF'}}>PRE-TEST No.1</Text>
           <Text ></Text>
         </View>
         {
@@ -140,32 +180,44 @@ export default class PastPerfect extends Component {
                       answer ?
                         <View style={styles.bottom}>
                           <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
-                            <Text style={styles.true}>Result: Correct!</Text>
+                            {/* <Text style={styles.true}>Result: Correct!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('PastPerfect')}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
+                            // <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
+                            // <Text style={styles.next}>Finish</Text>
+                            // </TouchableOpacity>
                           ) : (
                             <TouchableOpacity onPress={this.nextQuestion}>
                               <Text style={styles.next}>Next</Text>
                             </TouchableOpacity>
                           )}
+                          {/* <TouchableOpacity onPress={this.nextQuestion}>
+                            <Text style={styles.check}>Continue</Text>
+                          </TouchableOpacity> */}
                         </View>
                         :
                         <View style={styles.bottom}>
                           <TouchableOpacity>
-                            <Text style={styles.false}>Result: Wrong!</Text>
+                            {/* <Text style={styles.false}>Result: Wrong!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('PastPerfect')}>
-                              <Text style={styles.next}>Finish</Text>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
+                            <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
+                            // <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
+                            //   <Text style={styles.next}>Finish</Text>
+                            // </TouchableOpacity>
                           ) : (
                             <TouchableOpacity onPress={this.nextQuestion}>
                               <Text style={styles.next}>Next</Text>
                             </TouchableOpacity>
                           )}
+                          {/* <TouchableOpacity onPress={this.nextQuestion}>
+                            <Text style={styles.nextFalse}>Continue</Text>
+                          </TouchableOpacity> */}
                         </View>
                     }
                   </View>
@@ -182,14 +234,21 @@ export default class PastPerfect extends Component {
                         </TouchableOpacity>
                     }
                     {questions.length === index + 1 ? (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('PastPerfect')}>
-                        <Text style={styles.next}>Finish</Text>
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
+                      <Text style={styles.next}>Finish</Text>
                       </TouchableOpacity>
+                      // <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})}>
+                      //   <Text style={styles.next}>Finish</Text>
+                      // </TouchableOpacity>
                     ) : (
                       <TouchableOpacity onPress={this.nextQuestion}>
                         <Text style={styles.next}>Next</Text>
                       </TouchableOpacity>
                     )}
+
+                    {/* <TouchableOpacity onPress={this.nextQuestion}>
+                      <Text style={styles.next}>Next</Text>
+                    </TouchableOpacity> */}
                   </View>
               }
             </View>

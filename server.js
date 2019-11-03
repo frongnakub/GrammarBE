@@ -71,6 +71,24 @@ app.get('/pretest2', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
+app.get('/posttest', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 27', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get('/testNo', cors(), (req, res) => {
   console.log("Fetching questions")
  
@@ -762,6 +780,366 @@ app.get('/presentPerfectContinuousExercise', cors(), (req, res) => {
   const connection = getConnection()
 
   connection.query('SELECT * FROM Question WHERE Test_TestNo = 6', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastSimpleExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 7', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastContinuousExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 8', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastPerfectExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 9', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pastPerfectContinuousExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 10', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/FutureSimpleExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 11', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/FutureContinuousExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 12', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/FuturePerfectExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 13', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/futurePerfectContinuousExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 14', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/adverbExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 15', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/articleExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 16', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/ifClauseExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 17', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/conjunctionExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 18', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/infinitiveGerundExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 19', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/prepositionExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 20', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/pronounExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 21', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/singularPluralExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 22', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/auxilaryExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 23', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/participleExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 24', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/comparisonExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 25', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/activePassiveExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 26', 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 

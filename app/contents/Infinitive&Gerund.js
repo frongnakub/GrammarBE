@@ -62,7 +62,7 @@ export default class InfinitiveGerund extends Component {
                                     <Text style={styles.headers}>Infinitive and Gerund</Text>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('InfinitiveGerundExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('GerundExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Lesson')}>

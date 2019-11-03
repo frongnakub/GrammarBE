@@ -10,7 +10,7 @@ import ResultScreen from '../screens/ResultScreen';
 import ResultScreen2 from '../screens/ResultScreen2';
 import LessonScreen from '../screens/LessonScreen';
 import GameScreen from '../screens/GameScreen';
-import PostTestScreen from '../screens/PostTestScreen';
+import PosttestQuestion from '../screens/PostTestQuestions';
 import PretestQuestions from '../screens/PreTestQuestions';
 import PretestQuestions2 from '../screens/PreTestQuestions2';
 import PresentSimple from '../contents/PresentSimple';
@@ -95,7 +95,7 @@ const MainNavigator = createSwitchNavigator({
     Game: {screen: GameScreen},
     ResultScreen: {screen: ResultScreen},
     ResultScreen2: {screen: ResultScreen2},
-    Posttest: {screen: PostTestScreen},
+    PosttestQuestion: {screen: PosttestQuestion},
     PretestQuestions: {screen: PretestQuestions},
     PretestQuestions2: {screen: PretestQuestions2},
     PresentSimple: {screen: PresentSimple},

@@ -60,11 +60,20 @@ export default class Article extends Component {
                             <View>
                                 <View>
                                     <Text style={styles.headers}>Article</Text>
-                                    <Text style={styles.content}>{'Indefinite article:  a, an'} </Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Indefinite article:  a, an'} </Text>
+                                    </View>
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                                     
-                                    <Text style={styles.content}>{'Indefinite article: a, an cannot be used in the following cases:'} </Text>
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Indefinite article: a, an cannot be used in the following cases:'} </Text>
+                                    </View>
                                     <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
+                                    
+                                    <View style={styles.bodyText}>
+                                        <Text style={styles.content}>{'Definite article: the is used before a noun, e.g. the sun, the guitar, the worst accident, etc. \nLike the indefinite article (a, an), "the" has various usages.'}</Text>
+                                    </View>
+                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
                                 </View>
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ArticleExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>

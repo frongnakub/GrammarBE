@@ -84,7 +84,7 @@ export default class Questions extends Component {
                               <Text style={styles.menu}>Pre-test</Text>
                             </TouchableOpacity>
                             <Text style={styles.textStart}>If you have already done the pretest.</Text>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
                               <Text style={styles.menu}>Menu</Text>
                             </TouchableOpacity>
                             {/* <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Logged')}>

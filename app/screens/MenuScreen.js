@@ -18,10 +18,11 @@ const marginVertical = 4;
 const width = (Dimensions.get('window').width / cols) - (marginHorizontal * (cols + 1));
 const height = (Dimensions.get('window').height / rows) - (marginVertical * (rows + 1));
 
+
+
 export default class MenuScreen extends Component {
-    
+
     render () {
-        const { navigate } = this.props.navigation;
         return (
             <View style={stylesGrid.container}>
                     <View style={stylesGrid.topBar}>             
@@ -32,7 +33,7 @@ export default class MenuScreen extends Component {
                             color="#ffff"
                             backgroundColor="#7F4F2C"
                             size={30}
-                            onPress={() => navigate('Logged')}
+                            onPress={() => this.props.navigation.navigate('Logged')}
                             >
                         </Icon>
                     </View>
@@ -44,25 +45,25 @@ export default class MenuScreen extends Component {
                                 source={require('../images/Pre.png')}/>
                             <Text>Pre-test</Text>
                         </TouchableOpacity> */}
-                        <TouchableOpacity onPress={() => navigate('Lesson')} style={stylesGrid.boxContainer}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Lesson')} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Lesson.png')}/>
                             <Text>Lesson</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Game')} style={stylesGrid.boxContainer}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Game')} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Game1.png')}/>
                             <Text>Game</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Post-test')} style={stylesGrid.boxContainer}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('PosttestQuestion')} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Post.png')}/>
                             <Text>Post-test</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('ForumHome')} style={stylesGrid.boxContainer}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ForumHome')} style={stylesGrid.boxContainer}>
                             <Image
                                 style={{width: 100, height: 100}}
                                 source={require('../images/Chat.png')}/>
