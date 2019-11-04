@@ -60,15 +60,15 @@ export default class ResultsScreen extends Component {
         {
           loading ?
             <View>
-               <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+               <ActivityIndicator style={{alignItems:'center'}} size={40} color="#74b9ff" />
             </View>
             :
             <View>
-                <View style={styles.topBar}>             
+                {/* <View style={styles.topBar}>             
                   <Text ></Text>
                   <Text style={{fontSize: 20,color:'#FFFFFF'}}>Results</Text>
                   <Text ></Text>
-                </View>
+                </View> */}
               <View>
                 {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :

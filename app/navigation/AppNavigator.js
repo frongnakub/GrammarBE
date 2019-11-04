@@ -1,103 +1,92 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
-import React from 'react'
+
 import Login from '../screens/Login';
-import HomeScreen from '../screens/HomeScreen';
-import MenuScreen from '../screens/MenuScreen';
-import PreTestScreen from '../screens/PreTestScreen';
+import Register from '../screens/Register'
 import Profile from '../screens/Profile';
-import ResultScreen from '../screens/ResultScreen';
-import ResultScreen2 from '../screens/ResultScreen2';
-import LessonScreen from '../screens/LessonScreen';
-import GameScreen from '../screens/GameScreen';
-import PosttestQuestion from '../screens/PostTestQuestions';
+import MenuScreen from '../screens/MenuScreen';
+import Tenses from '../screens/LessonTenses';
+
+//TEST
 import PretestQuestions from '../screens/PreTestQuestions';
 import PretestQuestions2 from '../screens/PreTestQuestions2';
-import PresentSimple from '../contents/PresentSimple';
+import PosttestQuestion from '../screens/PostTestQuestions';
+
+//RESULT
+import ResultScreen from '../screens/ResultScreen';
+import ResultScreen2 from '../screens/ResultScreen2';
+
+//EXCERCISE
 import PresentSimpleExercise from '../exercises/PresentSimple';
-import PresentContinuous from '../contents/PresentContinuous'
 import PresentContinuousExercise from '../exercises/PresentContinuous'
-import PresentPerfect from '../contents/PresentPerfect'
 import PresentPerfectExercise from '../exercises/PresentPerfect'
-import PresentPerfectContinuous from '../contents/PresentPerfectContinuous'
 import PresentPerfectContinuousExercise from '../exercises/PresentPerfectContinuous'
-import PastSimple from '../contents/PastSimple'
 import PastSimpleExercise from '../exercises/PastSimple'
-import PastContinuous from '../contents/PastContinuous'
 import PastContinuousExercise from '../exercises/PastContinuous'
-import PastPerfect from '../contents/PastPerfect'
 import PastPerfectExercise from '../exercises/PastPerfect'
-import PastPerfectContinuous from '../contents/PastPerfectContinuous'
 import PastPerfectContinuousExercise from '../exercises/PastPerfectContinuous'
-import FutureSimple from '../contents/FutureSimple'
 import FutureSimpleExercise from '../exercises/FutureSimple'
-import FutureContinuous from '../contents/FutureContinuous'
 import FutureContinuousExercise from '../exercises/FutureContinuous'
-import FuturePerfect from '../contents/FuturePerfect'
 import FuturePerfectExercise from '../exercises/FuturePerfect'
-import FuturePerfectContinuous from '../contents/FuturePerfectContinuous'
 import FuturePerfectContinuousExercise from '../exercises/FuturePerfectContinuous'
-import Article from '../contents/Article'
 import ArticleExercise from '../exercises/Article'
-import SingularPlural from '../contents/Singular&Plural'
 import SingularPluralExercise from '../exercises/Singular&Plural'
-import Pronoun from '../contents/Pronoun'
 import PronounExercise from '../exercises/Pronoun'
-import Preposition from '../contents/Preposition'
 import PrepositionExercise from '../exercises/Preposition'
-import Auxiliary from '../contents/AuxiliaryVerb'
 import AuxiliaryExercise from '../exercises/AuxiliaryVerb'
-import Adverb from '../contents/Adverb'
 import AdverbExercise from '../exercises/Adverb'
-import Adjective from '../contents/Adjective'
 import AdjectiveExercise from '../exercises/Adjective'
-import Conjunction from '../contents/Conjunction'
 import ConjunctionExercise from '../exercises/Conjunction'
-import Gerund from '../contents/Infinitive&Gerund'
 import GerundExercise from '../exercises/Infinitive&Gerund'
-import Participle from '../contents/Participle'
 import ParticipleExercise from '../exercises/Participle'
-import Comparison from '../contents/Comparison'
 import ComparisonExercise from '../exercises/Comparison'
-import ActivePassive from '../contents/Active&Passive'
 import ActivePassiveExercise from '../exercises/Active&Passive'
-import IfClause from '../contents/If-clause'
 import IfClauseExercise from '../exercises/If-clause'
-import Tenses from '../screens/LessonTenses';
-import Register from '../screens/Register'
 
-// import {
-//     Router,
-//     Scene,
-// } from 'react-native-router-flux';
 
-// class App extends React.Component {
-//     render() {
-//         return ( 
-//             <Router>
-//                 <Scene key = 'root'>
-//                     <Scene key = 'home' component = {ForumHome} title = 'ForumHome' />
-//                     <Scene key = 'chat' component = {ForumChat} title = 'ForumChat' />
-//                 </Scene>
-//             </Router>
-//         )
-//     }
-    
-// }
+//LESSON
+import PresentSimple from '../contents/PresentSimple';
+import PresentContinuous from '../contents/PresentContinuous'
+import PresentPerfect from '../contents/PresentPerfect'
+import PresentPerfectContinuous from '../contents/PresentPerfectContinuous'
+import PastSimple from '../contents/PastSimple'
+import PastContinuous from '../contents/PastContinuous'
+import PastPerfect from '../contents/PastPerfect'
+import PastPerfectContinuous from '../contents/PastPerfectContinuous'
+import FutureSimple from '../contents/FutureSimple'
+import FutureContinuous from '../contents/FutureContinuous'
+import FuturePerfect from '../contents/FuturePerfect'
+import FuturePerfectContinuous from '../contents/FuturePerfectContinuous'
+import Article from '../contents/Article'
+import SingularPlural from '../contents/Singular&Plural'
+import Pronoun from '../contents/Pronoun'
+import Preposition from '../contents/Preposition'
+import Auxiliary from '../contents/AuxiliaryVerb'
+import Adverb from '../contents/Adverb'
+import Adjective from '../contents/Adjective'
+import Conjunction from '../contents/Conjunction'
+import Gerund from '../contents/Infinitive&Gerund'
+import Participle from '../contents/Participle'
+import Comparison from '../contents/Comparison'
+import ActivePassive from '../contents/Active&Passive'
+import IfClause from '../contents/If-clause'
+
 
 const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
+    Regis: {screen: Register},
     Profile: {screen: Profile},
-    Home: {screen: HomeScreen},
+
     Menu: {screen: MenuScreen},
-    Pretest: {screen: PreTestScreen},
-    Lesson: {screen: LessonScreen},
-    Game: {screen: GameScreen},
-    ResultScreen: {screen: ResultScreen},
-    ResultScreen2: {screen: ResultScreen2},
+    Tenses: {screen: Tenses},
+
     PosttestQuestion: {screen: PosttestQuestion},
     PretestQuestions: {screen: PretestQuestions},
     PretestQuestions2: {screen: PretestQuestions2},
+
+    ResultScreen: {screen: ResultScreen},
+    ResultScreen2: {screen: ResultScreen2},
+
     PresentSimple: {screen: PresentSimple},
     PresentSimpleExercise: {screen: PresentSimpleExercise},
     PresentContinuous: {screen: PresentContinuous},
@@ -148,25 +137,10 @@ const MainNavigator = createSwitchNavigator({
     ActivePassiveExercise: {screen: ActivePassiveExercise},
     IfClause: {screen: IfClause},
     IfClauseExercise: {screen: IfClauseExercise},
-    Tenses: {screen: Tenses},
-    Regis: {screen: Register},
+    
 });
 
 const App = createAppContainer(MainNavigator);
 
 export default App;
 
-
-// import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-
-// import HomeScreen from '../screens/HomeScreen';
-// import PresentSimpleExercise from '../exercises/PresentSimple';
-
-
-// const MainNavigator = createSwitchNavigator({
-// Home: {screen: HomeScreen},
-// PresentSimpleExercise: {screen: PresentSimpleExercise},
-// });
-
-// const App = createAppContainer(MainNavigator);
-// export default App;

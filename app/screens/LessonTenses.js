@@ -3,115 +3,358 @@ import {
     StyleSheet,
     Text,
     View,
-    Button,
-    ScrollView,
+    TouchableOpacity,
     Dimensions,
-    TouchableHighlight
+    ScrollView,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const {width: WIDTH} = Dimensions.get('window');
 
-export default class Lesson extends Component {
-    
-    render() {
+export default class Questions extends Component {
+    static navigationOptions = ({navigation}) => {
+        return {
+          headerTitle: () => (
+          <Text>Tenses</Text>),
+          headerLeft: () => (
+            <TouchableOpacity style={styles.headerButton} onPress={() => {navigation.navigate('Menu')}}>
+            {/* onPress={navigation.getParam('increaseCount')}> */}
+              <Icon
+                name="left"
+                color="black"
+                size={20}
+              />
+           </TouchableOpacity>
+          ),
+        };
+      };
 
-        const { navigate } = this.props.navigation;
-        return (
-            <View style={styles.container}>
-                {/* <TopBarBack/>  */}
-                <View style={styles.topBar}>           
-                        <Icon
-                            name="left"
-                            backgroundColor="#7F4F2C"
-                            size={30}
-                            onPress={() => navigate('Lesson')}
-                            >
-                        </Icon>
-                        <Text style={{fontSize: 20,color:'#FFFFFF'}}>TENSES</Text>
-                        <Text style={{color:'#7F4F2C'}}>Next</Text>
-                </View>
-                <ScrollView >
-                    <View style={styles.content}>
-                        <Text></Text>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PresentSimple')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Present Simple</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PresentContinuous')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Present Continuous</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PresentPerfect')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Present Perfect</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PresentPerfectContinuous')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Present Perfect Continuous</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastSimple')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Past Simple</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastContinuous')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Past Continuous</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastPerfect')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Past Perfect</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('PastPerfectContinuous')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Past Perfect Continuous</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FutureSimple')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Future Simple</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FutureContinuous')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Future Continuous</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FuturePerfect')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Future Perfect</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight  style={styles.roundedBtn} onPress={() => navigate('FuturePerfectContinuous')} underlayColor="rgba(215, 147, 63,.3)">
-                            <Text style={styles.roundedBtnText}>Future Perfect Continuous</Text>
-                        </TouchableHighlight>
-                    </View>
-                </ScrollView>
-            </View>
-        );
-    }
+
+  render() {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <ScrollView style={styles.container}>
+        <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('PresentSimple')}>
+          <Text style={styles.lessonText1}>Present Simple</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= 'rgba(244,67,54,0.5)'
+          />          
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate('PresentContinuous')}>
+          <Text style={styles.lessonText2}>Present Continuous</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= 'rgba(233,30,99,0.7)'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('PresentPerfect')}>
+          <Text style={styles.lessonText3}>Present Perfect</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#9C27B0'
+          />          
+        </TouchableOpacity> 
+        <TouchableOpacity style={styles.lessonContainer4} onPress={() => navigate('PresentPerfectContinuous')}>
+          <Text style={styles.lessonText4}>Present Perfect Continuous</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#9C27B0'
+          />          
+        </TouchableOpacity>     
+        <TouchableOpacity style={styles.lessonContainer5} onPress={() => navigate('PastSimple')}>
+          <Text style={styles.lessonText5}>Past Simple</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#9C27B0'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer6} onPress={() => navigate('PastContinuous')}>
+          <Text style={styles.lessonText6}>Past Continuous</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#3F51B5'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('PastPerfect')}>
+          <Text style={styles.lessonText7}>Past Perfect</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#03A9F4'
+          />          
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('PastPerfectContinuous')}>
+          <Text style={styles.lessonText8}>Past Perfect Continuous</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#03A9F4'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer9} onPress={() => navigate('FutureSimple')}>
+          <Text style={styles.lessonText9}>Future Simple</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#00BCD4'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer10} onPress={() => navigate('FutureContinuous')}>
+          <Text style={styles.lessonText10}>Future Continuous</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#4CAF50'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer11} onPress={() => navigate('FuturePerfect')}>
+          <Text style={styles.lessonText11}>Future Perfect</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#CDDC39'
+          />          
+        </TouchableOpacity>   
+        <TouchableOpacity style={styles.lessonContainer12} onPress={() => navigate('FuturePerfectContinuous')}>
+          <Text style={styles.lessonText12}>Future Perfect Continuous</Text>
+          <Text></Text>
+          <Icon
+            name="right"
+            size={20}
+            color= '#FFC107'
+          />          
+        </TouchableOpacity>     
+      </ScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor:'#EAD8AB',
-    },
-    topBar: {
-        alignSelf: 'stretch',
-        height: 52,
-        width: WIDTH,
-        flexDirection: 'row', // row
-        backgroundColor: '#7F4F2C',
-        alignItems: 'center',
-        justifyContent: 'space-between', // center, space-around  
-        paddingLeft: 10,
-        paddingRight: 10, 
-    },
-    roundedBtnText: {
-        fontSize: 22,
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        color:'#810000',
-        textAlign: 'center',
-    },
-    roundedBtn: {
-        width: 300,
-        backgroundColor: '#d7933f',
-        borderRadius: 50,
-        marginBottom: 13,
-        paddingTop: 8,
-        paddingBottom: 8
-    },
-    content: {
-        alignSelf: 'center',
-        alignItems: 'center',
-        flex: 2
-    },
-  });
+  container: {
+    flex: 1,
+    width: WIDTH,
+    flexDirection: 'column',
+    //backgroundColor: '#EAD8AB',
+  },
+  headerTitle:{
+    color: '#fff',
+    fontSize: 15,
+    padding: 20,
+    textAlign: 'center'
+  },
+  headerButton:{
+    padding: 10,
+  },
+  lessonContainer1:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: 'rgba(244,67,54,0.5)',
+    borderWidth: 5,
+  },
+  lessonText1:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: 'rgba(244,67,54,0.5)',
+  },
+  lessonContainer2:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: 'rgba(233,30,99,0.7)',
+    borderWidth: 5
+  },
+  lessonText2:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: 'rgba(233,30,99,0.7)',
+  },
+  lessonContainer3:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#9C27B0',
+    borderWidth: 5
+  },
+  lessonText3:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#9C27B0',
+  },
+  lessonContainer4:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#3F51B5',
+    borderWidth: 5
+  },
+  lessonText4:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#3F51B5',
+  },
+  lessonContainer5:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#2196F3',
+    borderWidth: 5
+  },
+  lessonText5:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#2196F3',
+  },
+  lessonContainer6:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#03A9F4',
+    borderWidth: 5
+  },
+  lessonText6:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#03A9F4',
+  },
+  lessonContainer7:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#00BCD4',
+    borderWidth: 5
+  },
+  lessonText7:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#00BCD4',
+  },
+  lessonContainer8:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#009688',
+    borderWidth: 5
+  },
+  lessonText8:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#009688',
+  },
+  lessonContainer9:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#4CAF50',
+    borderWidth: 5
+  },
+  lessonText9:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#4CAF50',
+  },
+  lessonContainer10:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderColor: '#8BC34A',
+    borderWidth: 5
+  },
+  lessonText10:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#8BC34A',
+  },
+  lessonContainer11:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    alignItems: 'center',
+    borderColor: '#CDDC39',
+    borderWidth: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  lessonText11:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#CDDC39',
+  },
+  lessonContainer12:{
+    alignSelf: 'stretch',
+    padding: 20,
+    height: 70,
+    alignItems: 'center',
+    borderColor: '#FFC107',
+    borderWidth: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  lessonText12:{
+    fontSize: 18,
+    fontFamily: 'comicsansms',
+    fontWeight: '500',
+    color: '#FFC107',
+  },
+});

@@ -64,11 +64,11 @@ export default class ResultsScreen extends Component {
             </View>
             :
             <View>
-                <View style={styles.topBar}>             
+                {/* <View style={styles.topBar}>             
                   <Text ></Text>
                   <Text style={{fontSize: 20,color:'#FFFFFF'}}>Results</Text>
                   <Text ></Text>
-                </View>
+                </View> */}
               <View>
                 {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :

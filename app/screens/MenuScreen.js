@@ -1,170 +1,417 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    View,
-    Dimensions,
-    TouchableOpacity,
-    ScrollView,
     Text,
-    Image
+    View,
+    TouchableOpacity,
+    Dimensions,
+    ScrollView,
+    ImageBackground
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+const {width: WIDTH} = Dimensions.get('window');
 
-const rows = 3;
-const cols = 2;
-const marginHorizontal = 4;
-const marginVertical = 4;
-const width = (Dimensions.get('window').width / cols) - (marginHorizontal * (cols + 1));
-const height = (Dimensions.get('window').height / rows) - (marginVertical * (rows + 1));
-
-
-
-export default class MenuScreen extends Component {
-
+export default class HomeScreen extends Component {
+    
     render () {
+        const { navigate } = this.props.navigation;
         return (
-            <View style={stylesGrid.container}>
-                    <View style={stylesGrid.topBar}>             
-                        <Text style={{color:'#7F4F2C'}}>Back</Text>
-                        <Text style={{fontSize: 20,color:'#FFFFFF'}}>HOME</Text>
-                        <Icon
-                            name="logout"
-                            color="#ffff"
-                            backgroundColor="#7F4F2C"
-                            size={30}
-                            onPress={() => this.props.navigation.navigate('Logged')}
-                            >
-                        </Icon>
-                    </View>
-                <ScrollView>
-                <View style={stylesGrid.sectionContainer}>
-                        {/* <TouchableOpacity onPress={() => navigate('Pretest',{username: this.state.username})} style={stylesGrid.boxContainer}>
-                            <Image
-                                style={{width: 100, height: 100}}
-                                source={require('../images/Pre.png')}/>
-                            <Text>Pre-test</Text>
-                        </TouchableOpacity> */}
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Lesson')} style={stylesGrid.boxContainer}>
-                            <Image
-                                style={{width: 100, height: 100}}
-                                source={require('../images/Lesson.png')}/>
-                            <Text>Lesson</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Game')} style={stylesGrid.boxContainer}>
-                            <Image
-                                style={{width: 100, height: 100}}
-                                source={require('../images/Game1.png')}/>
-                            <Text>Game</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('PosttestQuestion')} style={stylesGrid.boxContainer}>
-                            <Image
-                                style={{width: 100, height: 100}}
-                                source={require('../images/Post.png')}/>
-                            <Text>Post-test</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ForumHome')} style={stylesGrid.boxContainer}>
-                            <Image
-                                style={{width: 100, height: 100}}
-                                source={require('../images/Chat.png')}/>
-                            <Text>Forum</Text>
-                        </TouchableOpacity>
-                        {/* <Text style={stylesGrid.boxContainer1}></Text> */}
-                    </View>  
-                </ScrollView>
-             </View>   
+            <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
+        <ScrollView >
+          <View style={styles.container}>
+            <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('Article')}>
+              <Text></Text>
+              <Text style={styles.lessonText1}>Article</Text>       
+              <Text></Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate('SingularPlural')}>
+            <Text></Text>
+              <Text style={styles.lessonText2}>Singular / Plural</Text>   
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('Auxiliary')}>
+              <Text></Text>
+              <Text style={styles.lessonText3}>Auxiliary Verb</Text>     
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer4} onPress={() => navigate('Adverb')}>
+              <Text></Text>
+              <Text style={styles.lessonText4}>Adverb</Text>     
+              <Text></Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.lessonContainer5} onPress={() => navigate('Adjective')}>
+              <Text></Text>
+              <Text style={styles.lessonText5}>Adjective</Text>     
+              <Text></Text>
+            </TouchableOpacity>      
+            <TouchableOpacity style={styles.lessonContainer6} onPress={() => navigate('Conjunction')}>
+              <Text></Text>  
+              <Text style={styles.lessonText6}>Conjunction</Text>   
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('Gerund')}>
+              <Text></Text>
+              <Text style={styles.lessonText8}>Infinitive And Gerund</Text>      
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('Participle')}>
+              <Text></Text>
+              <Text style={styles.lessonText8}>Participle</Text>        
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer9} onPress={() => navigate('Comparison')}>
+              <Text></Text>
+              <Text style={styles.lessonText9}>Comparison</Text>  
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer10} onPress={() => navigate('ActivePassive')}>
+              <Text></Text>
+              <Text style={styles.lessonText10}>Active / Passive</Text>    
+              <Text></Text>
+            </TouchableOpacity>   
+            <TouchableOpacity style={styles.lessonContainer11} onPress={() => navigate('IfClause')}>
+              <Text></Text>  
+              <Text style={styles.lessonText11}>If-clause</Text>
+              <Text></Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.lessonContainer12} onPress={() => navigate('MenuPrepos')}>
+              <Text></Text>   
+              <Text style={styles.lessonText12}>Preposition</Text>
+              <Text></Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.lessonContainer13} onPress={() => navigate('Preposition')}>
+              <Text></Text> 
+              <Text style={styles.lessonText13}>Pronoun</Text>      
+              <Text></Text>
+            </TouchableOpacity>      
+            <TouchableOpacity style={styles.lessonContainer14} onPress={() => navigate('Tenses')}>
+              <Text></Text>
+              <Text style={styles.lessonText14}>Tenses</Text> 
+              <Text></Text>
+            </TouchableOpacity>   
+          </View>
+          
+
+        </ScrollView>        
+      </ImageBackground>
         )
     }
 }
 
-const stylesGrid = StyleSheet.create({
-    topBar: {
-        alignSelf: 'stretch',
-        height: 52,
-        flexDirection: 'row', // row
-        backgroundColor: '#7F4F2C',
-        alignItems: 'center',
-        justifyContent: 'space-between', // center, space-around
-        paddingLeft: 10,
-        paddingRight: 10
+const styles = StyleSheet.create({
+    backgroundImg: {
+      flex: 1,
+      width: WIDTH,
     },
     container: {
-        flex: 1,
-        backgroundColor:'#EAD8AB',
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'center',
+      //backgroundColor:'rgba(155,0,24,.5)'
     },
-    sectionContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        alignItems: 'center',
+    // headerTitle:{
+    //   color: '#fff',
+    //   fontSize: 15,
+    //   padding: 20,
+    //   textAlign: 'center',
+    //   fontFamily: 'Romance',
+    // },
+    headerButton:{
+      padding: 10,
     },
-    boxContainer: {
-        marginTop: marginVertical,
-        marginBottom: marginVertical,
-        marginLeft: marginHorizontal,
-        marginRight: marginHorizontal,
-        width: width,
-        height: height,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FFFFFF',
+    lessonContainer1:{
+      alignSelf: 'stretch',
+      padding: 20,
+      alignItems: 'center',
+      borderColor: 'rgba(244,67,54,0.5)',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
-    boxContainer1: {
-        marginTop: marginVertical,
-        marginBottom: marginVertical,
-        marginLeft: marginHorizontal,
-        marginRight: marginHorizontal,
-        width: width,
-        height: height,
-        justifyContent: 'center',
-        alignItems: 'center',
+    lessonText1:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: 'rgb(244,67,54)',
     },
-  })
-  
-              /*<ScrollView>
-                    <View style={stylesGrid.sectionContainer}>
-                        <TouchableOpacity onPress={() => navigate('Pretest')} style={stylesGrid.boxContainer}>
-                            <Text>Pre-test</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Lesson')} style={stylesGrid.boxContainer}>
-                            <Text>Lesson</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Game')} style={stylesGrid.boxContainer}>
-                            <Text>Game</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Post-test')} style={stylesGrid.boxContainer}>
-                            <Text>Post-test</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigate('Forum')} style={stylesGrid.boxContainer}>
-                            <Text>Forum</Text>
-                        </TouchableOpacity>
-                        <View style={stylesGrid.boxContainer1}></View>
-                    </View>
-                </ScrollView>*/
-              /*<View style={[{width: "50%", margin: 10}]}>
-                <Button
-                    title="Pre-test"
-                    onPress={() => navigate('Pretest')}
-                ></Button>
-                <Text></Text>
-                <Button
-                    title="Lesson"
-                    onPress={() => navigate('Lesson')}
-                ></Button>
-                <Text></Text>
-                <Button
-                    title="Game"
-                    onPress={() => navigate('Game')}
-                ></Button>
-                <Text></Text>
-                <Button
-                    title="Post-test"
-                    onPress={() => navigate('Posttest')}
-                ></Button>
-                <Text></Text>
-                <Button
-                    title="Forum"
-                    onPress={() => navigate('Forum')}
-                ></Button>
-            </View>*/
+    lessonContainer2:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: 'rgba(233,30,99,0.7)',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText2:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: 'rgba(233,30,99,0.7)',
+    },
+    lessonContainer3:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#9C27B0',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText3:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#9C27B0',
+    },
+    lessonContainer4:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#3F51B5',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText4:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#3F51B5',
+    },
+    lessonContainer5:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#2196F3',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText5:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#2196F3',
+    },
+    lessonContainer6:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#03A9F4',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText6:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#03A9F4',
+    },
+    lessonContainer7:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#00BCD4',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText7:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#00BCD4',
+    },
+    lessonContainer8:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#009688',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText8:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#009688',
+    },
+    lessonContainer9:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#4CAF50',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText9:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#4CAF50',
+    },
+    lessonContainer10:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#8BC34A',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText10:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#8BC34A',
+    },
+    lessonContainer11:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#CDDC39',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText11:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#CDDC39',
+    },
+      lessonContainer12:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#FFC107',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText12:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#FFC107',
+    },
+    lessonContainer13:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#FF9800',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText13:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#FF9800',
+    },
+    lessonContainer14:{
+      alignSelf: 'stretch',
+      padding: 20,
+      height: 70,
+      alignItems: 'center',
+      borderColor: '#FF5722',
+      borderWidth: 5,
+      height: 120,
+      width: (WIDTH/2)-20,
+      borderRadius: 50,
+      marginVertical: 10,
+      marginHorizontal: 5,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    lessonText14:{
+      fontSize: 20,
+      fontFamily: 'comicsansms',
+      color: '#FF5722',
+    },
+  });

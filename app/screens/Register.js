@@ -10,25 +10,13 @@ import {
     ActivityIndicator ,
     Dimensions
 } from 'react-native';
+
 import axios from 'axios';
 
-const { height, width } = Dimensions.get('window');
-
-const w = percent => (width * percent) / 100;
-const h = percent => (height * percent) / 100;
-const totalSize = num => (Math.sqrt((height * height) + (width * width)) * num) / 100;
+const {width: WIDTH} = Dimensions.get('window');
+const {height: HEIGHT} = Dimensions.get('window');
 
 export default class Register extends Component {
-    static navigationOptions = ({ navigation }) => {
-        return {
-            title: 'Buat akun',
-            headerStyle: {
-                backgroundColor: '#fff',
-            },
-            headerTintColor: '#7EB633',
-        }
-    }
-
     state = {
         username: '',
         password: '',
@@ -73,150 +61,104 @@ export default class Register extends Component {
     render() {
         const { loading, message } = this.state
         return (
-            <ImageBackground source={require('../images/hood.png')} style={styles.backgroundImg}>
-           
-                <View style={styles.wrapper}>
-                    <Text style={styles.title}>Register Form</Text>
+            <View style={styles.container}>
+                <View style={styles.colContainer}>
+                    <Text style={styles.textRes}>REGISTER</Text>
                     <Text style={{color: 'red'}}>{message}</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Name"
-                        keyboardType="default"
-                        onChangeText={(text) => this.setState({ name: text })}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Surname"
-                        keyboardType="default"
-                        onChangeText={(text) => this.setState({ surname: text })}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="E-mail"
-                        keyboardType="default"
-                        onChangeText={(text) => this.setState({ email: text })}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Username"
-                        keyboardType="default"
-                        onChangeText={(text) => this.setState({ username: text })}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Password"
-                        secureTextEntry={true}
-                        onChangeText={(text) => this.setState({ password: text })}
-                    />
+                    <View style={styles.infoContainer}>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Name"
+                            keyboardType="default"
+                            onChangeText={(text) => this.setState({ name: text })}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Surname"
+                            keyboardType="default"
+                            onChangeText={(text) => this.setState({ surname: text })}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="E-mail"
+                            keyboardType="default"
+                            onChangeText={(text) => this.setState({ email: text })}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Username"
+                            keyboardType="default"
+                            onChangeText={(text) => this.setState({ username: text })}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Password"
+                            secureTextEntry={true}
+                            onChangeText={(text) => this.setState({ password: text })}
+                        />
+                    </View>
                     {
                         loading ? <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                             :
                             <TouchableOpacity onPress={this.register}>
-                                <Text style={styles.register}>Register</Text>
+                                <Text style={styles.textRegister}>Register</Text>
                             </TouchableOpacity>
                     }
-
                 </View>
-
-            </ImageBackground>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    // container: {
-    //     flex: 1,
-    //     color: '#3E3E3E',
-    //     backgroundColor: '#03A9F4',
-    //     padding: 100,
-    // },
-    backgroundImg: {
+    container:{
         flex: 1,
-        width: width,
-        height: height,
-        backgroundColor:'transparent',
+        width: WIDTH,
+        flexDirection: 'column',
+        backgroundColor: 'rgb(105,194,198)'
+    },
+    colContainer:{
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'center',
+        flex: 1,
     },
-    // wrapper: {
-    //     flex: 1,
-    //     backgroundColor: 'white',
-    //     padding: 20,
-    //     borderRadius: 20,
-    // },
-    title: {
-        alignItems: 'center',
-        fontSize: totalSize(5),
-        marginBottom: h(4),
-        marginTop: h(7),
-        fontWeight: '700',
-        color: '#ffff',
-        textAlign: 'center'
+    textRes:{
+        fontSize: 30,
+        fontWeight: "bold",
+        color: '#fff',
+        marginBottom: 30,
     },
-    register: {
+    infoContainer:{
+        left: 0,
+        right: 0,
+        bottom: 0,
+        padding: 20,
+        // backgroundColor: 'red'
+    },
+    input:{
+        alignItems: 'center',
+        // borderRadius: 15,
+        borderColor: 'rgb(0,0,0)',
+        backgroundColor: '#fff',
+        paddingHorizontal: 10,
+        marginBottom: 10,
+        paddingRight: 10,
+        paddingLeft: 10,
+        width: 300,
+    },
+    textRegister: {
+        width: 200,
         marginTop: 20,
-        backgroundColor: '#03A9F4',
+        // backgroundColor: '#03A9F4',
+        backgroundColor: 'white',
         textAlign: 'center',
         padding: 10,
-        color: 'white',
+        color: 'rgb(105,194,198)',
         fontWeight: '700',
-        fontSize: totalSize(2.5),
-        borderRadius: 30,
+        fontSize: 18,
+        // borderRadius: 30,
         elevation: 5,
         alignItems: 'center',
     },
-    // name: {
-    //     marginTop: 2,
-    //     backgroundColor: '#EEEEEE',
-    //     color: '#3E3E3E',
-    //     padding: 10,
-    //     width: 175,
-    //     fontSize: 17,
-    //     borderColor: 'white',
-    //     borderTopLeftRadius: 15,
-    //     borderTopRightRadius: 15,
-    //     borderBottomWidth: 1,
-    //     elevation: 5,
 
-    // },
-    // username: {
-    //     marginTop: 5,
-    //     backgroundColor: '#EEEEEE',
-    //     color: '#3E3E3E',
-    //     padding: 10,
-    //     width: 175,
-    //     fontSize: 17,
-    //     borderColor: 'white',
-    //     borderTopLeftRadius: 15,
-    //     borderTopRightRadius: 15,
-    //     borderBottomWidth: 1,
-    //     elevation: 5,
-    // },
-    // password: {
-    //     marginTop: 5,
-    //     backgroundColor: '#EEEEEE',
-    //     color: '#3E3E3E',
-    //     padding: 10,
-    //     width: 175,
-    //     fontSize: 17,
-    //     borderColor: 'white',
-    //     borderTopLeftRadius: 15,
-    //     borderTopRightRadius: 15,
-    //     borderBottomWidth: 1,
-    //     elevation: 5,
-    // }
-    input: {
-        marginVertical: 5,
-        flexDirection: 'row', // row
-        backgroundColor: '#EEEEEE',
-        alignItems: 'center',
-        justifyContent: 'space-between', // center, space-around
-        paddingLeft: 10,
-        paddingRight: 10,
-        borderColor: 'white',
-        borderRadius: 15,
-        marginTop: h(1.5),
-        marginBottom: h(1.5),
-        elevation: 5,
-    },
 });
