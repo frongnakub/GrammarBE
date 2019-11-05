@@ -51,7 +51,7 @@ export default class HomeScreen extends Component {
             </TouchableOpacity>   
             <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('Gerund')}>
               <Text></Text>
-              <Text style={styles.lessonText8}>Infinitive And Gerund</Text>      
+              <Text style={styles.lessonText7}>Infinitive & Gerund</Text>      
               <Text></Text>
             </TouchableOpacity>   
             <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('Participle')}>
@@ -140,10 +140,11 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: 'rgb(244,67,54)',
+      textAlign: 'center'
     },
     lessonContainer2:{
       alignSelf: 'stretch',
-      padding: 20,
+      //padding: 20,
       height: 70,
       alignItems: 'center',
       borderColor: 'rgba(233,30,99,0.7)',
@@ -158,13 +159,14 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
     },
     lessonText2:{
-      fontSize: 20,
+      fontSize: 17,
       fontFamily: 'comicsansms',
       color: 'rgba(233,30,99,0.7)',
+      textAlign: 'center'
     },
     lessonContainer3:{
       alignSelf: 'stretch',
-      padding: 20,
+      //padding: 20,
       height: 70,
       alignItems: 'center',
       borderColor: '#9C27B0',
@@ -179,9 +181,10 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
     },
     lessonText3:{
-      fontSize: 20,
+      fontSize: 17,
       fontFamily: 'comicsansms',
       color: '#9C27B0',
+      textAlign: 'center'
     },
     lessonContainer4:{
       alignSelf: 'stretch',
@@ -203,6 +206,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#3F51B5',
+      textAlign: 'center'
     },
     lessonContainer5:{
       alignSelf: 'stretch',
@@ -224,6 +228,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#2196F3',
+      textAlign: 'center'
     },
     lessonContainer6:{
       alignSelf: 'stretch',
@@ -245,10 +250,11 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#03A9F4',
+      textAlign: 'center'
     },
     lessonContainer7:{
       alignSelf: 'stretch',
-      padding: 20,
+      //padding: 20,
       height: 70,
       alignItems: 'center',
       borderColor: '#00BCD4',
@@ -263,9 +269,10 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
     },
     lessonText7:{
-      fontSize: 20,
+      fontSize: 16,
       fontFamily: 'comicsansms',
       color: '#00BCD4',
+      textAlign: 'center'
     },
     lessonContainer8:{
       alignSelf: 'stretch',
@@ -287,6 +294,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#009688',
+      textAlign: 'center'
     },
     lessonContainer9:{
       alignSelf: 'stretch',
@@ -308,10 +316,11 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#4CAF50',
+      textAlign: 'center'
     },
     lessonContainer10:{
       alignSelf: 'stretch',
-      padding: 20,
+      //padding: 20,
       height: 70,
       alignItems: 'center',
       borderColor: '#8BC34A',
@@ -326,9 +335,10 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
     },
     lessonText10:{
-      fontSize: 20,
+      fontSize: 16,
       fontFamily: 'comicsansms',
       color: '#8BC34A',
+      textAlign: 'center'
     },
     lessonContainer11:{
       alignSelf: 'stretch',
@@ -350,6 +360,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#CDDC39',
+      textAlign: 'center'
     },
       lessonContainer12:{
       alignSelf: 'stretch',
@@ -371,6 +382,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#FFC107',
+      textAlign: 'center'
     },
     lessonContainer13:{
       alignSelf: 'stretch',
@@ -392,6 +404,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#FF9800',
+      textAlign: 'center'
     },
     lessonContainer14:{
       alignSelf: 'stretch',
@@ -413,5 +426,6 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: 'comicsansms',
       color: '#FF5722',
+      textAlign: 'center'
     },
   });

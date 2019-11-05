@@ -135,17 +135,19 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        height: 280,
+        height: 290,
         padding: 20,
         // backgroundColor: 'red'
     },
     input:{
-        height: 40,
+        height: 50,
         backgroundColor: 'rgba(255,255,255,1)',
         color: 'rgb(0,0,0)',
         paddingHorizontal: 10,
         marginBottom: 20,
-        borderRadius: 10
+        borderRadius: 10,
+        fontFamily: 'comicsansms',
+        fontSize: 14,
     },
     buttonContainer:{
         backgroundColor: '#f7c744',
@@ -158,6 +160,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         fontSize: 18,
+        fontFamily: 'comicsansms',
     },
     click: {
         fontSize: 18,
@@ -165,6 +168,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#fff',
         fontWeight: 'bold',
+        fontFamily: 'comicsansms',
     },
     buttonCF:{
         alignSelf: 'stretch',
