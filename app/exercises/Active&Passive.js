@@ -54,12 +54,14 @@ export default class ActivePassive extends Component {
           check: true,
           answer: true,
         })
+        alert("Correct")
       } 
       else {
         this.setState({
           check: true,
           answer: false,
         })
+        alert("Wrong")
       }
     }
   }
@@ -104,7 +106,7 @@ export default class ActivePassive extends Component {
         <Text ></Text>
       </View> */}
       <View style={styles.headerContainer}>
-        <Text style={{padding: 10,textAlign:"right"}}>{qNo}/30</Text>
+        <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/10</Text>
       </View>
       {
         loading ?
@@ -139,38 +141,142 @@ export default class ActivePassive extends Component {
                     </View>
               }
             </View>
-
-            {/* Fotter */}
-            <View style={styles.infoContainer}>
-              <TouchableOpacity style={styles.iconContainer}>
-                <Icon
-                    name="left"
-                    color="#fff"
-                    size={20}
-                />
-                <Text style={styles.textIcon}>Previous</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconContainer}>
-                <Icon
-                    name="check"
-                    color="#fff"
-                    size={20}
-                />
-                <Text style={styles.textIcon}>Check</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconContainer}>
-                <Icon
-                    name="right"
-                    color="#fff"
-                    size={20}
-                />
-                <Text style={styles.textIcon}>Next</Text>
-              </TouchableOpacity>
-            </View>
-
+            {
+                check ?
+                  <View style={styles.infoContainer}>
+                    {
+                      answer ?
+                        <View>
+                           <TouchableOpacity style={styles.iconContainer} onPress={this.previousQuestion}>
+                            <Icon
+                                name="left"
+                                color="#fff"
+                                size={20}
+                            />
+                            <Text style={styles.textIcon}>Previous</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.iconContainer} onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
+                            <Icon
+                                name="check"
+                                color="#fff"
+                                size={20}
+                            />
+                            <Text style={styles.textIcon}>Check</Text>
+                          </TouchableOpacity>
+                          {questions.length === index + 1 ? (
+                            <TouchableOpacity style={styles.iconContainer} onPress={() => this.props.navigation.navigate('ActivePassive')}>
+                              <Icon
+                                  name="right"
+                                  color="#fff"
+                                  size={20}
+                              />
+                              <Text style={styles.textIcon}>Finish</Text>
+                            </TouchableOpacity>
+                          ) : (
+                            <TouchableOpacity style={styles.iconContainer} onPress={this.nextQuestion}>
+                              <Icon
+                                  name="right"
+                                  color="#fff"
+                                  size={20}
+                              />
+                              <Text style={styles.textIcon}>Next</Text>
+                            </TouchableOpacity>
+                          )}
+                        </View>
+                        :
+                        <View style={styles.infoContainer}>
+                          <TouchableOpacity style={styles.iconContainer} onPress={this.previousQuestion}>
+                            <Icon
+                                name="left"
+                                color="#fff"
+                                size={20}
+                            />
+                            <Text style={styles.textIcon}>Previous</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.iconContainer} onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
+                            <Icon
+                                name="check"
+                                color="#fff"
+                                size={20}
+                            />
+                            <Text style={styles.textIcon}>Check</Text>
+                          </TouchableOpacity>
+                          {questions.length === index + 1 ? (
+                            <TouchableOpacity style={styles.iconContainer} onPress={() => this.props.navigation.navigate('ActivePassive')}>
+                              <Icon
+                                  name="right"
+                                  color="#fff"
+                                  size={20}
+                              />
+                              <Text style={styles.textIcon}>Finish</Text>
+                            </TouchableOpacity>
+                          ) : (
+                            <TouchableOpacity style={styles.iconContainer} onPress={this.nextQuestion}>
+                              <Icon
+                                  name="right"
+                                  color="#fff"
+                                  size={20}
+                              />
+                              <Text style={styles.textIcon}>Next</Text>
+                            </TouchableOpacity>
+                          )}
+                        </View>
+                    }
+                  </View>
+                  :
+                  <View style={styles.infoContainer}>
+                    <TouchableOpacity style={styles.iconContainer} onPress={this.previousQuestion}>
+                        <Icon
+                          name="left"
+                          color="#fff"
+                          size={20}
+                        />
+                      <Text style={styles.textIcon}>Previous</Text>
+                    </TouchableOpacity>
+                    {
+                      selected ?
+                        <TouchableOpacity style={styles.iconContainer} onPress={() => this.checkAnswer(questions[index].CorrectAnswer)}>
+                          <Icon
+                              name="check"
+                              color="#fff"
+                              size={20}
+                          />
+                          <Text style={styles.textIcon}>Check</Text>
+                        </TouchableOpacity>
+                        :
+                        <TouchableOpacity style={styles.iconContainer}>
+                          <Icon
+                              name="check"
+                              color="#fff"
+                              size={20}
+                          />
+                          <Text style={styles.textIcon}>Check</Text>
+                        </TouchableOpacity>
+                    }
+                    {questions.length === index + 1 ? (
+                      <TouchableOpacity style={styles.iconContainer} onPress={() => this.props.navigation.navigate('ActivePassive')}>
+                        <Icon
+                            name="right"
+                            color="#fff"
+                            size={20}
+                        />
+                        <Text style={styles.textIcon}>Finish</Text>
+                      </TouchableOpacity>
+                    ) : (
+                      <TouchableOpacity style={styles.iconContainer} onPress={this.nextQuestion}>
+                        <Icon
+                          name="right"
+                          color="#fff"
+                          size={20}
+                        />
+                        <Text style={styles.textIcon}>Next</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+            }
           </View>
       }
-    </View>
-  );
-}
+      </View>
+    );
+  }
 }

@@ -84,7 +84,7 @@ module.exports  = StyleSheet.create({
     },
     textIcon:{
       fontSize: 10,
-      color: '#fff'
+      color: '#ffffff'
     }
   
   });

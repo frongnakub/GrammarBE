@@ -136,8 +136,8 @@ export default class Questions extends Component {
           <Text ></Text>
         </View> */}
         <View style={styles.headerContainer}>
-          <Text style={{padding: 10,textAlign:"left"}}> Round 1</Text>
-          <Text style={{padding: 10,textAlign:"right"}}>{qNo}/30</Text>
+          <Text style={{padding: 10,textAlign:"left",fontWeight:'400', fontSize: 16}}> Round 1</Text>
+          <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/30</Text>
         </View>
         {
           loading ?

@@ -147,17 +147,6 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: '500',
     },
-    // logout: {
-    //     backgroundColor: '#F44336',
-    //     textAlign: 'center',
-    //     padding: 10,
-    //     color: 'white',
-    //     marginTop: 20,
-    //     fontWeight: '500',
-    //     fontSize: 16,
-    //     borderRadius: 30,
-    //     elevation: 5
-    // },
     menu: {
       backgroundColor: '#03A9F4',
       textAlign: 'center',

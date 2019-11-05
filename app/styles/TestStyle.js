@@ -12,7 +12,7 @@ module.exports  = StyleSheet.create({
     headerContainer:{
       height: 40,
       flexDirection: 'row',
-      backgroundColor: 'rgba(255, 0, 0,0.8)',
+      backgroundColor: '#fa9f3e',
       justifyContent: 'space-between', 
     },
     bodyContainer:{
