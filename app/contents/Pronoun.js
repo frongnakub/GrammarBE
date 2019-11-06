@@ -79,7 +79,7 @@ export default class Pronoun extends Component {
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PronounExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Lesson')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

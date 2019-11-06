@@ -11,12 +11,26 @@ import {
 
 const {width: WIDTH} = Dimensions.get('window');
 
+import Icon from 'react-native-vector-icons/AntDesign';
+
+
 export default class HomeScreen extends Component {
     
     render () {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
+              <View style={styles.topBar}>             
+                <Text ></Text>
+                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME</Text>
+                <TouchableOpacity onPress={() => navigate('MenuBar')}>
+                  <Icon
+                  name="bars"
+                  size={30}
+                  />   
+                </TouchableOpacity>
+                    
+              </View>
         <ScrollView >
           <View style={styles.container}>
             <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('Article')}>
@@ -111,6 +125,18 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       //backgroundColor:'rgba(155,0,24,.5)'
     },
+    topBar: {
+      alignSelf: 'stretch',
+      height: 48,
+      flexDirection: 'row', // row
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'space-between', // center, space-around
+      paddingLeft: 10,
+      paddingRight: 10,
+      // borderBottomColor: '#fff',
+      // borderBottomWidth: 5
+     },
     // headerTitle:{
     //   color: '#fff',
     //   fontSize: 15,

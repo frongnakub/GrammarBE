@@ -4,15 +4,31 @@ const {width: WIDTH} = Dimensions.get('window');
 const {hight: HEIGHT} = Dimensions.get('window');
 
 module.exports  = StyleSheet.create({
-    headerTitle:{
-      color: '#fff',
-      fontSize: 15,
-      padding: 20,
-      textAlign: "center",
-      //backgroundColor: 'rgb(91, 136, 0)',
-    },
-    headerButton:{
-      padding: 10,
+    // headerTitle:{
+    //   color: '#fff',
+    //   fontSize: 15,
+    //   padding: 20,
+    //   textAlign: "center",
+    //   //backgroundColor: 'rgb(91, 136, 0)',
+    // },
+    // headerButton:{
+    //   padding: 10,
+    // },
+  topBar: {
+      alignSelf: 'stretch',
+      height: 48,
+      flexDirection: 'row', // row
+      backgroundColor: 'rgb(91, 136, 0)',
+      alignItems: 'center',
+      justifyContent: 'space-between', // center, space-around
+      paddingLeft: 10,
+      paddingRight: 10,
+      // borderBottomColor: '#fff',
+      // borderBottomWidth: 5
+     },
+    textNull:{
+      color: 'rgb(91, 136, 0)',
+      fontSize: 20
     },
     container: {
       flex: 1,

@@ -98,13 +98,22 @@ export default class ActivePassive extends Component {
 
   render() {
     const { questions, loading, index, answer, check, selected, username, qNo } = this.state
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-      {/* <View style={styles.topBar}>             
-        <Text ></Text>
-        <Text style={{fontSize: 20,color:'#FFFFFF'}}>PRE-TEST No.1</Text>
-        <Text ></Text>
-      </View> */}
+      <View style={styles.topBar}>             
+        <TouchableOpacity>          
+          <Icon
+            name="home"
+            size={30}
+            color='#fff'
+            paddinRight= {10}
+            onPress={() => navigate('Menu')}
+          />
+        </TouchableOpacity> 
+        <Text style={{fontSize: 20,color:'#fff',fontFamily: 'comicsansms'}}>Exercise</Text>
+        <Text style={styles.textNull}>DONE</Text>
+      </View>
       <View style={styles.headerContainer}>
         <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/10</Text>
       </View>

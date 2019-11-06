@@ -9,10 +9,22 @@ module.exports  = StyleSheet.create({
       width: WIDTH,
       flexDirection: 'column',
     },
+    topBar: {
+      alignSelf: 'stretch',
+      height: 48,
+      flexDirection: 'row', // row
+      backgroundColor: 'rgb(105,194,198)',
+      alignItems: 'center',
+      justifyContent: 'space-between', // center, space-around
+      paddingLeft: 10,
+      paddingRight: 10,
+      // borderBottomColor: '#fff',
+      // borderBottomWidth: 5
+     },
     headerContainer:{
       height: 40,
       flexDirection: 'row',
-      backgroundColor: '#fa9f3e',
+      backgroundColor: '#ffc2bc',
       justifyContent: 'space-between', 
     },
     bodyContainer:{

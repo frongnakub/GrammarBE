@@ -123,7 +123,7 @@ export default class ActivePassive extends Component {
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ActivePassiveExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Lesson')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

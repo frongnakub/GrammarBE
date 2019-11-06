@@ -70,7 +70,7 @@ export default class Adverb extends Component {
                                 <TouchableOpacity onPress={() =>  this.props.navigation.navigate('AdverbExercise')}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Lesson')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

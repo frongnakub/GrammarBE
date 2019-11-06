@@ -13,29 +13,42 @@ import Icon from 'react-native-vector-icons/AntDesign';
 const {width: WIDTH} = Dimensions.get('window');
 
 export default class Questions extends Component {
-    static navigationOptions = ({navigation}) => {
-        return {
-          headerTitle: () => (
-          <Text>Tenses</Text>),
-          headerLeft: () => (
-            <TouchableOpacity style={styles.headerButton} onPress={() => {navigation.navigate('Menu')}}>
-            {/* onPress={navigation.getParam('increaseCount')}> */}
-              <Icon
-                name="left"
-                color="black"
-                size={20}
-              />
-           </TouchableOpacity>
-          ),
-        };
-      };
+    // static navigationOptions = ({navigation}) => {
+    //     return {
+    //       headerTitle: () => (
+    //       <Text>Tenses</Text>),
+    //       headerLeft: () => (
+    //         <TouchableOpacity style={styles.headerButton} onPress={() => {navigation.navigate('Menu')}}>
+    //         {/* onPress={navigation.getParam('increaseCount')}> */}
+    //           <Icon
+    //             name="left"
+    //             color="black"
+    //             size={20}
+    //           />
+    //        </TouchableOpacity>
+    //       ),
+    //     };
+    //   };
 
 
   render() {
     const { navigate } = this.props.navigation;
 
     return (
-      <ScrollView style={styles.container}>
+      <View>
+              <View style={styles.topBar}> 
+                <TouchableOpacity>          
+                  <Icon
+                    name="arrowleft"
+                    size={30}
+                    onPress={() => navigate('Menu')}
+                  />
+                </TouchableOpacity>      
+                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>TENSES</Text>
+                 <Text ></Text>
+              </View>
+      
+        <ScrollView style={styles.container}>
         <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('PresentSimple')}>
           <Text style={styles.lessonText1}>Present Simple</Text>
           <Text></Text>
@@ -145,6 +158,8 @@ export default class Questions extends Component {
           />          
         </TouchableOpacity>     
       </ScrollView>
+      </View>
+      
     );
   }
 }
@@ -156,15 +171,25 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     //backgroundColor: '#EAD8AB',
   },
-  headerTitle:{
-    color: '#fff',
-    fontSize: 15,
-    padding: 20,
-    textAlign: 'center'
-  },
-  headerButton:{
-    padding: 10,
-  },
+  topBar: {
+    alignSelf: 'stretch',
+    height: 48,
+    flexDirection: 'row', // row
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'space-between', // center, space-around
+    paddingLeft: 10,
+    paddingRight: 10,
+   },
+  // headerTitle:{
+  //   color: '#fff',
+  //   fontSize: 15,
+  //   padding: 20,
+  //   textAlign: 'center'
+  // },
+  // headerButton:{
+  //   padding: 10,
+  // },
   lessonContainer1:{
     alignSelf: 'stretch',
     padding: 20,

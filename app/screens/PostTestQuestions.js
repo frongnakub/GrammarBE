@@ -95,11 +95,11 @@ export default class PosttestQuestion extends Component {
     const { questions, loading, index, answer, check, selected, username, qNo } = this.state
     return (
       <View style={styles.container}>
-        {/* <View style={styles.topBar}>             
+        <View style={styles.topBar}>             
           <Text ></Text>
-          <Text style={{fontSize: 20,color:'#FFFFFF'}}>PRE-TEST No.1</Text>
+          <Text style={{fontSize: 20,color:'#FFFFFF'}}>TEST</Text>
           <Text ></Text>
-        </View> */}
+        </View>
         <View style={styles.headerContainer}>
           <Text style={{padding: 10,textAlign:"right"}}>{qNo}/30</Text>
         </View>

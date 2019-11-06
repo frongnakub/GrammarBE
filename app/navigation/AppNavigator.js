@@ -5,6 +5,7 @@ import Login from '../screens/Login';
 import Register from '../screens/Register'
 import Profile from '../screens/Profile';
 import MenuScreen from '../screens/MenuScreen';
+import MenuBar from '../screens/MenuBar';
 import Tenses from '../screens/LessonTenses';
 
 //TEST
@@ -78,6 +79,7 @@ const MainNavigator = createSwitchNavigator({
     Profile: {screen: Profile},
 
     Menu: {screen: MenuScreen},
+    MenuBar: {screen: MenuBar},
     Tenses: {screen: Tenses},
 
     PosttestQuestion: {screen: PosttestQuestion},
