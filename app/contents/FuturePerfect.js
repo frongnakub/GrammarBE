@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    ImageBackground,
-    ActivityIndicator,
     TouchableOpacity,
     ScrollView
 } from 'react-native';
 import axios from 'axios';
 
 import styles from '../styles/Style';
+import FadeInView from '../screens/FadeInView';
 
 export default class FuturePerfect extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -49,8 +47,8 @@ export default class FuturePerfect extends Component {
         <ScrollView style={styles.container}>
             {
             loading ?
-                <View style={styles.load}>
-                    <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+                <View >
+                    <FadeInView />
                 </View>
                 :
                     <View style={styles.wrapper}>

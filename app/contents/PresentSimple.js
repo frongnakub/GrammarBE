@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
-    Dimensions,
-    ActivityIndicator,
     TouchableOpacity,
     ScrollView,
-    ImageBackground
 } from 'react-native';
 import axios from 'axios';
 
 import styles from '../styles/Style';
+import FadeInView from '../screens/FadeInView';
 
-const {width: WIDTH} = (Dimensions.get('window').width);
-const {height: HEIGHT} = (Dimensions.get('window').height);
 
 export default class PresentSimple extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-        title: 'Login',
-        headerStyle: {
-            backgroundColor: '#fff',
-        },
-        headerTintColor: '#03A9F4',
-    }
-  }
 
     state = {
         lessons: [],
@@ -53,8 +39,8 @@ export default class PresentSimple extends Component {
             <ScrollView>
                 {
                 loading ? 
-                    <View style={styles.load}>
-                        <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+                    <View  >
+                        <FadeInView />
                     </View>
                     :
                         <View style={styles.wrapper}>

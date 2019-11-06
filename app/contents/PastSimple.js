@@ -1,28 +1,17 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     Text,
     View,
     ImageBackground,
-    ActivityIndicator,
     TouchableOpacity,
     ScrollView
 } from 'react-native';
 import axios from 'axios';
 
 import styles from '../styles/Style';
+import FadeInView from '../screens/FadeInView';
 
 export default class PastSimple extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-        title: 'Login',
-        headerStyle: {
-            backgroundColor: '#fff',
-        },
-        headerTintColor: '#03A9F4',
-    }
-  }
-
     state = {
         lessons: [],
         loading: true,
@@ -49,8 +38,8 @@ export default class PastSimple extends Component {
         <ScrollView style={styles.container}>
             {
             loading ?
-                <View   style={styles.load}>
-                    <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+                <View  >
+                    <FadeInView />
                 </View>
                 :
                 <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>

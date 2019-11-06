@@ -14,16 +14,9 @@ import { Avatar } from 'react-native-elements';
 
 const { height, width } = Dimensions.get('window');
 
-export default class Questions extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-        title: 'Login',
-        headerStyle: {
-            backgroundColor: '#fff',
-        },
-        headerTintColor: '#03A9F4',
-    }
-  }
+import FadeInView from './FadeInView';
+
+export default class Profile extends Component {
 
   state = {
     profile: [],
@@ -59,7 +52,7 @@ export default class Questions extends Component {
         {
           loading ?
             <View>
-               <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
+               <FadeInView />
             </View>
             :
               <View>
@@ -72,8 +65,7 @@ export default class Questions extends Component {
                             size="xlarge"
                             //activeOpacity={0.7}
                             source={require('../images/network.png')}
-                            containerStyle={{marginTop: 20 ,marginBottom: 15 }}
-                            title="GB"    
+                            containerStyle={{marginTop: 20 ,marginBottom: 15 }} 
                           />
                           <Text style={styles.card}>{profile[index].Name}   {profile[index].Surname}</Text>
                           <Text style={styles.card}>{profile[index].Email}</Text>
