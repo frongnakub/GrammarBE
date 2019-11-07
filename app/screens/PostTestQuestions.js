@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Text,
-    View,
-    Button,
-    ActivityIndicator,
-    TouchableOpacity,
-    Dimensions
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  ActivityIndicator,
+  TouchableOpacity,
+  Dimensions
 } from 'react-native';
 
 import axios from 'axios';
-
 import styles from '../styles/TestStyle';
 
-export default class PosttestQuestion extends Component {
+export default class Questions extends Component {
   state = {
     questions: [],
     loading: true,
@@ -38,7 +37,7 @@ export default class PosttestQuestion extends Component {
 
   fetchQuestions() {
     //adb reverse tcp:3003 tcp:3003
-    axios.get("http://localhost:3003/posttest")
+    axios.get("http://localhost:3003/postTest")
     .then(res => {
       console.log('user no', res.data)
       this.setState({ questions: res.data, loading: false })
@@ -49,27 +48,44 @@ export default class PosttestQuestion extends Component {
     })
   }
 
+  getUserNo() {
+    const username = this.state.username
+    axios.get("http://localhost:3003/userId/"+ JSON.stringify(username))
+    .then(res => {
+      console.log('AAAAA', res.data)
+        this.setState({ 
+            profile: res.data, 
+            loading: false,
+        })
+    })
+    .catch(err => {
+      this.setState({ loading: false })
+    })
+  }
+
   chooseAnswer(answer) {
     this.setState({ selected: answer })
   }
 
   checkAnswer = (answer) => {
+    //const selected = this.setState.select
+    //this.setState({ userAnswer: this.state.selected })
     if (this.state.selected) {
       if (answer === this.state.selected) {
         this.setState({
           check: true,
           answer: true,
         })
-        return this.state.results = "Correct"
-        // this.sendAnswer()
+        return this.state.results = "Correct",
+        this.sendAnswer()
       } 
       else {
         this.setState({
           check: true,
           answer: false,
         })
-        return this.state.results = "Wrong"
-        // this.sendAnswer()
+        return this.state.results = "Wrong",
+        this.sendAnswer()
       }
     }
   }
@@ -89,7 +105,26 @@ export default class PosttestQuestion extends Component {
     }
   }
 
-
+  sendAnswer = () => {
+    const index = this.state.index
+    fetch('http://localhost:3003/answers', { 
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text-plain, */*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify ({
+            userNo: this.state.profile[0].UserNo,
+            testNo: this.state.questions[0].Test_TestNo,
+            questionNo: this.state.questions[index].QuestionNo,
+            userAnswer: this.state.selected,
+            results: this.state.results,
+        })
+    })
+    .then((response) => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+  }
 
   render() {
     const { questions, loading, index, answer, check, selected, username, qNo } = this.state
@@ -101,7 +136,7 @@ export default class PosttestQuestion extends Component {
           <Text ></Text>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={{padding: 10,textAlign:"right"}}>{qNo}/30</Text>
+          <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/30</Text>
         </View>
         {
           loading ?
@@ -146,7 +181,7 @@ export default class PosttestQuestion extends Component {
                             {/* <Text style={styles.true}>Result: Correct!</Text>}
                           </TouchableOpacity> */}
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')} style={styles.checkContainer}> 
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkContainer}> 
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -164,7 +199,7 @@ export default class PosttestQuestion extends Component {
                             {/* <Text style={styles.false}>Result: Wrong!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')} style={styles.checkContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkContainer}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -191,7 +226,7 @@ export default class PosttestQuestion extends Component {
                         </TouchableOpacity>
                     }
                     {questions.length === index + 1 ? (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')} style={styles.checkContainer}>
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkContainer}>
                         <Text style={styles.next}>Finish</Text>
                       </TouchableOpacity>
                     ) : (

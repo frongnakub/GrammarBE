@@ -7,19 +7,46 @@ import {
     TouchableOpacity,
 
 } from 'react-native';
+import axios from 'axios';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const {width: WIDTH} = Dimensions.get('window');
 
 export default class Menubar extends Component {
+
+    state = {
+        loading: true,
+        username: this.props.navigation.state.params.username,
+        userNo: Number,
+      }
+    
+      componentDidMount() {
+        this.fetchProfile()
+      }
+    
+      fetchProfile() {
+        //adb reverse tcp:3003 tcp:3003
+        const username = this.state.username
+        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+        .then(res => {
+            this.setState({ 
+                profile: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+      }
     
     render() {
         const { navigate } = this.props.navigation;
+        const { username } = this.state
         return (
             <View style={styles.container}>
                 <View style={styles.topBar}> 
-                    <TouchableOpacity onPress={() => navigate('Menu')}>          
+                    <TouchableOpacity onPress={() => navigate('Menu',{username: username})}>          
                     <Icon
                         name="arrowleft"
                         size={30}
@@ -27,7 +54,7 @@ export default class Menubar extends Component {
                     />
                     </TouchableOpacity>      
                 </View>
-                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Menu')}>
+                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Menu',{username: username})}>
                     <Icon
                         name="home"
                         size={20}
@@ -35,7 +62,7 @@ export default class Menubar extends Component {
                     /> 
                     <Text style={styles.text}>Home</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('PosttestQuestion')}>
+                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('PosttestQuestion',{username: username})}>
                     <Icon
                         name="form"
                         size={20}
@@ -43,14 +70,14 @@ export default class Menubar extends Component {
                     /> 
                     <Text style={styles.text}>Test</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('ResultScreen')}>
+                {/* <TouchableOpacity style={styles.barContainer} onPress={() => navigate('ResultScreen')}>
                     <Icon
                         name="save"
                         size={20}
                         color= 'rgba(244,67,54,0.5)'
                     /> 
                     <Text style={styles.text}>Result-Test</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Logged')}>
                     <Icon
                         name="poweroff"

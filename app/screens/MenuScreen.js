@@ -9,21 +9,47 @@ import {
     ImageBackground
 } from 'react-native';
 
+import axios from 'axios';
+
 const {width: WIDTH} = Dimensions.get('window');
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
-
 export default class HomeScreen extends Component {
+  state = {
+    loading: true,
+    username: this.props.navigation.state.params.username,
+    userNo: Number,
+  }
+
+  componentDidMount() {
+    this.fetchProfile()
+  }
+
+  fetchProfile() {
+    //adb reverse tcp:3003 tcp:3003
+    const username = this.state.username
+    axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+    .then(res => {
+        this.setState({ 
+            profile: res.data, 
+            loading: false,
+        })
+    })
+    .catch(err => {
+      this.setState({ loading: false })
+    })
+  }
     
     render () {
         const { navigate } = this.props.navigation;
+        const {  loading, username } = this.state
         return (
             <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
               <View style={styles.topBar}>             
                 <Text ></Text>
                 <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME</Text>
-                <TouchableOpacity onPress={() => navigate('MenuBar')}>
+                <TouchableOpacity onPress={() => navigate('MenuBar',{username: username})}>
                   <Icon
                   name="bars"
                   size={30}
@@ -105,8 +131,7 @@ export default class HomeScreen extends Component {
             </TouchableOpacity>   
           </View>
           
-
-        </ScrollView>        
+        </ScrollView>
       </ImageBackground>
         )
     }
