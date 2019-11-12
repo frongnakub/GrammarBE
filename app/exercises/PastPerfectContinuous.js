@@ -71,13 +71,15 @@ export default class PastPerfectContinuous extends Component {
     if (questions.length === index - 1) {
       console.log("...");
     } else {
-      this.setState({
-        qNo: qNo - 1,
-        index: index - 1,
-        check: false,
-        answer: null,
-        selected: ''
-      })
+      if(index!==0){
+        this.setState({
+          qNo: qNo - 1,
+          index: index - 1,
+          check: false,
+          answer: null,
+          selected: ''
+        })
+      } 
     }
   }
 
