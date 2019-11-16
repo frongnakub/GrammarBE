@@ -20,6 +20,7 @@ export default class PastSimple extends Component {
 
     componentDidMount() {
         this.fetchLessonDetail()
+        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -31,6 +32,21 @@ export default class PastSimple extends Component {
             this.setState({ loading: false })
         })
     }
+
+    fetchProfile() {
+        //adb reverse tcp:3003 tcp:3003
+        const username = this.state.username
+        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+        .then(res => {
+            this.setState({ 
+                profile: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+      }
 
     render() {
         const { lessons, loading, index } = this.state
@@ -59,10 +75,10 @@ export default class PastSimple extends Component {
                                         <Text style={styles.content}>{'Time references:	ago, last…, for, yesterday, in 1961, a year last April, already, earlier, first, early, historical, primitive, former, initial, original, previously, lately'} </Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PastSimpleExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PastSimpleExercise',{username: username})}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses',{username: username})}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

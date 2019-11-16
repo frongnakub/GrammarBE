@@ -15,8 +15,6 @@ import {
     KeyboardAvoidingView,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Fontisto';
-
 const {width: WIDTH} = Dimensions.get('window');
 const {height: HEIGHT} = Dimensions.get('window');
 

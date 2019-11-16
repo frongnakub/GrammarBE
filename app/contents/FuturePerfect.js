@@ -11,16 +11,6 @@ import styles from '../styles/Style';
 import FadeInView from '../screens/FadeInView';
 
 export default class FuturePerfect extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-        title: 'Login',
-        headerStyle: {
-            backgroundColor: '#fff',
-        },
-        headerTintColor: '#03A9F4',
-    }
-  }
-
     state = {
         lessons: [],
         loading: true,
@@ -29,6 +19,7 @@ export default class FuturePerfect extends Component {
 
     componentDidMount() {
         this.fetchLessonDetail()
+        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -40,6 +31,21 @@ export default class FuturePerfect extends Component {
             this.setState({ loading: false })
         })
     }
+
+    fetchProfile() {
+        //adb reverse tcp:3003 tcp:3003
+        const username = this.state.username
+        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+        .then(res => {
+            this.setState({ 
+                profile: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+      }
 
     render() {
         const { lessons, loading, index } = this.state
@@ -67,10 +73,10 @@ export default class FuturePerfect extends Component {
                                         <Text style={styles.content}>{'The future time references must be added in sentences, e.g. by next …, next…'} </Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('FuturePerfectExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('FuturePerfectExercise',{username: username})}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses',{username: username})}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

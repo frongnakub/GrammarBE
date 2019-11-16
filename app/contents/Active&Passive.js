@@ -51,6 +51,7 @@ export default class ActivePassive extends Component {
 
     componentDidMount() {
         this.fetchLessonDetail()
+        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -63,8 +64,23 @@ export default class ActivePassive extends Component {
         })
     }
 
+    fetchProfile() {
+        //adb reverse tcp:3003 tcp:3003
+        const username = this.state.username
+        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+        .then(res => {
+            this.setState({ 
+                profile: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+      }
+
     render() {
-        const { lessons, loading, index, state } = this.state
+        const { lessons, loading, index, username } = this.state
         return (
         <ScrollView style={styles.container}>
             {
@@ -109,10 +125,10 @@ export default class ActivePassive extends Component {
                                 <View style={styles.bodyText2}>
                                         <Text style={styles.headers2}>{'*Modal Verbs: can, could, may, might, shall, should, will, would, must, ought to, need, \nhave/had to, used to etc. '}</Text>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ActivePassiveExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ActivePassiveExercise',{username: username})}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

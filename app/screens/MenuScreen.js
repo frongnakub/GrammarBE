@@ -48,7 +48,7 @@ export default class HomeScreen extends Component {
             <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
               <View style={styles.topBar}>             
                 <Text ></Text>
-                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME</Text>
+                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME{this.state.username}</Text>
                 <TouchableOpacity onPress={() => navigate('MenuBar',{username: username})}>
                   <Icon
                   name="bars"
@@ -64,9 +64,9 @@ export default class HomeScreen extends Component {
               <Text style={styles.lessonText1}>Article</Text>       
               <Text></Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate('SingularPlural')}>
+            <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate(' ')}>
             <Text></Text>
-              <Text style={styles.lessonText2}>Singular / Plural</Text>   
+              <Text style={styles.lessonText2}>Noun</Text>   
               <Text></Text>
             </TouchableOpacity>   
             <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('Auxiliary')}>
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
     },
     lessonText2:{
-      fontSize: 17,
+      fontSize: 20,
       fontFamily: 'comicsansms',
       color: 'rgba(233,30,99,0.7)',
       textAlign: 'center'

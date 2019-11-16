@@ -20,6 +20,7 @@ export default class Conjunction extends Component {
 
     componentDidMount() {
         this.fetchLessonDetail()
+        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -31,6 +32,21 @@ export default class Conjunction extends Component {
             this.setState({ loading: false })
         })
     }
+
+    fetchProfile() {
+        //adb reverse tcp:3003 tcp:3003
+        const username = this.state.username
+        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+        .then(res => {
+            this.setState({ 
+                profile: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+      }
 
     render() {
         const { lessons, loading, index } = this.state
@@ -52,10 +68,10 @@ export default class Conjunction extends Component {
                                     <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                                     <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ConjunctionExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('ConjunctionExercise',{username: username})}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>

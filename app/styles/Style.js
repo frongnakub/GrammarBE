@@ -4,12 +4,7 @@ const {width: WIDTH} = Dimensions.get('window');
 const {hight: HEIGHT} = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
-    // container: {
-    //     flex: 1,
-    //     backgroundColor: 'white',
-    //     color: '#3E3E3E',
-    //     padding: 10,
-    // },
+
     backgroundImg: {
         flex: 1,
         width: WIDTH,

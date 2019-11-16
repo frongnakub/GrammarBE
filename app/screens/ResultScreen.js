@@ -12,19 +12,8 @@ import {
 import axios from 'axios';
 const {width: WIDTH} = Dimensions.get('window');
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class ResultsScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-        title: 'Login',
-        headerStyle: {
-            backgroundColor: '#fff',
-        },
-        headerTintColor: '#03A9F4',
-    }
-  }
-
   state = {
     results: [],
     results2: [],
@@ -74,7 +63,7 @@ export default class ResultsScreen extends Component {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
                         <View style={styles.resultBox}>
-                        <Text style={styles.title}>Lesson you have done WRONG!</Text>   
+                        <Text style={styles.title}>Lesson you have done <Text style={{color:'red'}}>WRONG!</Text></Text>   
                           <FlatList
                             data = {this.state.results}
                             renderItem = {({item}) => 

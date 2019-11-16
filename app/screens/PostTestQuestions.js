@@ -136,6 +136,7 @@ export default class Questions extends Component {
           <Text ></Text>
         </View>
         <View style={styles.headerContainer}>
+          <Text style={{padding: 10,textAlign:"center",fontWeight:'400', fontSize: 16}}>TIME</Text>
           <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/30</Text>
         </View>
         {
@@ -181,7 +182,7 @@ export default class Questions extends Component {
                             {/* <Text style={styles.true}>Result: Correct!</Text>}
                           </TouchableOpacity> */}
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkContainer}> 
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})} style={styles.checkContainer}> 
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -199,7 +200,7 @@ export default class Questions extends Component {
                             {/* <Text style={styles.false}>Result: Wrong!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})} style={styles.checkContainer}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -218,15 +219,15 @@ export default class Questions extends Component {
                     {
                       selected ?
                         <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)} style={styles.checkContainer}>
-                          <Text style={styles.check}>Check</Text>
+                          <Text style={styles.check}>Submit</Text>
                         </TouchableOpacity>
                         :
                         <TouchableOpacity style={styles.checkContainer}>
-                          <Text style={styles.selected}>Check</Text>
+                          <Text style={styles.selected}>Submit</Text>
                         </TouchableOpacity>
                     }
                     {questions.length === index + 1 ? (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkContainer}>
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})} style={styles.checkContainer}>
                         <Text style={styles.next}>Finish</Text>
                       </TouchableOpacity>
                     ) : (

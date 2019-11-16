@@ -215,61 +215,6 @@ app.get('/resultLesson2/(:username)', cors(), (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 })
 
-
-// app.get('/resultI/(:username)', cors(), (req, res) => {
-//   console.log("Fetching results")
-//   console.log(req.params.username)
-//   const connection = getConnection()
-
-//   connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
-//   function (error, rows, fields) {
-//       if (error) { 
-//           console.log(error) 
-//           res.sendStatus(500)
-//           throw error
-//       };
-//       console.log("I think we fetched successfully")
-//       res.json(rows)
-//   })
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-// })
-
-// app.get('/results2/(:username)', cors(), (req, res) => {
-//   console.log("Fetching results")
-//   console.log(req.params.username)
-//   const connection = getConnection()
-
-//   connection.query('SELECT COUNT(Results) as Correct FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Correct" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
-//   function (error, rows, fields) {
-//       if (error) { 
-//           console.log(error) 
-//           res.sendStatus(500)
-//           throw error
-//       };
-//       console.log("I think we fetched successfully")
-//       res.json(rows)
-//   })
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-// })
-
-// app.get('/resultII/(:username)', cors(), (req, res) => {
-//   console.log("Fetching results")
-//   console.log(req.params.username)
-//   const connection = getConnection()
-
-//   connection.query('SELECT COUNT(Results) as Incorrect FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
-//   function (error, rows, fields) {
-//       if (error) { 
-//           console.log(error) 
-//           res.sendStatus(500)
-//           throw error
-//       };
-//       console.log("I think we fetched successfully")
-//       res.json(rows)
-//   })
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-// })
-
 app.get('/presentSimple', cors(), (req, res) => {
   console.log("Getting detail of present simple.")
  

@@ -12,7 +12,6 @@ import {
 import axios from 'axios';
 const {width: WIDTH} = Dimensions.get('window');
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class ResultsScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -74,7 +73,7 @@ export default class ResultsScreen extends Component {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
                         <View style={styles.resultBox}>
-                        <Text style={styles.title}>Lesson you have done WRONG!</Text>   
+                        <Text style={styles.title}>Lesson you have done <Text style={{color:'red'}}>WRONG!</Text></Text>    
                           <FlatList
                             data = {this.state.results}
                             renderItem = {({item}) => 
@@ -87,7 +86,7 @@ export default class ResultsScreen extends Component {
                             keyExtractor={item => item.id}
                           />
                         </View>
-                        <TouchableOpacity style={styles.roundedBtn} onPress={() =>  this.props.navigation.navigate('Menu')}>
+                        <TouchableOpacity style={styles.roundedBtn} onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
                           <Text style={styles.roundedBtnText}>Menu</Text>
                         </TouchableOpacity>
                     </View>

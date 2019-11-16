@@ -20,6 +20,7 @@ export default class Pronoun extends Component {
 
     componentDidMount() {
         this.fetchLessonDetail()
+        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -31,6 +32,21 @@ export default class Pronoun extends Component {
             this.setState({ loading: false })
         })
     }
+
+    fetchProfile() {
+        //adb reverse tcp:3003 tcp:3003
+        const username = this.state.username
+        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+        .then(res => {
+            this.setState({ 
+                profile: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+      }
 
     render() {
         const { lessons, loading, index } = this.state
@@ -65,10 +81,10 @@ export default class Pronoun extends Component {
                                         <Text style={styles.content}>{'Other significant PRONOUNS: all, another, any, both, each, neither, few, less, little, many, much, none, others, several, some, most.'} </Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PronounExercise')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PronounExercise',{username: username})}>
                                     <Text style={styles.menu}>Exercise</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu')}>
+                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
                                     <Text style={styles.menu}>Back</Text>
                                 </TouchableOpacity>
                             </View>
