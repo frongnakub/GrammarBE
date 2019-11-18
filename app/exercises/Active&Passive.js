@@ -11,6 +11,8 @@ import {
 
 import axios from 'axios';
 
+import AwesomeAlert from 'react-native-awesome-alerts';
+
 import styles from '../styles/ExcerciseStyle';
 import Icon from 'react-native-vector-icons/AntDesign';
 
@@ -26,6 +28,7 @@ export default class ActivePassive extends Component {
     check: false,
     answer: null,
     qNo: 1,
+    showAlert: false
   }
 
   componentDidMount() {
@@ -78,7 +81,7 @@ export default class ActivePassive extends Component {
           index: index - 1,
           check: false,
           answer: null,
-          selected: selected
+          selected: selected,
         })
       } 
     }
@@ -99,8 +102,15 @@ export default class ActivePassive extends Component {
     }
   }
 
+  showAlert = () => {
+    this.setState({
+      showAlert: true
+    });
+  };
+
+
   render() {
-    const { questions, loading, index, answer, check, selected, username, qNo } = this.state
+    const { showAlert,questions, loading, index, answer, check, selected, username, qNo } = this.state
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -226,7 +236,7 @@ export default class ActivePassive extends Component {
                     }
                       
                       {questions.length === index + 1 ? (
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkButton}>
+                        <TouchableOpacity onPress={() => this.showAlert()} style={styles.checkButton}>
                           <Text style={styles.next}>Finish</Text>
                         </TouchableOpacity>
                       ) 
@@ -241,6 +251,30 @@ export default class ActivePassive extends Component {
               }
           </View>
       }
+      <AwesomeAlert
+        show={showAlert}
+        showProgress={false}
+        title="Success!!!!"
+        titleStyle={{fontSize: 30}}
+        messageStyle={{fontSize: 20}}
+        message="You have 10 point!"
+        closeOnTouchOutside={true}
+        closeOnHardwareBackPress={false}
+        showCancelButton={true}
+        showConfirmButton={true}
+        cancelText="Go Home"
+        confirmText="Again"
+        //cancelButtonColor="#"
+        confirmButtonColor="#DD6B55"
+        cancelButtonStyle={styles.checkButton}
+        confirmButtonStyle={styles.checkButton}
+        onCancelPressed={() => {
+          this.props.navigation.navigate('Menu',{username: username})
+        }}
+        onConfirmPressed={() => {
+          this.props.navigation.navigate('Active')
+        }}
+      />
       </View>
     );
   }
