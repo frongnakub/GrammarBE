@@ -15,6 +15,7 @@ export default class ActivePassive extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username: this.props.navigation.state.params.username,
             tableHead: ['Tense', 'Structure', 'Example'],
             tableData: [
                 ['Present Sim.', 'V.1', 'The thief breaks into the car.'],
@@ -51,7 +52,6 @@ export default class ActivePassive extends Component {
 
     componentDidMount() {
         this.fetchLessonDetail()
-        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -63,21 +63,6 @@ export default class ActivePassive extends Component {
             this.setState({ loading: false })
         })
     }
-
-    fetchProfile() {
-        //adb reverse tcp:3003 tcp:3003
-        const username = this.state.username
-        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
-        .then(res => {
-            this.setState({ 
-                profile: res.data, 
-                loading: false,
-            })
-        })
-        .catch(err => {
-          this.setState({ loading: false })
-        })
-      }
 
     render() {
         const { lessons, loading, index, username } = this.state
@@ -103,9 +88,9 @@ export default class ActivePassive extends Component {
                                 </View>
                                 <View style={styles.containerT}>
                                     <Table borderStyle={{borderWidth: 1}}>
-                                        <Row data={this.state.tableHead} flexArr={[1.5, 2, 3]} style={styles.headT} textStyle={styles.textT}/>
+                                        <Row data={this.state.tableHead} flexArr={[1.5, 2, 3.5]} style={styles.headT} textStyle={styles.textT}/>
                                         <TableWrapper style={styles.wrapperT}>
-                                            <Rows data={this.state.tableData} flexArr={[1.5, 2, 3]} style={styles.rowT} textStyle={styles.textT}/>
+                                            <Rows data={this.state.tableData} flexArr={[1.5, 2, 3.5]} style={styles.rowT} textStyle={styles.textT}/>
                                         </TableWrapper>
                                     </Table>
                                     <Text>{'\n\n'}</Text>
@@ -116,9 +101,9 @@ export default class ActivePassive extends Component {
                                 </View>
                                 <View style={styles.containerT}>
                                     <Table borderStyle={{borderWidth: 1}}>
-                                        <Row data={this.state.tableHead} flexArr={[1.5, 2, 3]} style={styles.headT} textStyle={styles.textT}/>
+                                        <Row data={this.state.tableHead} flexArr={[1.5, 2, 3.5]} style={styles.headT} textStyle={styles.textT}/>
                                         <TableWrapper style={styles.wrapperT}>
-                                            <Rows data={this.state.tableData1} flexArr={[1.5, 2, 3]} style={styles.rowT} textStyle={styles.textT}/>
+                                            <Rows data={this.state.tableData1} flexArr={[1.5, 2, 3.5]} style={styles.rowT} textStyle={styles.textT}/>
                                         </TableWrapper>
                                     </Table>  
                                 </View>

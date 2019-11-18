@@ -184,7 +184,7 @@ app.get('/resultLesson/(:username)', cors(), (req, res) => {
   console.log(req.params.username)
   const connection = getConnection()
 
-  connection.query('SELECT QuestionNo, LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
+  connection.query('SELECT DISTINCT LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 1 AND u.Username = '+req.params.username, 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 
@@ -202,7 +202,25 @@ app.get('/resultLesson2/(:username)', cors(), (req, res) => {
   console.log(req.params.username)
   const connection = getConnection()
 
-  connection.query('SELECT QuestionNo, LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
+  connection.query('SELECT DISTINCT LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 2 AND u.Username = '+req.params.username, 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/resultLesson3/(:username)', cors(), (req, res) => {
+  console.log("Fetching results")
+  console.log(req.params.username)
+  const connection = getConnection()
+
+  connection.query('SELECT DISTINCT LessonName FROM UserTestAnswer ua JOIN User u on ua.UserTest_UserNo = u.UserNo JOIN Question q on ua.Question_QuestionNo = q.QuestionNo JOIN Lesson l on q.Lesson_LessonNo = l.LessonNo WHERE Results = "Wrong" AND UserTest_TestNo = 27 AND u.Username = '+req.params.username, 
   function (error, rows, fields) {
       if (error) { 
           console.log(error) 

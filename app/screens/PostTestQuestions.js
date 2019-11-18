@@ -132,11 +132,11 @@ export default class Questions extends Component {
       <View style={styles.container}>
         <View style={styles.topBar}>             
           <Text ></Text>
-          <Text style={{fontSize: 20,color:'#FFFFFF'}}>TEST</Text>
+          <Text style={{fontSize: 20,color:'#000000', fontFamily: 'comicsansms_bold'}}>POST-TEST</Text>
           <Text ></Text>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={{padding: 10,textAlign:"center",fontWeight:'400', fontSize: 16}}>TIME</Text>
+          <Text style={{padding: 10,textAlign:"left",fontWeight:'400', fontSize: 16}}>TIME</Text>
           <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/30</Text>
         </View>
         {
@@ -182,7 +182,7 @@ export default class Questions extends Component {
                             {/* <Text style={styles.true}>Result: Correct!</Text>}
                           </TouchableOpacity> */}
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})} style={styles.checkContainer}> 
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen3',{username: username})} style={styles.checkContainer}> 
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -200,7 +200,7 @@ export default class Questions extends Component {
                             {/* <Text style={styles.false}>Result: Wrong!</Text> */}
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})} style={styles.checkContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen3',{username: username})} style={styles.checkContainer}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -227,7 +227,7 @@ export default class Questions extends Component {
                         </TouchableOpacity>
                     }
                     {questions.length === index + 1 ? (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu',{username: username})} style={styles.checkContainer}>
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen3',{username: username})} style={styles.checkContainer}>
                         <Text style={styles.next}>Finish</Text>
                       </TouchableOpacity>
                     ) : (

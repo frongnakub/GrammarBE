@@ -19,28 +19,8 @@ export default class HomeScreen extends Component {
   state = {
     loading: true,
     username: this.props.navigation.state.params.username,
-    userNo: Number,
   }
 
-  componentDidMount() {
-    this.fetchProfile()
-  }
-
-  fetchProfile() {
-    //adb reverse tcp:3003 tcp:3003
-    const username = this.state.username
-    axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
-    .then(res => {
-        this.setState({ 
-            profile: res.data, 
-            loading: false,
-        })
-    })
-    .catch(err => {
-      this.setState({ loading: false })
-    })
-  }
-    
     render () {
         const { navigate } = this.props.navigation;
         const {  loading, username } = this.state
@@ -48,7 +28,7 @@ export default class HomeScreen extends Component {
             <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
               <View style={styles.topBar}>             
                 <Text ></Text>
-                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME{this.state.username}</Text>
+                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME</Text>
                 <TouchableOpacity onPress={() => navigate('MenuBar',{username: username})}>
                   <Icon
                   name="bars"
@@ -59,72 +39,72 @@ export default class HomeScreen extends Component {
               </View>
         <ScrollView >
           <View style={styles.container}>
-            <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('Article')}>
+            <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('Article',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText1}>Article</Text>       
               <Text></Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate(' ')}>
+            <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate('SingularPlural',{username: username})}>
             <Text></Text>
               <Text style={styles.lessonText2}>Noun</Text>   
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('Auxiliary')}>
+            <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('Auxiliary',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText3}>Auxiliary Verb</Text>     
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer4} onPress={() => navigate('Adverb')}>
+            <TouchableOpacity style={styles.lessonContainer4} onPress={() => navigate('Adverb',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText4}>Adverb</Text>     
               <Text></Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.lessonContainer5} onPress={() => navigate('Adjective')}>
+            <TouchableOpacity style={styles.lessonContainer5} onPress={() => navigate('Adjective',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText5}>Adjective</Text>     
               <Text></Text>
             </TouchableOpacity>      
-            <TouchableOpacity style={styles.lessonContainer6} onPress={() => navigate('Conjunction')}>
+            <TouchableOpacity style={styles.lessonContainer6} onPress={() => navigate('Conjunction',{username: username})}>
               <Text></Text>  
               <Text style={styles.lessonText6}>Conjunction</Text>   
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('Gerund')}>
+            <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('Gerund',{username: username})}>
               <Text></Text>
-              <Text style={styles.lessonText7}>Infinitive & Gerund</Text>      
+              <Text style={styles.lessonText7}>{'Infinitive & Gerund'}</Text>      
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('Participle')}>
+            <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('Participle',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText8}>Participle</Text>        
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer9} onPress={() => navigate('Comparison')}>
+            <TouchableOpacity style={styles.lessonContainer9} onPress={() => navigate('Comparison',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText9}>Comparison</Text>  
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer10} onPress={() => navigate('ActivePassive')}>
+            <TouchableOpacity style={styles.lessonContainer10} onPress={() => navigate('ActivePassive',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText10}>Active / Passive</Text>    
               <Text></Text>
             </TouchableOpacity>   
-            <TouchableOpacity style={styles.lessonContainer11} onPress={() => navigate('IfClause')}>
+            <TouchableOpacity style={styles.lessonContainer11} onPress={() => navigate('IfClause',{username: username})}>
               <Text></Text>  
               <Text style={styles.lessonText11}>If-clause</Text>
               <Text></Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.lessonContainer12} onPress={() => navigate('MenuPrepos')}>
+            <TouchableOpacity style={styles.lessonContainer12} onPress={() => navigate('Preposition',{username: username})}>
               <Text></Text>   
               <Text style={styles.lessonText12}>Preposition</Text>
               <Text></Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.lessonContainer13} onPress={() => navigate('Preposition')}>
+            <TouchableOpacity style={styles.lessonContainer13} onPress={() => navigate('Pronoun',{username: username})}>
               <Text></Text> 
               <Text style={styles.lessonText13}>Pronoun</Text>      
               <Text></Text>
             </TouchableOpacity>      
-            <TouchableOpacity style={styles.lessonContainer14} onPress={() => navigate('Tenses')}>
+            <TouchableOpacity style={styles.lessonContainer14} onPress={() => navigate('Tenses',{username: username})}>
               <Text></Text>
               <Text style={styles.lessonText14}>Tenses</Text> 
               <Text></Text>

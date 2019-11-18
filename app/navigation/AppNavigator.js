@@ -16,6 +16,7 @@ import PosttestQuestion from '../screens/PostTestQuestions';
 //RESULT
 import ResultScreen from '../screens/ResultScreen';
 import ResultScreen2 from '../screens/ResultScreen2';
+import ResultScreen3 from '../screens/ResultScreen3';
 
 //EXCERCISE
 import PresentSimpleExercise from '../exercises/PresentSimple';
@@ -88,6 +89,7 @@ const MainNavigator = createSwitchNavigator({
 
     ResultScreen: {screen: ResultScreen},
     ResultScreen2: {screen: ResultScreen2},
+    ResultScreen3: {screen: ResultScreen3},
 
     PresentSimple: {screen: PresentSimple},
     PresentSimpleExercise: {screen: PresentSimpleExercise},

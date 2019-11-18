@@ -14,6 +14,16 @@ const {width: WIDTH} = Dimensions.get('window');
 
 
 export default class ResultsScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+        title: 'Login',
+        headerStyle: {
+            backgroundColor: '#fff',
+        },
+        headerTintColor: '#03A9F4',
+    }
+  }
+
   state = {
     results: [],
     results2: [],
@@ -30,7 +40,7 @@ export default class ResultsScreen extends Component {
   fetchCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/resultLesson/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/resultLesson3/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results: res.data, 
@@ -49,7 +59,7 @@ export default class ResultsScreen extends Component {
         {
           loading ?
             <View>
-               <ActivityIndicator style={{alignItems:'center'}} size={40} color="#74b9ff" />
+               <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
             </View>
             :
             <View>
@@ -63,7 +73,7 @@ export default class ResultsScreen extends Component {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
                         <View style={styles.resultBox}>
-                        <Text style={styles.title}>Lesson you have done <Text style={{color:'red'}}>WRONG!</Text></Text>   
+                        <Text style={styles.title}>Lesson you have done <Text style={{color:'red'}}>WRONG!</Text></Text>    
                           <FlatList
                             data = {this.state.results}
                             renderItem = {({item}) => 
@@ -76,8 +86,8 @@ export default class ResultsScreen extends Component {
                             keyExtractor={item => item.id}
                           />
                         </View>
-                        <TouchableOpacity style={styles.roundedBtn} onPress={() =>  this.props.navigation.navigate('PretestQuestions2',{username: username})}>
-                            <Text style={styles.roundedBtnText}>Pre-test No.2</Text>
+                        <TouchableOpacity style={styles.roundedBtn} onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
+                          <Text style={styles.roundedBtnText}>Menu</Text>
                         </TouchableOpacity>
                     </View>
                 }

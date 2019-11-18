@@ -119,7 +119,7 @@ module.exports = StyleSheet.create({
         backgroundColor: '#f6f8fa' 
     },
     rowT: {  
-        height: 100 
+        height: 150 
     },
     textT: { 
         fontSize: 16,

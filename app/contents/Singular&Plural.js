@@ -16,11 +16,11 @@ export default class SingularPlural extends Component {
         lessons: [],
         loading: true,
         index: 0,
+        username: this.props.navigation.state.params.username,
     }
 
     componentDidMount() {
         this.fetchLessonDetail()
-        this.fetchProfile()
     }
 
     fetchLessonDetail() {
@@ -33,23 +33,8 @@ export default class SingularPlural extends Component {
         })
     }
 
-    fetchProfile() {
-        //adb reverse tcp:3003 tcp:3003
-        const username = this.state.username
-        axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
-        .then(res => {
-            this.setState({ 
-                profile: res.data, 
-                loading: false,
-            })
-        })
-        .catch(err => {
-          this.setState({ loading: false })
-        })
-      }
-
     render() {
-        const { lessons, loading, index } = this.state
+        const { lessons, loading, index, username } = this.state
         return (
         <ScrollView style={styles.container}>
             {

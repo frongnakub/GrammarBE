@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
         color: '#3E3E3E',
         marginBottom: 20,
         marginTop: 30,
+        fontFamily: 'comicsansms',
     },
     textStart: {
       fontSize: 18,
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: '500',
       marginBottom: 10,
+      fontFamily: 'comicsansms',
     },
     resultBox: {
         fontSize: 18,
