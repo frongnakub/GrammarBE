@@ -6,15 +6,19 @@ import {
     Button,
     ActivityIndicator,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    Image
 } from 'react-native';
 
 import axios from 'axios';
 
+import AwesomeAlert from 'react-native-awesome-alerts';
+
 import styles from '../styles/ExcerciseStyle';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const {width: WIDTH} = Dimensions.get('window');
+const {width: w} = (Dimensions.get('window'));
+
 
 export default class FutureContinuous extends Component {
   state = {
@@ -25,6 +29,9 @@ export default class FutureContinuous extends Component {
     check: false,
     answer: null,
     qNo: 1,
+    showAlert: false,
+    username: this.props.navigation.state.params.username,
+    score: 0,
   }
 
   componentDidMount() {
@@ -48,20 +55,21 @@ export default class FutureContinuous extends Component {
   }
 
   checkAnswer = (answer) => {
+    const { score } = this.state
     if (this.state.selected) {
       if (answer === this.state.selected) {
         this.setState({
           check: true,
           answer: true,
+          score: score + 1
         })
-        alert("Correct")
       } 
       else {
         this.setState({
           check: true,
           answer: false,
+          score: score + 0
         })
-        alert("Wrong")
       }
     }
   }
@@ -70,14 +78,14 @@ export default class FutureContinuous extends Component {
     const { questions, index, qNo } = this.state
     if (questions.length === index - 1) {
       console.log("...");
-    } else {
-      if(index!==0){
+    } 
+    else {
+      if(index !== 0){
         this.setState({
           qNo: qNo - 1,
           index: index - 1,
           check: false,
           answer: null,
-          selected: ''
         })
       } 
     }
@@ -98,8 +106,15 @@ export default class FutureContinuous extends Component {
     }
   }
 
+  showAlert = () => {
+    this.setState({
+      showAlert: true
+    });
+  };
+
+
   render() {
-    const { questions, loading, index, answer, check, selected, username, qNo } = this.state
+    const { showAlert, questions, loading, index, answer, check, selected, username, qNo, score } = this.state
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -109,7 +124,7 @@ export default class FutureContinuous extends Component {
             name="home"
             size={30}
             color='#fff'
-            paddinRight= {10}
+            paddingRight= {10}
             onPress={() => navigate('Menu',{username: username})}
           />
         </TouchableOpacity> 
@@ -159,18 +174,18 @@ export default class FutureContinuous extends Component {
                       answer ?
                         <View style={styles.checkButtonContainer}>
                           { index !== 0 ?
-                            <TouchableOpacity style={styles.checkButton} onPress={this.previousQuestion}>
-                              <Text style={styles.next}>Previous</Text>
+                            <TouchableOpacity onPress={this.previousQuestion} style={styles.checkButton} >
+                              <Text style={styles.next}>Back</Text>
                             </TouchableOpacity>
                             :
-                            <View style={{width: (w/3)-1}}><Text></Text></View>
+                            <View style={styles.checkButton}><Text></Text></View>
                           }
                           {/* onPress={() => this.checkAnswer(questions[index].CorrectAnswer)} */}
                           <TouchableOpacity  style={styles.checkButton}>
-                            <Text style={styles.true}>Result: Correct!</Text>}
+                            <Text style={styles.true}>Correct</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkButton}> 
+                            <TouchableOpacity onPress={() => this.showAlert()} style={styles.checkButton}> 
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (                
@@ -182,17 +197,17 @@ export default class FutureContinuous extends Component {
                         :
                         <View style={styles.checkButtonContainer}>
                           { index !== 0 ?
-                            <TouchableOpacity style={styles.checkButton} onPress={this.previousQuestion}>
-                              <Text style={styles.next}>Previous</Text>
+                            <TouchableOpacity onPress={this.previousQuestion} style={styles.checkButton}>
+                              <Text style={styles.next}>Back</Text>
                             </TouchableOpacity>
                             :
                             <View style={styles.checkButton}><Text></Text></View>
                           }
                           <TouchableOpacity style={styles.checkButton}>
-                            <Text style={styles.false}>Wrong!</Text>
+                            <Text style={styles.false}>Wrong</Text>
                           </TouchableOpacity>
                           {questions.length === index + 1 ? (
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkButton}>
+                            <TouchableOpacity onPress={() => this.showAlert()} style={styles.checkButton}>
                               <Text style={styles.next}>Finish</Text>
                             </TouchableOpacity>
                           ) : (
@@ -207,8 +222,8 @@ export default class FutureContinuous extends Component {
                   :
                   <View style={styles.checkButtonContainer}>
                     { index !== 0 ?
-                        <TouchableOpacity style={styles.checkButton} onPress={this.previousQuestion}>
-                          <Text style={styles.next}>Previous</Text>
+                        <TouchableOpacity onPress={this.previousQuestion}  style={styles.checkButton}>
+                          <Text style={styles.next}>Back</Text>
                         </TouchableOpacity>
                         :
                         <View style={styles.checkButton}><Text></Text></View>
@@ -216,16 +231,16 @@ export default class FutureContinuous extends Component {
                     {
                       selected ?
                         <TouchableOpacity onPress={() => this.checkAnswer(questions[index].CorrectAnswer)} style={styles.checkButton}>
-                          <Text style={styles.check}>Submit</Text>
+                          <Text style={styles.check}>Check</Text>
                         </TouchableOpacity>
                         :
                         <TouchableOpacity style={styles.checkButton}>
-                          <Text style={styles.selected}>Submit</Text>
+                          <Text style={styles.selected}>Check</Text>
                         </TouchableOpacity>
                     }
                       
                       {questions.length === index + 1 ? (
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ResultScreen',{username: username})} style={styles.checkButton}>
+                        <TouchableOpacity onPress={() => this.showAlert()} style={styles.checkButton}>
                           <Text style={styles.next}>Finish</Text>
                         </TouchableOpacity>
                       ) 
@@ -240,6 +255,25 @@ export default class FutureContinuous extends Component {
               }
           </View>
       }
+      <AwesomeAlert
+        show={showAlert}
+        showProgress={false}
+        title="Your score !!"
+        titleStyle={{fontSize: 24}}
+        messageStyle={{fontSize: 20}}
+        message={"You get "+score+" points"}
+        closeOnTouchOutside={true}
+        closeOnHardwareBackPress={false}
+        showConfirmButton={true}
+        confirmText="Home"
+        //cancelButtonColor="#"
+        confirmButtonColor="#DD6B55"
+        cancelButtonStyle={styles.checkButton}
+        confirmButtonStyle={styles.checkButton2}
+        onConfirmPressed={() => {
+          this.props.navigation.navigate('Menu',{username: username})
+        }}
+      />
       </View>
     );
   }

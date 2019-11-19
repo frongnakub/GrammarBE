@@ -274,5 +274,13 @@ module.exports  = StyleSheet.create({
     checkButton:{
       width: WIDTH/3,
     },
-  
+    checkButton2:{
+    },
+    button: {
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+      padding: 10,
+      width: 50, 
+      height: 50
+    },
   });

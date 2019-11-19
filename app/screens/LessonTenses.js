@@ -29,10 +29,14 @@ export default class Questions extends Component {
     //       ),
     //     };
     //   };
-
+    state = {
+      loading: true,
+      username: this.props.navigation.state.params.username,
+    }
 
   render() {
     const { navigate } = this.props.navigation;
+    const {  loading, username } = this.state
 
     return (
       <View>
@@ -49,7 +53,7 @@ export default class Questions extends Component {
               </View>
       
         <ScrollView style={styles.container}>
-        <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('PresentSimple')}>
+        <TouchableOpacity style={styles.lessonContainer1} onPress={() => navigate('PresentSimple',{username: username})}>
           <Text style={styles.lessonText1}>Present Simple</Text>
           <Text></Text>
           <Icon
@@ -58,7 +62,7 @@ export default class Questions extends Component {
             color= 'rgba(244,67,54,0.5)'
           />          
         </TouchableOpacity>
-        <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate('PresentContinuous')}>
+        <TouchableOpacity style={styles.lessonContainer2} onPress={() => navigate('PresentContinuous',{username: username})}>
           <Text style={styles.lessonText2}>Present Continuous</Text>
           <Text></Text>
           <Icon
@@ -67,7 +71,7 @@ export default class Questions extends Component {
             color= 'rgba(233,30,99,0.7)'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('PresentPerfect')}>
+        <TouchableOpacity style={styles.lessonContainer3} onPress={() => navigate('PresentPerfect',{username: username})}>
           <Text style={styles.lessonText3}>Present Perfect</Text>
           <Text></Text>
           <Icon
@@ -76,7 +80,7 @@ export default class Questions extends Component {
             color= '#9C27B0'
           />          
         </TouchableOpacity> 
-        <TouchableOpacity style={styles.lessonContainer4} onPress={() => navigate('PresentPerfectContinuous')}>
+        <TouchableOpacity style={styles.lessonContainer4} onPress={() => navigate('PresentPerfectContinuous',{username: username})}>
           <Text style={styles.lessonText4}>Present Perfect Continuous</Text>
           <Text></Text>
           <Icon
@@ -85,7 +89,7 @@ export default class Questions extends Component {
             color= '#9C27B0'
           />          
         </TouchableOpacity>     
-        <TouchableOpacity style={styles.lessonContainer5} onPress={() => navigate('PastSimple')}>
+        <TouchableOpacity style={styles.lessonContainer5} onPress={() => navigate('PastSimple',{username: username})}>
           <Text style={styles.lessonText5}>Past Simple</Text>
           <Text></Text>
           <Icon
@@ -94,7 +98,7 @@ export default class Questions extends Component {
             color= '#9C27B0'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer6} onPress={() => navigate('PastContinuous')}>
+        <TouchableOpacity style={styles.lessonContainer6} onPress={() => navigate('PastContinuous',{username: username})}>
           <Text style={styles.lessonText6}>Past Continuous</Text>
           <Text></Text>
           <Icon
@@ -103,7 +107,7 @@ export default class Questions extends Component {
             color= '#3F51B5'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('PastPerfect')}>
+        <TouchableOpacity style={styles.lessonContainer7} onPress={() => navigate('PastPerfect',{username: username})}>
           <Text style={styles.lessonText7}>Past Perfect</Text>
           <Text></Text>
           <Icon
@@ -112,7 +116,7 @@ export default class Questions extends Component {
             color= '#03A9F4'
           />          
         </TouchableOpacity>
-        <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('PastPerfectContinuous')}>
+        <TouchableOpacity style={styles.lessonContainer8} onPress={() => navigate('PastPerfectContinuous',{username: username})}>
           <Text style={styles.lessonText8}>Past Perfect Continuous</Text>
           <Text></Text>
           <Icon
@@ -121,7 +125,7 @@ export default class Questions extends Component {
             color= '#03A9F4'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer9} onPress={() => navigate('FutureSimple')}>
+        <TouchableOpacity style={styles.lessonContainer9} onPress={() => navigate('FutureSimple',{username: username})}>
           <Text style={styles.lessonText9}>Future Simple</Text>
           <Text></Text>
           <Icon
@@ -130,7 +134,7 @@ export default class Questions extends Component {
             color= '#00BCD4'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer10} onPress={() => navigate('FutureContinuous')}>
+        <TouchableOpacity style={styles.lessonContainer10} onPress={() => navigate('FutureContinuous',{username: username})}>
           <Text style={styles.lessonText10}>Future Continuous</Text>
           <Text></Text>
           <Icon
@@ -139,7 +143,7 @@ export default class Questions extends Component {
             color= '#4CAF50'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer11} onPress={() => navigate('FuturePerfect')}>
+        <TouchableOpacity style={styles.lessonContainer11} onPress={() => navigate('FuturePerfect',{username: username})}>
           <Text style={styles.lessonText11}>Future Perfect</Text>
           <Text></Text>
           <Icon
@@ -148,7 +152,7 @@ export default class Questions extends Component {
             color= '#CDDC39'
           />          
         </TouchableOpacity>   
-        <TouchableOpacity style={styles.lessonContainer12} onPress={() => navigate('FuturePerfectContinuous')}>
+        <TouchableOpacity style={styles.lessonContainer12} onPress={() => navigate('FuturePerfectContinuous',{username: username})}>
           <Text style={styles.lessonText12}>Future Perfect Continuous</Text>
           <Text></Text>
           <Icon

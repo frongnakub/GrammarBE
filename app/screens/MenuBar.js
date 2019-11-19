@@ -68,7 +68,7 @@ export default class Menubar extends Component {
                         size={20}
                         color= 'rgba(244,67,54,0.5)'
                     /> 
-                    <Text style={styles.text}>Test</Text>
+                    <Text style={styles.text}>Post-Test</Text>
                 </TouchableOpacity>
                 {/* <TouchableOpacity style={styles.barContainer} onPress={() => navigate('ResultScreen')}>
                     <Icon
