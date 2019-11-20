@@ -28,7 +28,7 @@ export default class HomeScreen extends Component {
             <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
               <View style={styles.topBar}>             
                 <Text ></Text>
-                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>HOME</Text>
+                <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>Lesson</Text>
                 <TouchableOpacity onPress={() => navigate('MenuBar',{username: username})}>
                   <Icon
                   name="bars"

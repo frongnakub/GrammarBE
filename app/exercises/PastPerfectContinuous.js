@@ -107,9 +107,19 @@ export default class PastPerfectContinuous extends Component {
   }
 
   showAlert = () => {
+    const { score } = this.state
     this.setState({
       showAlert: true
     });
+    if(score <= 4){
+      return this.state.message = "You need to study more."
+    }
+    else if(score > 4 && score <= 7){
+      return this.state.message = "Good !"
+    }
+    else{
+      return this.state.message = "Excellent !"
+    }
   };
 
 
@@ -132,7 +142,7 @@ export default class PastPerfectContinuous extends Component {
         <Text style={styles.textNull}></Text>
       </View>
       <View style={styles.headerContainer}>
-        <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/10</Text>
+        <Text style={{padding: 10, textAlign:"right", fontWeight:'400', fontSize: 24, fontFamily: 'comicsansms', color: 'red'}}>Score: {score}/10</Text>
       </View>
       {
         loading ?
@@ -147,7 +157,7 @@ export default class PastPerfectContinuous extends Component {
                 questions.length === 0 ? <Text style={{alignItems:'center'}}>Try Again</Text> :
                     <View >
                       <View style={styles.questionContainer}>
-                        <Text style={styles.questionText}>{questions[index].Question}</Text>
+                        <Text style={styles.questionText}>{qNo}. {questions[index].Question}</Text>
                       </View>
 
                       <View style={styles.choiceContainer}>
@@ -258,7 +268,7 @@ export default class PastPerfectContinuous extends Component {
       <AwesomeAlert
         show={showAlert}
         showProgress={false}
-        title="Your score !!"
+        title={this.state.message}
         titleStyle={{fontSize: 24}}
         messageStyle={{fontSize: 20}}
         message={"You get "+score+" points"}

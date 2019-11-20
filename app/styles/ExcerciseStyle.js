@@ -146,7 +146,6 @@ module.exports  = StyleSheet.create({
     headerContainer:{
       height: 40,
       // flexDirection: 'row',
-      backgroundColor: 'rgba(0,0,0,0.2)',
       justifyContent: 'space-between', 
     },
     questionContainer:{
@@ -244,14 +243,14 @@ module.exports  = StyleSheet.create({
       fontFamily: 'comicsansms',
     },
     true : {
-      fontSize: 20,
+      fontSize: 24,
       marginBottom: 10,
       fontWeight: '500',
-      color: 'green',
+      color: 'blue',
       textAlign: 'center',
     },
     false : {
-      fontSize:20,
+      fontSize: 24,
       marginBottom: 10,
       fontWeight: '500',
       color: 'red',
