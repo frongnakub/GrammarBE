@@ -136,7 +136,6 @@ export default class Questions extends Component {
           <Text ></Text>
         </View>
         <View style={styles.headerContainer}>
-          <Text style={{padding: 10,textAlign:"left",fontWeight:'400', fontSize: 16}}>TIME</Text>
           <Text style={{padding: 10,textAlign:"right",fontWeight:'400', fontSize: 16}}>{qNo}/30</Text>
         </View>
         {

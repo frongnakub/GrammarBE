@@ -25,7 +25,7 @@ export default class HomeScreen extends Component {
         const { navigate } = this.props.navigation;
         const {  loading, username } = this.state
         return (
-            <ImageBackground source={require('../images/outer-space-dark-17.png')} style={styles.backgroundImg}>
+            <ImageBackground source={require('../images/18111318.jpg')} style={styles.backgroundImg}>
               <View style={styles.topBar}>             
                 <Text ></Text>
                 <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>Lesson</Text>

@@ -268,7 +268,7 @@ export default class Pronoun extends Component {
         show={showAlert}
         showProgress={false}
         title={this.state.message}
-        titleStyle={{fontSize: 24}}
+        titleStyle={{fontSize: 22}}
         messageStyle={{fontSize: 20}}
         message={"You get "+score+" points"}
         closeOnTouchOutside={true}

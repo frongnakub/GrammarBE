@@ -12,6 +12,8 @@ import {
 import axios from 'axios';
 const {width: WIDTH} = Dimensions.get('window');
 
+import styles from '../styles/ResultStyle'
+
 
 export default class ResultsScreen extends Component {
   state = {
@@ -24,13 +26,29 @@ export default class ResultsScreen extends Component {
   }
 
   componentDidMount() {
+    this.fetchWrong()
     this.fetchCorrect()
+  }
+
+  fetchWrong() {
+    //adb reverse tcp:3003 tcp:3003
+    const username = this.state.username
+    axios.get("http://localhost:3003/resultLesson/"+ JSON.stringify(username))
+    .then(res => {
+        this.setState({ 
+            results: res.data, 
+            loading: false,
+        })
+    })
+    .catch(err => {
+      this.setState({ loading: false })
+    })
   }
 
   fetchCorrect() {
     //adb reverse tcp:3003 tcp:3003
     const username = this.state.username
-    axios.get("http://localhost:3003/resultLesson/"+ JSON.stringify(username))
+    axios.get("http://localhost:3003/resultLessonCorrect/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
             results: res.data, 
@@ -53,17 +71,34 @@ export default class ResultsScreen extends Component {
             </View>
             :
             <View>
-                {/* <View style={styles.topBar}>             
+                <View style={styles.topBar}>             
                   <Text ></Text>
-                  <Text style={{fontSize: 20,color:'#FFFFFF'}}>Results</Text>
+                  <Text style={{fontSize: 20,color:'#FFFFFF',fontFamily: 'comicsansms'}}>Results</Text>
                   <Text ></Text>
-                </View> */}
+                </View>
               <View>
                 {
                   results.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
+                        <View style={styles.resultBoxCorrect}>
+                        <Text style={styles.title}>Lesson you have done <Text style={{color:'#67ac00',fontSize: 36,}}>Correct!</Text> </Text>
+                          
+                          <FlatList
+                            data = {this.state.results}
+                            renderItem = {({item}) => 
+                              <View>
+                                <Text style = {styles.textStart}>
+                                  {item.LessonName}  
+                                </Text>  
+                              </View>
+                            }
+                            keyExtractor={item => item.id}
+                          />
+                        </View>
+
+
                         <View style={styles.resultBox}>
-                        <Text style={styles.title}>Lesson you have done <Text style={{color:'red'}}>WRONG!</Text></Text>   
+                        <Text style={styles.title}>Lesson you have done <Text style={{color:'red',fontSize: 36}}>WRONG!</Text></Text>   
                           <FlatList
                             data = {this.state.results}
                             renderItem = {({item}) => 
@@ -88,103 +123,3 @@ export default class ResultsScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: WIDTH,
-        backgroundColor: '#EAD8AB',
-    },
-    // wrapper: {
-    //     flex: 1,
-    //     flexDirection: 'column',
-    //     alignItems: 'center',
-    //     justifyContent: 'space-between',
-    //     padding: 30,
-    // },
-    bottom: {
-        justifyContent: 'space-between',
-    },
-    title: {
-        textAlign: 'center',
-        fontSize: 24,
-        fontWeight: '700',
-        color: '#3E3E3E',
-        marginBottom: 20,
-        marginTop: 30,
-        fontFamily: 'comicsansms',
-    },
-    textStart: {
-      fontSize: 18,
-      color: '#3E3E3E',
-      textAlign: 'center',
-      fontWeight: '500',
-      marginBottom: 10,
-      fontFamily: 'comicsansms',
-    },
-    resultBox: {
-        fontSize: 18,
-        margin: 20,
-        backgroundColor: '#D6BA84',
-        borderRadius: 20,
-    },
-    resultBox2: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      //justifyContent: 'space-between'
-    },
-    resultText: {
-        textAlign: 'center',
-        fontSize: 18,
-        padding: 10,
-        color: '#ffff',
-    },
-    roundedBtnText: {
-      fontSize: 22,
-      fontFamily: 'Roboto',
-      fontWeight: 'bold',
-      color:'#ffff',
-      textAlign: 'center',
-    },
-    roundedBtn: {
-        justifyContent: 'center',
-        //width: 300,
-        backgroundColor: '#956F3F',
-        borderRadius: 50,
-        margin: 20,
-        paddingTop: 8,
-        paddingBottom: 8
-    },
-    topBar: {
-      alignSelf: 'stretch',
-      height: 52,
-      flexDirection: 'row', // row
-      backgroundColor: '#7F4F2C',
-      alignItems: 'center',
-      justifyContent: 'space-between', // center, space-around
-      paddingLeft: 10,
-      paddingRight: 10
-  },
-    // logout: {
-    //     backgroundColor: '#F44336',
-    //     textAlign: 'center',
-    //     padding: 10,
-    //     color: 'white',
-    //     marginTop: 20,
-    //     fontWeight: '500',
-    //     fontSize: 16,
-    //     borderRadius: 30,
-    //     elevation: 5
-    // },
-    // menu: {
-    //   backgroundColor: 'blue',
-    //   textAlign: 'center',
-    //   padding: 10,
-    //   color: 'white',
-    //   marginTop: 20,
-    //   fontWeight: '500',
-    //   fontSize: 16,
-    //   borderRadius: 40,
-    //   elevation: 5
-    // }
-});

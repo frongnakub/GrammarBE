@@ -13,22 +13,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 const {width: WIDTH} = Dimensions.get('window');
 
 export default class Questions extends Component {
-    // static navigationOptions = ({navigation}) => {
-    //     return {
-    //       headerTitle: () => (
-    //       <Text>Tenses</Text>),
-    //       headerLeft: () => (
-    //         <TouchableOpacity style={styles.headerButton} onPress={() => {navigation.navigate('Menu')}}>
-    //         {/* onPress={navigation.getParam('increaseCount')}> */}
-    //           <Icon
-    //             name="left"
-    //             color="black"
-    //             size={20}
-    //           />
-    //        </TouchableOpacity>
-    //       ),
-    //     };
-    //   };
+
     state = {
       loading: true,
       username: this.props.navigation.state.params.username,

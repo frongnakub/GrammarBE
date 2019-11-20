@@ -1,68 +1,103 @@
-// import React, { Component } from 'react';
-// import {
-//     StyleSheet,
-//     Text,
-//     View,
-//     TouchableOpacity,
-//     ActivityIndicator,
-//     Dimensions
-// } from 'react-native';
+import React, { Component } from 'react';
+import {
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    Dimensions
+} from 'react-native';
+import axios from 'axios';
 
-// const {width: WIDTH} = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
-// export default class PreTestScreen extends Component{
-//     state = {
-//         loading: false,
-//         username: this.props.navigation.state.params.username,
-//     }
-    
-//     render() {
-//         const { loading, username } = this.state;
-//         const { navigate } = this.props.navigation;
+import FadeInView from './FadeInView';
 
-//         return (
-//             <View style = {styles.container}>
-//                 {loading ? (
-//                     <ActivityIndicator size = "large" color = "#008080" />
-//                 ) : (
-//                     <View style={styles.contentSpaceBetween}>
-//                         <View style={styles.roundedBtn}>
-//                             <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
-//                                 <Text style={styles.roundedBtnText}>Start Quiz</Text>
-//                             </TouchableOpacity>
-//                         </View>
-//                     </View>
-//                 )}
-//             </View>
-//         );
-//     }
-// }
+export default class Profile extends Component {
 
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       width: WIDTH,
-//       backgroundColor: '#EAD8AB',
-//     },
-//     roundedBtnText: {
-//         fontSize: 22,
-//         fontFamily: 'Roboto',
-//         fontWeight: 'bold',
-//         color:'#810000',
-//         textAlign: 'center',
-//     },
-//     roundedBtn: {
-//         width: 200,
-//         backgroundColor: '#d7933f',
-//         borderRadius: 50,
-//         marginBottom: 13,
-//         paddingTop: 8,
-//         paddingBottom: 8
-//     },
-//     contentSpaceBetween: {
-//         alignItems: 'center',
-//         justifyContent: 'space-around',
-//         flex: 2,
-//     }
+  state = {
+    profile: [],
+    loading: true,
+    index: 0,
+    username: this.props.navigation.state.params.username,
+    userNo: Number,
+  }
 
-//   });
+  componentDidMount() {
+    this.fetchProfile()
+  }
+
+  fetchProfile() {
+    //adb reverse tcp:3003 tcp:3003
+    const username = this.state.username
+    axios.get("http://localhost:3003/userData/"+ JSON.stringify(username))
+    .then(res => {
+        this.setState({ 
+            profile: res.data, 
+            loading: false,
+        })
+    })
+    .catch(err => {
+      this.setState({ loading: false })
+    })
+  }
+
+  render() {
+    const { profile, loading, index, username } = this.state
+    return (
+      <View style={styles.backgroundImg}>
+        {
+          loading ?
+            <View>
+               <FadeInView />
+            </View>
+            :
+              <View>
+                {
+                  profile.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
+                    <View>
+                        <View>
+                            <Text style={styles.textStart}>You have to do the pretest first.</Text>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
+                              <Text style={styles.menu}>Start</Text>
+                            </TouchableOpacity>
+                        </View>
+                      </View>
+                }
+              </View>
+        }
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+    backgroundImg: {
+        flex: 1,
+        width: width,
+        height: height,
+        backgroundColor: '#ffc2bc',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    textStart: {
+      fontSize: 18,
+      marginTop: 30,
+      marginLeft: 20,
+      marginRight: 20,
+      color: '#3E3E3E',
+      textAlign: 'center',
+      fontFamily: 'comicsansms_bold'
+    },
+    menu: {
+      backgroundColor: '#03A9F4',
+      textAlign: 'center',
+      padding: 10,
+      color: 'white',
+      marginTop: 20,
+      fontWeight: '500',
+      fontSize: 16,
+      borderRadius: 30,
+      elevation: 5,
+      fontFamily: 'comicsansms'
+    }
+});

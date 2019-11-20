@@ -270,7 +270,7 @@ export default class ActivePassive extends Component {
         show={showAlert}
         showProgress={false}
         title={this.state.message}
-        titleStyle={{fontSize: 24}}
+        titleStyle={{fontSize: 22}}
         messageStyle={{fontSize: 20}}
         message={"You get "+score+" points."}
         closeOnTouchOutside={true}
@@ -279,7 +279,6 @@ export default class ActivePassive extends Component {
         confirmText="Home"
         //cancelButtonColor="#"
         confirmButtonColor="#DD6B55"
-        cancelButtonStyle={styles.checkButton}
         confirmButtonStyle={styles.checkButton2}
         onConfirmPressed={() => {
           this.props.navigation.navigate('Menu',{username: username})

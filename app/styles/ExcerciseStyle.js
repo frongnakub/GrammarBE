@@ -246,7 +246,7 @@ module.exports  = StyleSheet.create({
       fontSize: 24,
       marginBottom: 10,
       fontWeight: '500',
-      color: 'blue',
+      color: 'rgba(0,255,0,0.4)',
       textAlign: 'center',
     },
     false : {
