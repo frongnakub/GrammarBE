@@ -32,7 +32,7 @@ module.exports  = StyleSheet.create({
     resultBox: {
       fontSize: 18,
       margin: 20,
-      backgroundColor: 'rgba(255,0,0,0.4)',
+      backgroundColor: 'rgba(255,0,0,0.1)',
       borderRadius: 20,
       borderWidth: 5,
       borderColor: 'rgb(255,0,0)',

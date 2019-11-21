@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
         marginRight: 20,
         color: '#3E3E3E',
         textAlign: 'center',
+        fontFamily: 'comicsansms',
     },
     textStart: {
       fontSize: 18,
@@ -138,6 +139,7 @@ const styles = StyleSheet.create({
       color: '#3E3E3E',
       textAlign: 'center',
       fontWeight: '500',
+      fontFamily: 'comicsansms',
     },
     menu: {
       backgroundColor: '#03A9F4',
@@ -148,6 +150,7 @@ const styles = StyleSheet.create({
       fontWeight: '500',
       fontSize: 16,
       borderRadius: 30,
-      elevation: 5
+      elevation: 5,
+      fontFamily: 'comicsansms',
     }
 });

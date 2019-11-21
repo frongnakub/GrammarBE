@@ -3,7 +3,8 @@ import {
     Text,
     View,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    ImageBackground
 } from 'react-native';
 import axios from 'axios';
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
@@ -67,6 +68,7 @@ export default class ActivePassive extends Component {
     render() {
         const { lessons, loading, index, username } = this.state
         return (
+        <ImageBackground source={require('../images/backgroud.png')} style={styles.backgroundImg}>
         <ScrollView style={styles.container}>
             {
             loading ?
@@ -122,6 +124,7 @@ export default class ActivePassive extends Component {
                     </View>
             }
         </ScrollView>
+        </ImageBackground>
         );
     }
 }

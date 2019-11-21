@@ -12,7 +12,7 @@ const { height, width } = Dimensions.get('window');
 
 import FadeInView from './FadeInView';
 
-export default class Pre1 extends Component {
+export default class Pre2 extends Component {
 
   state = {
     profile: [],
@@ -57,8 +57,8 @@ export default class Pre1 extends Component {
                     <View>
                         <View>
                             <Text style={styles.textStart}>You have to do the pretest first.</Text>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
-                              <Text style={styles.menu}>Start</Text>
+                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions2',{username: username})}>
+                              <Text style={styles.menu}>Start Pretest Questions R.2</Text>
                             </TouchableOpacity>
                         </View>
                       </View>

@@ -67,7 +67,7 @@ export default class ResultsScreen extends Component {
         {
           loading ?
             <View>
-               <ActivityIndicator style={{alignItems:'center'}} size={40} color="#74b9ff" />
+               <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
             </View>
             :
             <View>

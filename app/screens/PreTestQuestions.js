@@ -28,6 +28,7 @@ export default class Questions extends Component {
     userAnswer: '',
     results: '',
     qNo: 1,
+    userStatus: 'PreTest1'
   }
 
   componentDidMount() {
@@ -102,6 +103,9 @@ export default class Questions extends Component {
         answer: null,
         selected: ''
       })
+      if(qNo === 29){
+        this.sendSuccessTest()
+      }
     }
   }
 
@@ -119,6 +123,23 @@ export default class Questions extends Component {
             questionNo: this.state.questions[index].QuestionNo,
             userAnswer: this.state.selected,
             results: this.state.results,
+        })
+    })
+    .then((response) => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+  }
+
+  sendSuccessTest = () => {
+    fetch('http://localhost:3003/successPretest', { 
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text-plain, */*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify ({
+          userNo: this.state.profile[0].UserNo,
+          userStatus: this.state.userStatus,
         })
     })
     .then((response) => response.json())

@@ -14,28 +14,42 @@ import {
     Keyboard,
     KeyboardAvoidingView,
 } from 'react-native';
+import axios from 'axios';
 
 const {width: WIDTH} = Dimensions.get('window');
 const {height: HEIGHT} = Dimensions.get('window');
 
 export default class Login extends React.Component {
-    static navigationOptions = ({ navigation }) => {
-        return {
-            title: 'Login',
-            headerStyle: {
-                backgroundColor: '#fff',
-            },
-            headerTintColor: '#03A9F4',
-        }
-    }
-    
     constructor(props) {
         super(props);
         this.state = {
             username: '',
             password: '',
+            /// check
+            successPretest:'',
         }
     }
+
+    /// check
+    componentDidMount() {
+        this.getSuccessPretest()
+    }
+    
+    /// check
+    getSuccessPretest() {
+        axios.get("http://localhost:3003/successPretest/")
+        .then(res => {
+          console.log('AAAAA', res.data)
+            this.setState({ 
+                successPretest: res.data, 
+                loading: false,
+            })
+        })
+        .catch(err => {
+          this.setState({ loading: false })
+        })
+    }
+
 
     login = () => {
         fetch('http://localhost:3003/users', { 
@@ -52,14 +66,27 @@ export default class Login extends React.Component {
         .then((response) => response.json())
         .then((res) => {
             if (res.success === true){
-                //AsyncStorage.setItem('user', res.user);
-                this.props.navigation.navigate('Profile', {username: res.user});
+                this.goPage()
             }
             else{
                 alert(res.message);
             }
         })
         .done();
+    }
+
+    /// check
+    goPage = () =>{
+        const successPretest = this.state.successPretest
+        if(successPretest === 'PreTest1'){
+            this.props.navigation.navigate('TestStart2', {username: res.user}); 
+            }
+        else if(successPretest === 'PreTest2'){
+            this.props.navigation.navigate('Menu', {username: res.user}); 
+            }
+        else{
+            this.props.navigation.navigate('TestStart1', {username: res.user}); 
+        }
     }
 
     render() {

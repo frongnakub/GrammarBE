@@ -1243,6 +1243,61 @@ app.post('/answers', function(req, res, next) {
   )
 })
 
+app.get('/successPretest', function(req, res, next) {
+  console.log("Fetching successPretest")
+  const connection = getConnection()
+
+  connection.query(
+    "SELECT * From UserStatus WHERE userStatus = 'PreTest1'",
+      function (error, rows, fields) {
+        if (error) { 
+            console.log(error) 
+            res.sendStatus(500)
+            throw error
+        };
+        console.log("Add successfully")
+        res.json(rows)
+    }
+  )
+})
+
+app.get('/successPretest2', function(req, res, next) {
+  const connection = getConnection()
+
+  connection.query(
+    "SELECT * From UserStatus WHERE userStatus = 'PreTest2'",
+      function (error, rows, fields) {
+        if (error) { 
+            console.log(error) 
+            res.sendStatus(500)
+            throw error
+        };
+        console.log("Add successfully")
+        res.json(rows)
+    }
+  )
+})
+
+app.post('/successPretest', function(req, res, next) {
+  console.log(req.body.userStatus)
+  console.log(req.body.userNo)
+
+  const connection = getConnection()
+
+  connection.query(
+    'INSERT INTO UserStatus(UserStatus,UserStatus_UserNo) VALUES ("' + req.body.userStatus + '",' + req.body.userNo + ')',
+      function (error, rows, fields) {
+        if (error) { 
+            console.log(error) 
+            res.sendStatus(500)
+            throw error
+        };
+        console.log("Add successfully")
+        res.json(rows)
+    }
+  )
+})
+
 app.listen(port, function () {
 //localhost:3003
     console.log('Server running at http://localhost:' + port);
