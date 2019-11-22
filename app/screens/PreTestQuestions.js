@@ -28,7 +28,7 @@ export default class Questions extends Component {
     userAnswer: '',
     results: '',
     qNo: 1,
-    userStatus: 'PreTest1'
+    userStatus: 1
   }
 
   componentDidMount() {

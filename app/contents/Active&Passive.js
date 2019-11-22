@@ -68,7 +68,7 @@ export default class ActivePassive extends Component {
     render() {
         const { lessons, loading, index, username } = this.state
         return (
-        <ImageBackground source={require('../images/21112052.jpg')} style={styles.backgroundImg}>
+        <ImageBackground source={require('../images/20112132.jpg')} style={styles.backgroundImg}>
         <ScrollView >
             {
             loading ?

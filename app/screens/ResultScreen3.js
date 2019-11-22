@@ -50,7 +50,7 @@ export default class ResultsScreen extends Component {
     axios.get("http://localhost:3003/resultLessonCorrect3/"+ JSON.stringify(username))
     .then(res => {
         this.setState({ 
-            results: res.data, 
+            results2: res.data, 
             loading: false,
         })
     })
@@ -83,7 +83,7 @@ export default class ResultsScreen extends Component {
                         <Text style={styles.title}>Lesson you have done <Text style={{color:'#67ac00',fontSize: 36,}}>Correct!</Text> </Text>
                           
                           <FlatList
-                            data = {this.state.results}
+                            data = {this.state.results2}
                             renderItem = {({item}) => 
                               <View>
                                 <Text style = {styles.textStart}>

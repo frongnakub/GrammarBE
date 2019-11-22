@@ -67,18 +67,37 @@ export default class Profile extends Component {
                             source={require('../images/network.png')}
                             containerStyle={{marginTop: 20 ,marginBottom: 15 }} 
                           />
-                          <Text style={styles.card}>{profile[index].Name}   {profile[index].Surname}</Text>
-                          <Text style={styles.card}>{profile[index].Email}</Text>
+                          <Text style={styles.card}>Username: {profile[index].Username}</Text>
+                          <Text style={styles.card}>Name: {profile[index].Name}</Text>
+                          <Text style={styles.card}>Surname: {profile[index].Surname}</Text>
+                          <Text style={styles.card}>Email: {profile[index].Email}</Text>
                         </View>
                         <View>
-                            <Text style={styles.textStart}>You have to do the pretest first.</Text>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
-                              <Text style={styles.menu}>Pre-test</Text>
-                            </TouchableOpacity>
-                            <Text style={styles.textStart}>If you have already done the pretest.</Text>
-                            <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
-                              <Text style={styles.menu}>Menu</Text>
-                            </TouchableOpacity>
+                          {profile[index].UserStatus_UserStatusNo === 2 ? (
+                            <View>
+                              <Text style={styles.textStart}>You have already done both of pretest.</Text>
+                              <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
+                                <Text style={styles.menu}>Menu</Text>
+                              </TouchableOpacity>
+                            </View>
+                            ) : 
+                            profile[index].UserStatus_UserStatusNo === 1 ? (
+                            <View>
+                              <Text style={styles.textStart}>{"You have to do the second pretest \nafter you have finished the first one."}</Text>
+                              <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions2',{username: username})}>
+                                <Text style={styles.menu}>Pre-test No.2</Text>
+                              </TouchableOpacity>
+                            </View>
+                            ) : (
+                            <View>
+                              <Text style={styles.textStart}>You have to do the pretest first.</Text>
+                              <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PretestQuestions',{username: username})}>
+                                <Text style={styles.menu}>Pre-test No.1</Text>
+                              </TouchableOpacity>
+                            </View>
+                            )
+                          }
+                          
                             {/* <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Logged')}>
                               <Text style={styles.logout}>Log out</Text>
                             </TouchableOpacity> */}
@@ -118,7 +137,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     title: {
-        alignItems: 'center',
         backgroundColor: '#ffc73a',
         marginTop: 10,
     },
@@ -128,7 +146,6 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
         color: '#3E3E3E',
-        textAlign: 'center',
         fontFamily: 'comicsansms',
     },
     textStart: {

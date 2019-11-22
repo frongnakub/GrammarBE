@@ -7,8 +7,6 @@ import Profile from '../screens/Profile';
 import MenuScreen from '../screens/MenuScreen';
 import MenuBar from '../screens/MenuBar';
 import Tenses from '../screens/LessonTenses';
-import TestStart from '../screens/PreTestScreen';
-import TestStart2 from '../screens/PreTestScreen1';
 
 //TEST
 import PretestQuestions from '../screens/PreTestQuestions';
@@ -80,8 +78,6 @@ const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
     Regis: {screen: Register},
     Profile: {screen: Profile},
-    TestStart: {screen: TestStart},
-    TestStart2: {screen: TestStart2},
 
     Menu: {screen: MenuScreen},
     MenuBar: {screen: MenuBar},

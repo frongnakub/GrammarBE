@@ -36,7 +36,7 @@ export default class Adverb extends Component {
     render() {
         const { lessons, loading, index, username } = this.state
         return (
-        <ImageBackground source={require('../images/21112052.jpg')} style={styles.backgroundImg}>
+        <ImageBackground source={require('../images/20112132.jpg')} style={styles.backgroundImg}>
             <ScrollView style={styles.container}>
                 {
                 loading ?

@@ -29,7 +29,7 @@ export default class Questions extends Component {
     userAnswer: '',
     results: '',
     qNo: 1,
-    userStatus: 'PreTest2'
+    userStatus: 2
   }
 
   componentDidMount() {
@@ -124,10 +124,6 @@ export default class Questions extends Component {
             questionNo: this.state.questions[index].QuestionNo,
             userAnswer: this.state.selected,
             results: this.state.results,
-            // userNo: this.state.profile[0].UserNo,
-            // testNo: this.state.questions[0].Test_TestNo,
-            // questionNo: this.state.questions[0].QuestionNo,
-            // userAnswer: this.state.selected,
         })
     })
     .then((response) => response.json())

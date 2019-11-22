@@ -1285,7 +1285,7 @@ app.post('/successPretest', function(req, res, next) {
   const connection = getConnection()
 
   connection.query(
-    'INSERT INTO UserStatus(UserStatus,UserStatus_UserNo) VALUES ("' + req.body.userStatus + '",' + req.body.userNo + ')',
+    'UPDATE User SET UserStatus_UserStatusNo = '+ req.body.userStatus +' WHERE User.UserNo = '+ req.body.userNo,
       function (error, rows, fields) {
         if (error) { 
             console.log(error) 

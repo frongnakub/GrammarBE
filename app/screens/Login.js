@@ -25,31 +25,8 @@ export default class Login extends React.Component {
         this.state = {
             username: '',
             password: '',
-            /// check
-            successPretest:'',
         }
     }
-
-    /// check
-    componentDidMount() {
-        this.getSuccessPretest()
-    }
-    
-    /// check
-    getSuccessPretest() {
-        axios.get("http://localhost:3003/successPretest/")
-        .then(res => {
-          console.log('AAAAA', res.data)
-            this.setState({ 
-                successPretest: res.data, 
-                loading: false,
-            })
-        })
-        .catch(err => {
-          this.setState({ loading: false })
-        })
-    }
-
 
     login = () => {
         fetch('http://localhost:3003/users', { 
@@ -66,7 +43,6 @@ export default class Login extends React.Component {
         .then((response) => response.json())
         .then((res) => {
             if (res.success === true){
-                // this.goPage()
                 this.props.navigation.navigate('Profile', {username: res.user}); 
             }
             else{
@@ -74,20 +50,6 @@ export default class Login extends React.Component {
             }
         })
         .done();
-    }
-
-    /// check
-    goPage = () =>{
-        const successPretest = this.state.successPretest
-        if(successPretest === 'PreTest1'){
-            this.props.navigation.navigate('TestStart2', {username: res.user}); 
-            }
-        else if(successPretest === 'PreTest2'){
-            this.props.navigation.navigate('Menu', {username: res.user}); 
-            }
-        else{
-            this.props.navigation.navigate('TestStart1', {username: res.user}); 
-        }
     }
 
     render() {
