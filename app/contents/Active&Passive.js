@@ -68,12 +68,12 @@ export default class ActivePassive extends Component {
     render() {
         const { lessons, loading, index, username } = this.state
         return (
-        <ImageBackground source={require('../images/backgroud.png')} style={styles.backgroundImg}>
-        <ScrollView style={styles.container}>
+        <ImageBackground source={require('../images/21112052.jpg')} style={styles.backgroundImg}>
+        <ScrollView >
             {
             loading ?
-                <View >
-                <FadeInView />
+                <View>
+                    <FadeInView />
                 </View>
                 :
                     <View style={styles.wrapper}>

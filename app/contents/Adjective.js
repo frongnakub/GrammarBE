@@ -3,7 +3,8 @@ import {
     Text,
     View,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    ImageBackground
 } from 'react-native';
 import axios from 'axios';
 
@@ -35,7 +36,8 @@ export default class Adjective extends Component {
     render() {
         const { lessons, loading, index, username } = this.state
         return (
-        <ScrollView style={styles.container}>
+        <ImageBackground source={require('../images/21112052.jpg')} style={styles.backgroundImg}>
+            <ScrollView style={styles.container}>
             {
             loading ?
                 <View >
@@ -63,6 +65,8 @@ export default class Adjective extends Component {
                     </View>
             }
         </ScrollView>
+        </ImageBackground>
+        
         );
     }
 }

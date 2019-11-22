@@ -36,43 +36,46 @@ export default class PastSimple extends Component {
     render() {
         const { lessons, loading, index, username } = this.state
         return (
-        <ScrollView style={styles.container}>
-            {
-            loading ?
-                <View  >
-                    <FadeInView />
-                </View>
-                :
-                <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
-                    <View style={styles.wrapper}>
-                    <View>
-                        {
-                        lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
+            <ImageBackground source={require('../images/20112132.jpg')} style={styles.backgroundImg}>
+                <ScrollView style={styles.container}>
+                    {
+                    loading ?
+                        <View  >
+                            <FadeInView />
+                        </View>
+                        :
+                        // <ImageBackground source={require('../images/bg.png')} style={styles.backgroundImg}>
+                            <View style={styles.wrapper}>
                             <View>
-                                <View>
-                                    <Text style={styles.headers}>Past Simple Tense</Text>
-                                    <View style={styles.bodyText}>
-                                        <Text style={styles.headers2}>{'Structure: Subj. + V.2'}</Text>
+                                {
+                                lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
+                                    <View>
+                                        <View>
+                                            <Text style={styles.headers}>Past Simple Tense</Text>
+                                            <View style={styles.bodyText}>
+                                                <Text style={styles.headers2}>{'Structure: Subj. + V.2'}</Text>
+                                            </View>
+                                            <Text style={styles.text}>{lessons[index].LessonDescription}</Text> 
+                                            
+                                            <View style={styles.bodyText}>
+                                                <Text style={styles.content}>{'Time references:	ago, last…, for, yesterday, in 1961, a year last April, already, earlier, first, early, historical, primitive, former, initial, original, previously, lately'} </Text>
+                                            </View>
+                                        </View>
+                                        <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PastSimpleExercise',{username: username})}>
+                                            <Text style={styles.menu}>Exercise</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses',{username: username})}>
+                                            <Text style={styles.menu}>Back</Text>
+                                        </TouchableOpacity>
                                     </View>
-                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text> 
-                                    
-                                    <View style={styles.bodyText}>
-                                        <Text style={styles.content}>{'Time references:	ago, last…, for, yesterday, in 1961, a year last April, already, earlier, first, early, historical, primitive, former, initial, original, previously, lately'} </Text>
-                                    </View>
-                                </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('PastSimpleExercise',{username: username})}>
-                                    <Text style={styles.menu}>Exercise</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Tenses',{username: username})}>
-                                    <Text style={styles.menu}>Back</Text>
-                                </TouchableOpacity>
+                                }
                             </View>
-                        }
-                    </View>
-                    </View>
-                </ImageBackground>
-            }
-        </ScrollView>
+                            </View>
+                        // </ImageBackground>
+                    }
+                </ScrollView>        
+            </ImageBackground>
+        
         );
     }
 }

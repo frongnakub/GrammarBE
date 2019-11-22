@@ -30,7 +30,7 @@ export default class Questions extends Component {
                   <Icon
                     name="arrowleft"
                     size={30}
-                    onPress={() => navigate('Menu')}
+                    onPress={() => navigate('Menu',{username: username})}
                   />
                 </TouchableOpacity>      
                 <Text style={{fontSize: 20,fontFamily: 'comicsansms'}}>TENSES</Text>

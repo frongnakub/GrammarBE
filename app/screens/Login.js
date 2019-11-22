@@ -66,7 +66,8 @@ export default class Login extends React.Component {
         .then((response) => response.json())
         .then((res) => {
             if (res.success === true){
-                this.goPage()
+                // this.goPage()
+                this.props.navigation.navigate('Profile', {username: res.user}); 
             }
             else{
                 alert(res.message);

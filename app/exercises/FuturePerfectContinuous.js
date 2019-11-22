@@ -124,7 +124,7 @@ export default class FuturePerfectContinuous extends Component {
 
 
   render() {
-    const { showAlert, questions, loading, index, answer, check, selected, username, qNo, score } = this.state
+    const { showAlert, questions, loading, index, answer, check, selected, username, qNo, score, message } = this.state
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -233,7 +233,16 @@ export default class FuturePerfectContinuous extends Component {
                   <View style={styles.checkButtonContainer}>
                     { index !== 0 ?
                         <TouchableOpacity onPress={this.previousQuestion}  style={styles.checkButton}>
-                          <Text style={styles.next}>Back</Text>
+                          <View style={styles.next}>
+                            <Icon
+                            name="arrowleft"
+                            size={30}
+                            color='#fff'
+                            //onPress={() => navigate('Menu',{username: username})}
+                            />
+                          {/* <Text style={styles.next}>Back</Text> */}
+                          </View>
+                          
                         </TouchableOpacity>
                         :
                         <View style={styles.checkButton}><Text></Text></View>
@@ -257,7 +266,16 @@ export default class FuturePerfectContinuous extends Component {
                       : 
                       (
                         <TouchableOpacity onPress={this.nextQuestion} style={styles.checkButton}>
-                          <Text style={styles.next}>Next</Text>
+                          <View style={styles.next}>
+                            <Icon
+                            name="arrowright"
+                            size={30}
+                            color='#fff'
+                            //onPress={() => navigate('Menu',{username: username})}
+                          />
+                          {/* <Text style={styles.next}>Next</Text> */}
+                          </View>
+                          
                         </TouchableOpacity>
                       )
                     }
@@ -269,17 +287,16 @@ export default class FuturePerfectContinuous extends Component {
         show={showAlert}
         showProgress={false}
         title={this.state.message}
-        titleStyle={{fontSize: 22}}
-        messageStyle={{fontSize: 20}}
-        message={"You get "+score+" points"}
+        titleStyle={{fontSize: 20,fontFamily: 'comicsansms',}}
+        messageStyle={{fontSize: 18,fontFamily: 'comicsansms',}}
+        message={"You get "+score+" points."}
         closeOnTouchOutside={true}
         closeOnHardwareBackPress={false}
         showConfirmButton={true}
-        confirmText="Home"
-        //cancelButtonColor="#"
+        confirmText="HOME"
         confirmButtonColor="#DD6B55"
-        cancelButtonStyle={styles.checkButton}
-        confirmButtonStyle={styles.checkButton2}
+        confirmButtonStyle={{width: 100}}
+        confirmButtonTextStyle={{textAlign: 'center',fontSize: 18,fontFamily: 'comicsansms',}}
         onConfirmPressed={() => {
           this.props.navigation.navigate('Menu',{username: username})
         }}

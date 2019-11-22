@@ -215,6 +215,7 @@ module.exports  = StyleSheet.create({
       borderRadius: 30,
       fontSize: 17,
       marginBottom: 10,
+      alignItems: 'center',
       fontWeight: '500',
       textAlign: 'center',
       fontFamily: 'comicsansms',
@@ -273,8 +274,12 @@ module.exports  = StyleSheet.create({
     checkButton:{
       width: WIDTH/3,
     },
-    checkButton2:{
-    },
+    // checkButton2:{
+    //   width: 150,
+    //   textAlign: 'center',
+    //   fontSize: 18,
+    //   fontFamily: 'comicsansms',
+    // },
     button: {
       alignItems: 'center',
       backgroundColor: '#FFFFFF',

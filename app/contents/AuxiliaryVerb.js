@@ -3,7 +3,8 @@ import {
     Text,
     View,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    ImageBackground
 } from 'react-native';
 import axios from 'axios';
 
@@ -35,42 +36,45 @@ export default class AuxiliaryVerb extends Component {
     render() {
         const { lessons, loading, index, username} = this.state
         return (
-        <ScrollView style={styles.container}>
-            {
-            loading ?
-                <View >
-                    <FadeInView />
-                </View>
-                :
-                    <View style={styles.wrapper}>
-                    <View>
-                        {
-                        lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
-                            <View>
+        <ImageBackground source={require('../images/21112052.jpg')} style={styles.backgroundImg}>
+            <ScrollView style={styles.container}>
+                {
+                loading ?
+                    <View >
+                        <FadeInView />
+                    </View>
+                    :
+                        <View style={styles.wrapper}>
+                        <View>
+                            {
+                            lessons.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                                 <View>
-                                    <Text style={styles.headers}>Auxiliary Verb</Text>
-                                    <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
-                                    <View style={styles.bodyText}>
-                                        <Text style={styles.content}>{'“taking, do, and fallen” \nare main verbs.'} </Text>
+                                    <View>
+                                        <Text style={styles.headers}>Auxiliary Verb</Text>
+                                        <Text style={styles.text}>{lessons[index].LessonStructure}</Text>
+                                        <View style={styles.bodyText}>
+                                            <Text style={styles.content}>{'“taking, do, and fallen” \nare main verbs.'} </Text>
+                                        </View>
+                                        <Text style={styles.text}>Note:  In addition to V. to be, do, have, there is another kind of auxiliary verb: Modals.</Text>
+                                        <View style={styles.bodyText2}>
+                                            <Text style={styles.content}>{'will / would \nshall / should \ncan / could \nmay / might \nmust \nought to / have to \nused to (past tense) \nhad better \nwould rather \nhad rather'} </Text>
+                                        </View>
+                                        <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
                                     </View>
-                                    <Text style={styles.text}>Note:  In addition to V. to be, do, have, there is another kind of auxiliary verb: Modals.</Text>
-                                    <View style={styles.bodyText2}>
-                                        <Text style={styles.content}>{'will / would \nshall / should \ncan / could \nmay / might \nmust \nought to / have to \nused to (past tense) \nhad better \nwould rather \nhad rather'} </Text>
-                                    </View>
-                                    <Text style={styles.text}>{lessons[index].LessonDescription}</Text>
+                                    <TouchableOpacity onPress={() =>  this.props.navigation.navigate('AuxiliaryExercise',{username: username})}>
+                                        <Text style={styles.menu}>Exercise</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
+                                        <Text style={styles.menu}>Back</Text>
+                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('AuxiliaryExercise',{username: username})}>
-                                    <Text style={styles.menu}>Exercise</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Menu',{username: username})}>
-                                    <Text style={styles.menu}>Back</Text>
-                                </TouchableOpacity>
-                            </View>
-                        }
-                    </View>
-                    </View>
-            }
-        </ScrollView>
+                            }
+                        </View>
+                        </View>
+                }
+            </ScrollView>
+        </ImageBackground>
+        
         );
     }
 }

@@ -4,12 +4,11 @@ const {width: WIDTH} = Dimensions.get('window');
 const {hight: HEIGHT} = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
-
     backgroundImg: {
         flex: 1,
         width: WIDTH,
         height: HEIGHT,
-        backgroundColor:'transparent',
+        //backgroundColor:'transparent',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -94,7 +93,8 @@ module.exports = StyleSheet.create({
       fontWeight: '500',
       fontSize: 16,
       borderRadius: 30,
-      elevation: 5
+      elevation: 5,
+      fontFamily: 'comicsansms',
     },
     load: {
         alignItems: 'center',
