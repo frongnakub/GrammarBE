@@ -60,17 +60,13 @@ export default class Profile extends Component {
                   profile.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
                     <View>
                         <View style={styles.title}>
-                          <Avatar
-                            rounded
-                            size="xlarge"
-                            //activeOpacity={0.7}
-                            source={require('../images/network.png')}
-                            containerStyle={{marginTop: 20 ,marginBottom: 15 }} 
-                          />
-                          <Text style={styles.card}>Username: {profile[index].Username}</Text>
-                          <Text style={styles.card}>Name: {profile[index].Name}</Text>
-                          <Text style={styles.card}>Surname: {profile[index].Surname}</Text>
-                          <Text style={styles.card}>Email: {profile[index].Email}</Text>
+                          <Text style={styles.profile}>Profile</Text>
+                          <Text style={styles.card}>Username: </Text>
+                          <Text style={styles.card2}>{profile[index].Username}</Text>
+                          <Text style={styles.card}>Name: </Text>
+                          <Text style={styles.card2}>{profile[index].Name} {profile[index].Surname}</Text>
+                          <Text style={styles.card}>Email: </Text>
+                          <Text style={styles.card2}>{profile[index].Email}</Text>
                         </View>
                         <View>
                           {profile[index].UserStatus_UserStatusNo === 2 ? (
@@ -122,7 +118,7 @@ const styles = StyleSheet.create({
       flex: 1,
       width: width,
       height: height,
-      backgroundColor: '#ffc2bc',
+      backgroundColor: 'white',
       justifyContent: 'center',
       alignItems: 'center',
   },
@@ -136,8 +132,14 @@ const styles = StyleSheet.create({
     bottom: {
         justifyContent: 'space-between',
     },
+    profile: {
+      fontSize: 30,
+      textAlign: 'center',
+      color: '#3E3E3E',
+      fontFamily: 'comicsansms',
+    },
     title: {
-        backgroundColor: '#ffc73a',
+        backgroundColor: 'white',
         marginTop: 10,
     },
     card: {
@@ -147,6 +149,14 @@ const styles = StyleSheet.create({
         marginRight: 20,
         color: '#3E3E3E',
         fontFamily: 'comicsansms',
+    },
+    card2 : {
+      fontSize: 24,
+      marginBottom: 20,
+      marginLeft: 20,
+      marginRight: 20,
+      color: '#2856fc',
+      fontFamily: 'comicsansms',
     },
     textStart: {
       fontSize: 18,
@@ -159,7 +169,7 @@ const styles = StyleSheet.create({
       fontFamily: 'comicsansms',
     },
     menu: {
-      backgroundColor: '#03A9F4',
+      backgroundColor: '#37c9fa',
       textAlign: 'center',
       padding: 10,
       color: 'white',

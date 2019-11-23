@@ -73,6 +73,10 @@ import Comparison from '../contents/Comparison'
 import ActivePassive from '../contents/Active&Passive'
 import IfClause from '../contents/If-clause'
 
+// //GAMES
+// import Welcome from '../games/Welcome'
+// import PlayScreen from '../games/PlayScreen'
+// import End from '../games/End'
 
 const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
@@ -141,6 +145,10 @@ const MainNavigator = createSwitchNavigator({
     ActivePassiveExercise: {screen: ActivePassiveExercise},
     IfClause: {screen: IfClause},
     IfClauseExercise: {screen: IfClauseExercise},
+
+    // Welcome: {screen: Welcome},
+    // PlayScreen: {screen: PlayScreen},
+    // End: {screen: End},
     
 });
 

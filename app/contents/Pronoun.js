@@ -62,7 +62,7 @@ export default class Pronoun extends Component {
                                             </View>
                                             <Text style={styles.text}>{lessons[index].SpecialTrick}</Text>
                                             <View style={styles.bodyText}>
-                                                <Text style={styles.content}>{'Pattern	:	… who + V. +(O.).\nPattern	: 	… whom + S. + V. + (O.). \n… for / with whom + S. + V. + (O.). \nPattern:	… which + V. + (O.)… \nwhich + S. + V. + (O.)\n… prepositions (at, of , in, to, on) + which + S. + V. + (O.)\nPattern: … whose + S. + V. + (O.)'} </Text>
+                                                <Text style={styles.content}>{'Pattern	:	… who + V. +(O.).\nPattern	: 	… whom + S. + V. + (O.). \n… for / with whom + S. + V. + (O.) \nPattern:	… which + V. + (O.)… \nwhich + S. + V. + (O.)\n… prepositions (at, of , in, to, on) + which + S. + V. + (O.)\nPattern: … whose + S. + V. + (O.)'} </Text>
                                             </View>
                                             <View style={styles.bodyText}>
                                                 <Text style={styles.content}>{'Other significant PRONOUNS: all, another, any, both, each, neither, few, less, little, many, much, none, others, several, some, most.'} </Text>

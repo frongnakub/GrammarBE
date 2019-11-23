@@ -236,7 +236,7 @@ export default class Pronoun extends Component {
                             <Icon
                             name="arrowleft"
                             size={30}
-                            color='#fff'
+                            color='blue'
                             //onPress={() => navigate('Menu',{username: username})}
                             />
                           {/* <Text style={styles.next}>Back</Text> */}
@@ -269,7 +269,7 @@ export default class Pronoun extends Component {
                             <Icon
                             name="arrowright"
                             size={30}
-                            color='#fff'
+                            color='blue'
                             //onPress={() => navigate('Menu',{username: username})}
                           />
                           {/* <Text style={styles.next}>Next</Text> */}

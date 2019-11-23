@@ -87,6 +87,14 @@ export default class Menubar extends Component {
                             /> 
                             <Text style={styles.text}>Post-Test</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Welcome',{username: username})}>
+                            <Icon
+                                name="game"
+                                size={20}
+                                color= 'rgba(244,67,54,0.5)'
+                            /> 
+                            <Text style={styles.text}>Game</Text>
+                        </TouchableOpacity>
                         {/* <TouchableOpacity style={styles.barContainer} onPress={() => navigate('ResultScreen')}>
                             <Icon
                                 name="save"
