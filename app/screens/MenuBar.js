@@ -5,7 +5,7 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-
+    ActivityIndicator
 } from 'react-native';
 import axios from 'axios';
 
@@ -19,6 +19,9 @@ export default class Menubar extends Component {
         loading: true,
         username: this.props.navigation.state.params.username,
         userNo: Number,
+        profile: [],
+        index: 0,
+        loading: true,
       }
     
       componentDidMount() {
@@ -42,60 +45,78 @@ export default class Menubar extends Component {
     
     render() {
         const { navigate } = this.props.navigation;
-        const { username } = this.state
+        const { username, index, profile,loading } = this.state
         return (
             <View style={styles.container}>
-                <View style={styles.topBar}> 
-                    <TouchableOpacity onPress={() => navigate('Menu',{username: username})}>          
-                    <Icon
-                        name="arrowleft"
-                        size={30}
-                        
-                    />
-                    </TouchableOpacity>      
-                </View>
-                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Menu',{username: username})}>
-                    <Icon
-                        name="home"
-                        size={20}
-                        color= 'rgba(244,67,54,0.5)'
-                    /> 
-                    <Text style={styles.text}>Home</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('PosttestQuestion',{username: username})}>
-                    <Icon
-                        name="form"
-                        size={20}
-                        color= 'rgba(244,67,54,0.5)'
-                    /> 
-                    <Text style={styles.text}>Post-Test</Text>
-                </TouchableOpacity>
-                {/* <TouchableOpacity style={styles.barContainer} onPress={() => navigate('ResultScreen')}>
-                    <Icon
-                        name="save"
-                        size={20}
-                        color= 'rgba(244,67,54,0.5)'
-                    /> 
-                    <Text style={styles.text}>Result-Test</Text>
-                </TouchableOpacity> */}
-                <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Logged')}>
-                    <Icon
-                        name="poweroff"
-                        size={20}
-                        color= 'rgba(244,67,54,0.5)'
-                    /> 
-                    <Text style={styles.text}>Logout</Text>
-                </TouchableOpacity>
+            {
+                loading ?
+                    <View>
+                        <ActivityIndicator />
+                    </View>
+                    :
+                    <View>
+                        {
+                            profile.length === 0 ? <Text style={styles.welcome}>Try Again</Text> :
+                            <View>
+                        <View style={styles.topBar}> 
+                            <TouchableOpacity onPress={() => navigate('Menu',{username: username})}>          
+                            <Icon
+                                name="arrowleft"
+                                size={30}
+                                
+                            />
+                            </TouchableOpacity>      
+                        </View>
+                        <View style={styles.nameContainer}>
+                            <Text style={styles.text}>{profile[index].Name}   {profile[index].Surname}</Text>
+                            <Text style={styles.textBot2}>{profile[index].Email}</Text>
+                        </View>
+                        <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Menu',{username: username})}>
+                            <Icon
+                                name="home"
+                                size={20}
+                                color= 'rgba(244,67,54,0.5)'
+                            /> 
+                            <Text style={styles.text}>Home</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.barContainer} onPress={() => navigate('PosttestQuestion',{username: username})}>
+                            <Icon
+                                name="form"
+                                size={20}
+                                color= 'rgba(244,67,54,0.5)'
+                            /> 
+                            <Text style={styles.text}>Post-Test</Text>
+                        </TouchableOpacity>
+                        {/* <TouchableOpacity style={styles.barContainer} onPress={() => navigate('ResultScreen')}>
+                            <Icon
+                                name="save"
+                                size={20}
+                                color= 'rgba(244,67,54,0.5)'
+                            /> 
+                            <Text style={styles.text}>Result-Test</Text>
+                        </TouchableOpacity> */}
+                        <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Logged')}>
+                            <Icon
+                                name="poweroff"
+                                size={20}
+                                color= 'rgba(244,67,54,0.5)'
+                            /> 
+                            <Text style={styles.text}>Logout</Text>
+                        </TouchableOpacity>
 
-                <View style={styles.infoContainer}>
-                   <Text style={styles.textBot1}>
-                        GrammarBE
-                    </Text>
-                    <Text style={styles.textBot2}>
-                        Grammar Basic For English
-                    </Text> 
+                        <View style={styles.infoContainer}>
+                        <Text style={styles.textBot1}>
+                                GrammarBE
+                            </Text>
+                            <Text style={styles.textBot2}>
+                                Grammar Basic For English
+                            </Text> 
+                        </View>
+                        
+                    </View>
+                }
                 </View>
-            
+            }
             </View>
         );
     }
@@ -126,6 +147,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'rgb(255,255,255)'
     },
+    nameContainer:{
+        alignSelf: 'stretch',
+        padding: 20,
+        height: 140,
+        flexDirection: 'column',
+        borderBottomColor: 'rgb(0,0,0)',
+        borderBottomWidth: 2,
+        alignItems: 'center',
+    },
     text:{
         fontFamily: 'comicsansms',
         fontSize: 18,
@@ -133,10 +163,10 @@ const styles = StyleSheet.create({
     },
     infoContainer:{
         alignItems: 'center',
-        position: 'absolute',
+        //position: 'absolute',
         left: 0,
         right: 0,
-        bottom: 20,
+        bottom: 0,
     },
     textBot1:{
         fontFamily: 'comicsansms',
