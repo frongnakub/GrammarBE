@@ -1,6 +1,5 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
-
 import Login from '../screens/Login';
 import Register from '../screens/Register'
 import Profile from '../screens/Profile';
@@ -74,9 +73,9 @@ import ActivePassive from '../contents/Active&Passive'
 import IfClause from '../contents/If-clause'
 
 // //GAMES
-// import Welcome from '../games/Welcome'
-// import PlayScreen from '../games/PlayScreen'
-// import End from '../games/End'
+import Welcome from '../games/Welcome'
+import PlayScreen from '../games/PlayScreen'
+import End from '../games/End'
 
 const MainNavigator = createSwitchNavigator({
     Logged: {screen: Login},
@@ -146,10 +145,9 @@ const MainNavigator = createSwitchNavigator({
     IfClause: {screen: IfClause},
     IfClauseExercise: {screen: IfClauseExercise},
 
-    // Welcome: {screen: Welcome},
-    // PlayScreen: {screen: PlayScreen},
-    // End: {screen: End},
-    
+    Welcome: {screen: Welcome, navigationOptions: { header: null }},
+    PlayScreen: {screen: PlayScreen, navigationOptions: { header: null }},
+    End: {screen: End, navigationOptions: { header: null }},
 });
 
 const App = createAppContainer(MainNavigator);

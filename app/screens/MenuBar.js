@@ -87,7 +87,7 @@ export default class Menubar extends Component {
                             /> 
                             <Text style={styles.text}>Post-Test</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Welcome',{username: username})}>
+                        <TouchableOpacity style={styles.barContainer} onPress={() => navigate('Welcome')}>
                             <Icon
                                 name="game"
                                 size={20}
@@ -117,7 +117,7 @@ export default class Menubar extends Component {
                                 GrammarBE
                             </Text>
                             <Text style={styles.textBot2}>
-                                Grammar Basic For English
+                                English Basic Grammar
                             </Text> 
                         </View>
                         

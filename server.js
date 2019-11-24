@@ -35,6 +35,24 @@ router.get('/messages', (req, res) => {
 
 app.use(router)
 
+app.get('/minigame', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 29', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
 app.get('/pretest1', cors(), (req, res) => {
   console.log("Fetching questions")
  
@@ -955,6 +973,24 @@ app.get('/futurePerfectContinuousExercise', cors(), (req, res) => {
 })
 
 app.get('/adverbExercise', cors(), (req, res) => {
+  console.log("Fetching questions")
+ 
+  const connection = getConnection()
+
+  connection.query('SELECT * FROM Question WHERE Test_TestNo = 28', 
+  function (error, rows, fields) {
+      if (error) { 
+          console.log(error) 
+          res.sendStatus(500)
+          throw error
+      };
+      console.log("I think we fetched successfully")
+      res.json(rows)
+  })
+  res.setHeader('Access-Control-Allow-Origin', '*');
+})
+
+app.get('/adjectiveExercise', cors(), (req, res) => {
   console.log("Fetching questions")
  
   const connection = getConnection()

@@ -155,6 +155,11 @@ module.exports  = StyleSheet.create({
       marginRight: 10,
       alignItems: 'center',
     },
+    instructor:{
+      fontSize: 24,
+      textAlign: 'center',
+      fontFamily: 'comicsansms',
+    },
     questionText:{
       fontSize: 18,
       textAlign: 'center',
@@ -245,14 +250,12 @@ module.exports  = StyleSheet.create({
     },
     true : {
       fontSize: 24,
-      marginBottom: 10,
       fontWeight: '500',
-      color: 'rgba(0,255,0,0.4)',
+      color: 'green',
       textAlign: 'center',
     },
     false : {
       fontSize: 24,
-      marginBottom: 10,
       fontWeight: '500',
       color: 'red',
       textAlign: 'center',

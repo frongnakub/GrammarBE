@@ -135,13 +135,12 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderRadius: 10,
         fontFamily: 'comicsansms',
-        fontSize: 14,
+        fontSize: 16,
     },
     buttonContainer:{
         backgroundColor: '#f7c744',
         paddingVertical: 10,
         borderRadius: 10
-
     },
     buttonText:{
         textAlign: 'center',

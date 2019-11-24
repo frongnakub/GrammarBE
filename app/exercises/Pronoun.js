@@ -36,6 +36,7 @@ export default class Pronoun extends Component {
 
   componentDidMount() {
     this.fetchQuestions()
+    alert("Each sentence has four parts that \nare marked by (A), (B), (C), (D). \nIdentify the one that must be changed \nin order for the sentence to be correct.")
   }
 
   fetchQuestions() {

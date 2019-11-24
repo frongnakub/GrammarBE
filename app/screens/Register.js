@@ -63,7 +63,7 @@ export default class Register extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.colContainer}>
-                    <Text style={styles.textRes}>REGISTER</Text>
+                    <Text style={styles.textRes}>Registration Form</Text>
                     <Text style={{color: 'red'}}>{message}</Text>
                     <View style={styles.infoContainer}>
                         <TextInput
@@ -96,7 +96,6 @@ export default class Register extends Component {
                             secureTextEntry={true}
                             onChangeText={(text) => this.setState({ password: text })}
                         />
-                    </View>
                     {
                         loading ? <ActivityIndicator style={{marginTop: 20}} size={40} color="#74b9ff" />
                             :
@@ -104,6 +103,8 @@ export default class Register extends Component {
                                 <Text style={styles.textRegister}>Register</Text>
                             </TouchableOpacity>
                     }
+                    </View>
+                    
                 </View>
             </View>
         );
@@ -127,8 +128,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: '#fff',
         marginBottom: 30,
+        fontFamily: 'comicsansms',
     },
     infoContainer:{
+        width: WIDTH,
         left: 0,
         right: 0,
         bottom: 0,
@@ -136,19 +139,18 @@ const styles = StyleSheet.create({
         // backgroundColor: 'red'
     },
     input:{
-        alignItems: 'center',
-        // borderRadius: 15,
-        borderColor: 'rgb(0,0,0)',
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(255,255,255,1)',
+        color: 'rgb(0,0,0)',
         paddingHorizontal: 10,
-        marginBottom: 10,
-        paddingRight: 10,
-        paddingLeft: 10,
-        width: 300,
+        marginBottom: 20,
+        borderRadius: 10,
+        fontFamily: 'comicsansms',
+        fontSize: 16,
     },
     textRegister: {
         width: 200,
         marginTop: 20,
+        marginLeft: 80,
         // backgroundColor: '#03A9F4',
         backgroundColor: 'white',
         textAlign: 'center',
@@ -159,6 +161,7 @@ const styles = StyleSheet.create({
         // borderRadius: 30,
         elevation: 5,
         alignItems: 'center',
+        fontFamily: 'comicsansms',
     },
 
 });

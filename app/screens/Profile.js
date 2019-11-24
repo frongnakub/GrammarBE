@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
       fontFamily: 'comicsansms',
     },
     menu: {
-      backgroundColor: '#37c9fa',
+      backgroundColor: '#03A9F4',
       textAlign: 'center',
       padding: 10,
       color: 'white',

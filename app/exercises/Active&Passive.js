@@ -186,7 +186,13 @@ export default class ActivePassive extends Component {
                         <View style={styles.checkButtonContainer}>
                           { index !== 0 ?
                             <TouchableOpacity onPress={this.previousQuestion} style={styles.checkButton} >
-                              <Text style={styles.next}>Back</Text>
+                              <View style={styles.next}>
+                                <Icon
+                                name="arrowleft"
+                                size={30}
+                                color='blue'
+                                />
+                              </View>
                             </TouchableOpacity>
                             :
                             <View style={styles.checkButton}><Text></Text></View>
@@ -201,7 +207,13 @@ export default class ActivePassive extends Component {
                             </TouchableOpacity>
                           ) : (                
                               <TouchableOpacity onPress={this.nextQuestion} style={styles.checkButton}>
-                                <Text style={styles.next}>Next</Text>
+                                <View style={styles.next}>
+                                  <Icon
+                                  name="arrowright"
+                                  size={30}
+                                  color='blue'
+                                />
+                                </View>
                               </TouchableOpacity>
                           )}
                         </View>
@@ -209,7 +221,13 @@ export default class ActivePassive extends Component {
                         <View style={styles.checkButtonContainer}>
                           { index !== 0 ?
                             <TouchableOpacity onPress={this.previousQuestion} style={styles.checkButton}>
-                              <Text style={styles.next}>Back</Text>
+                              <View style={styles.next}>
+                                <Icon
+                                name="arrowleft"
+                                size={30}
+                                color='blue'
+                                />
+                              </View>
                             </TouchableOpacity>
                             :
                             <View style={styles.checkButton}><Text></Text></View>
@@ -223,7 +241,13 @@ export default class ActivePassive extends Component {
                             </TouchableOpacity>
                           ) : (
                               <TouchableOpacity onPress={this.nextQuestion} style={styles.checkButton}>
-                                <Text style={styles.next}>Next</Text>
+                                <View style={styles.next}>
+                                  <Icon
+                                  name="arrowright"
+                                  size={30}
+                                  color='blue'
+                                />
+                                </View>
                               </TouchableOpacity>
                             
                           )}
@@ -239,11 +263,8 @@ export default class ActivePassive extends Component {
                             name="arrowleft"
                             size={30}
                             color='blue'
-                            //onPress={() => navigate('Menu',{username: username})}
                             />
-                          {/* <Text style={styles.next}>Back</Text> */}
                           </View>
-                          
                         </TouchableOpacity>
                         :
                         <View style={styles.checkButton}><Text></Text></View>
@@ -272,11 +293,8 @@ export default class ActivePassive extends Component {
                             name="arrowright"
                             size={30}
                             color='blue'
-                            //onPress={() => navigate('Menu',{username: username})}
                           />
-                          {/* <Text style={styles.next}>Next</Text> */}
                           </View>
-                          
                         </TouchableOpacity>
                       )
                     }
